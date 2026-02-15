@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FENIX IA — Hacemos visible lo que tus comunicaciones esconden</title>
+
+<!-- SEO Meta Tags -->
+<meta name="description" content="Analiza con IA todas tus comunicaciones (llamadas, emails, WhatsApp, Telegram y Meta) desde 99€/mes. Transcripción automática, análisis de sentimiento y hub unificado de comunicaciones para PYMEs.">
+<meta name="keywords" content="análisis comunicaciones IA, transcripción llamadas, análisis sentimiento, hub comunicaciones, WhatsApp Business, CRM comunicaciones, analytics multicanal, FENIX IA">
+<meta name="author" content="FENIX IA SOLUTIONS">
+<meta name="robots" content="index, follow">
+<meta name="language" content="Spanish">
+<meta name="theme-color" content="#3ea99b">
+<link rel="canonical" href="https://www.fenixia360.com/">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.fenixia360.com/">
+<meta property="og:title" content="FENIX IA — Analytics de Comunicaciones con IA desde 99€/mes">
+<meta property="og:description" content="Analiza con IA todas tus comunicaciones (llamadas, emails, WhatsApp, Telegram y Meta). Transcripción automática, análisis de sentimiento y hub unificado. Comunicaciones ilimitadas.">
+<meta property="og:image" content="https://www.fenixia360.com/og-image.png">
+<meta property="og:site_name" content="FENIX IA">
+<meta property="og:locale" content="es_ES">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://www.fenixia360.com/">
+<meta name="twitter:title" content="FENIX IA — Analytics de Comunicaciones con IA">
+<meta name="twitter:description" content="Analiza con IA todas tus comunicaciones desde 99€/mes. Transcripción automática, análisis de sentimiento y hub unificado de 5 canales.">
+<meta name="twitter:image" content="https://www.fenixia360.com/twitter-card.png">
+
+<!-- Preconnect & DNS Prefetch -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0b0f14;--bg2:#12171f;--bg3:#1a2030;--card:#151c28;
+  --teal:#3ea99b;--teal-bright:#55b1a7;--teal-glow:rgba(62,169,155,.12);--teal-glow2:rgba(62,169,155,.06);
+  --silver:#c4c8c4;--silver-light:#e2e2e2;--white:#f0f2f0;
+  --gray:#7a8494;--gray2:#3d4a5c;--gray3:#2a3040;
+  --purple:#8b7cc8;--green:#5cb88a;--orange:#d4944a;--red:#c85454;
+  --font:'Sora',sans-serif;--mono:'IBM Plex Mono',monospace;
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--font);background:var(--bg);color:var(--silver);line-height:1.65;overflow-x:hidden}
+a{color:var(--teal);text-decoration:none;transition:all .25s}
+a:hover{color:var(--teal-bright)}
+::selection{background:var(--teal);color:var(--bg)}
+img{max-width:100%}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1rem 2.5rem;display:flex;align-items:center;justify-content:space-between;background:rgba(11,15,20,.85);backdrop-filter:blur(24px) saturate(1.2);border-bottom:1px solid rgba(62,169,155,.06);transition:all .35s}
+nav.scrolled{padding:.65rem 2.5rem;box-shadow:0 4px 30px rgba(0,0,0,.3)}
+.nav-logo{display:flex;align-items:center;gap:.7rem}
+.nav-logo img{height:56px;width:56px;object-fit:contain;border-radius:4px}
+.nav-brand{font-weight:800;font-size:1.25rem;color:var(--silver-light);letter-spacing:1.5px}
+.nav-brand em{font-style:normal;color:var(--teal)}
+.nav-links{display:flex;gap:2.2rem;align-items:center}
+.nav-links a{color:var(--gray);font-weight:500;font-size:.82rem;letter-spacing:.8px;text-transform:uppercase;transition:color .25s}
+.nav-links a:hover{color:var(--teal-bright)}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.7rem 1.7rem;border-radius:6px;font-weight:600;font-size:.88rem;transition:all .3s;cursor:pointer;border:none;font-family:var(--font);letter-spacing:.3px}
+.btn-primary{background:var(--teal);color:#fff !important;box-shadow:0 0 20px rgba(62,169,155,.15)}
+.btn-primary:hover{background:var(--teal-bright);color:#fff !important;transform:translateY(-1px);box-shadow:0 4px 25px rgba(62,169,155,.25)}
+.btn-outline{background:transparent;color:var(--teal);border:1.5px solid rgba(62,169,155,.4)}
+.btn-outline:hover{background:rgba(62,169,155,.08);border-color:var(--teal)}
+.btn-ghost{background:rgba(62,169,155,.06);color:var(--teal);border:1px solid rgba(62,169,155,.12)}
+.btn-ghost:hover{background:rgba(62,169,155,.12)}
+
+/* Mobile Menu */
+.mobile-menu-btn{display:none;background:none;border:none;color:var(--teal);font-size:1.5rem;cursor:pointer;padding:.5rem;z-index:101}
+.mobile-menu{position:fixed;top:0;left:-100%;width:80%;max-width:300px;height:100vh;background:var(--bg2);padding:5rem 2rem 2rem;transition:left .3s ease;z-index:99;border-right:1px solid rgba(62,169,155,.15)}
+.mobile-menu.active{left:0}
+.mobile-overlay{position:fixed;top:0;left:0;width:100%;height:100vh;background:rgba(0,0,0,.7);opacity:0;visibility:hidden;transition:all .3s;z-index:98}
+.mobile-overlay.active{opacity:1;visibility:visible}
+.mobile-menu a{display:block;padding:1rem 0;color:var(--silver);font-size:1rem;border-bottom:1px solid var(--gray3)}
+.mobile-menu a:hover{color:var(--teal)}
+.mobile-menu .btn{margin-top:1.5rem;width:100%;text-align:center}
+
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:7rem 2.5rem 5rem}
+.hero::before{content:'';position:absolute;top:-25%;right:-15%;width:700px;height:700px;background:radial-gradient(circle,rgba(62,169,155,.05) 0%,transparent 70%);pointer-events:none}
+.hero-inner{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1.15fr .85fr;gap:4rem;align-items:center;position:relative;z-index:1}
+.hero h1{font-size:3.2rem;font-weight:800;line-height:1.12;color:var(--white);margin-bottom:1.4rem;letter-spacing:-.8px}
+.hero h1 .hl{color:var(--teal-bright)}
+.hero .sub{font-size:1.08rem;color:var(--gray);line-height:1.75;margin-bottom:2.2rem;max-width:500px}
+.hero-ctas{display:flex;gap:1rem;flex-wrap:wrap}
+.hero-stats{display:flex;gap:3rem;margin-top:2.8rem;padding-top:2rem;border-top:1px solid var(--gray2)}
+.stat-val{font-size:1.6rem;font-weight:700;color:var(--teal);font-family:var(--mono)}
+.stat-lbl{font-size:.7rem;color:var(--gray);text-transform:uppercase;letter-spacing:1.2px;margin-top:.15rem}
+
+.hero-visual{position:relative;display:flex;justify-content:center;align-items:center}
+.hero-glow{width:350px;height:350px;border-radius:50%;background:radial-gradient(circle,rgba(62,169,155,.08),transparent 65%);position:absolute;animation:glow-float 8s ease-in-out infinite}
+@keyframes glow-float{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-12px) scale(1.03)}}
+.dash{position:relative;width:100%;max-width:480px;background:var(--card);border-radius:14px;border:1px solid rgba(62,169,155,.08);overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.02) inset}
+.dash-bar{display:flex;align-items:center;justify-content:space-between;padding:.85rem 1.3rem;border-bottom:1px solid var(--gray3)}
+.dash-bar span{font-size:.78rem;font-weight:600;color:var(--silver);letter-spacing:.5px}
+.dash-dots{display:flex;gap:5px}.dash-dots i{width:7px;height:7px;border-radius:50%;display:block}
+.dash-dots i:nth-child(1){background:var(--red)}.dash-dots i:nth-child(2){background:var(--orange)}.dash-dots i:nth-child(3){background:var(--green)}
+.dash-body{padding:1.3rem}
+.d-row{display:flex;align-items:center;justify-content:space-between;padding:.7rem 1rem;border-radius:8px;background:rgba(62,169,155,.03);border:1px solid rgba(62,169,155,.06);margin-bottom:.65rem;transition:background .2s}
+.d-row:hover{background:rgba(62,169,155,.06)}
+.d-lbl{font-size:.78rem;color:var(--gray)}
+.d-val{font-size:1rem;font-weight:700;font-family:var(--mono)}
+.d-val.up{color:var(--green)}.d-val.dn{color:var(--red)}.d-val.tl{color:var(--teal)}
+.d-channels{display:grid;grid-template-columns:repeat(5,1fr);gap:.5rem;margin-top:.8rem}
+.d-ch{text-align:center;padding:.55rem .2rem;border-radius:6px;background:var(--bg3);font-size:.6rem;color:var(--gray);transition:all .3s;cursor:default}
+.d-ch:hover{background:rgba(62,169,155,.08);color:var(--teal-bright)}
+.d-ch .ico{font-size:1rem;display:block;margin-bottom:.15rem}
+
+section{padding:6rem 2.5rem}
+.container{max-width:1180px;margin:0 auto}
+.tag{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--teal);margin-bottom:.8rem;padding:.3rem .85rem;border-radius:100px;background:rgba(62,169,155,.06);border:1px solid rgba(62,169,155,.1)}
+.stitle{font-size:2.3rem;font-weight:800;color:var(--white);line-height:1.18;margin-bottom:1rem;letter-spacing:-.4px}
+.sdesc{color:var(--gray);font-size:1rem;max-width:560px;line-height:1.75}
+.center{text-align:center}.center .sdesc{margin:0 auto}
+
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.8rem;margin-top:3rem}
+.pcard{background:var(--card);border-radius:14px;padding:2.3rem 1.8rem;border:1px solid var(--gray3);position:relative;overflow:hidden;transition:all .4s ease}
+.pcard:hover{border-color:rgba(62,169,155,.25);transform:translateY(-3px);box-shadow:0 16px 50px rgba(0,0,0,.25)}
+.pcard::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
+.pcard:nth-child(1)::before{background:linear-gradient(90deg,var(--teal),var(--teal-bright))}
+.pcard:nth-child(2)::before{background:linear-gradient(90deg,var(--green),#78d4a6)}
+.pcard:nth-child(3)::before{background:linear-gradient(90deg,var(--purple),#a99ad8)}
+.pname{font-size:1.3rem;font-weight:800;color:var(--white);margin-bottom:.25rem}
+.pname .a1{color:var(--teal)}.pname .a2{color:var(--green)}.pname .a3{color:var(--purple)}
+.ptype{font-size:.72rem;color:var(--gray);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:1.1rem}
+.pdesc{color:var(--silver);font-size:.9rem;line-height:1.65;margin-bottom:1.3rem}
+.pfeats{list-style:none;display:flex;flex-direction:column;gap:.55rem}
+.pfeats li{display:flex;align-items:flex-start;gap:.5rem;font-size:.82rem;color:var(--gray)}
+.pfeats li::before{content:'\2713';color:var(--teal);font-weight:700;flex-shrink:0}
+
+.ch-strip{display:flex;justify-content:center;gap:2rem;margin-top:2.5rem;flex-wrap:wrap}
+.ch-item{text-align:center;padding:1.3rem 1.8rem;border-radius:10px;background:var(--card);border:1px solid var(--gray3);transition:all .3s;min-width:110px}
+.ch-item:hover{border-color:rgba(62,169,155,.2);background:rgba(62,169,155,.03)}
+.ch-item .ci{font-size:1.8rem;margin-bottom:.4rem}
+.ch-item .cn{font-size:.82rem;font-weight:600;color:var(--white)}
+.ch-item .cd{font-size:.65rem;color:var(--gray);margin-top:.15rem}
+
+#pricing{background:var(--bg2)}
+.pr-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.8rem;margin-top:3rem}
+.pr-card{background:var(--card);border-radius:14px;padding:2.3rem 1.8rem;border:1px solid var(--gray3);position:relative;transition:all .4s}
+.pr-card.feat{border-color:rgba(62,169,155,.3);box-shadow:0 0 40px rgba(62,169,155,.06)}
+.pr-card.feat::before{content:'RECOMENDADO';position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:var(--teal);color:var(--bg);font-size:.62rem;font-weight:700;padding:.25rem .9rem;border-radius:100px;letter-spacing:1.5px}
+.pr-name{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;margin-bottom:.5rem}
+.pr-name.t1{color:var(--teal)}.pr-name.t2{color:var(--green)}.pr-name.t3{color:var(--purple)}
+.pr-amt{display:flex;align-items:baseline;gap:.25rem;margin-bottom:.15rem}
+.pr-amt .cur{font-size:1.1rem;color:var(--gray);font-weight:600}
+.pr-amt .num{font-size:2.8rem;font-weight:800;color:var(--white);font-family:var(--mono);letter-spacing:-2px}
+.pr-amt .per{font-size:.8rem;color:var(--gray)}
+.pr-users{font-size:.8rem;color:var(--gray);margin-bottom:1.4rem}
+.pr-feats{list-style:none;display:flex;flex-direction:column;gap:.6rem;margin-bottom:1.8rem}
+.pr-feats li{font-size:.84rem;color:var(--silver);display:flex;align-items:center;gap:.45rem}
+.pr-feats li::before{content:'\2713';color:var(--teal);font-weight:700}
+.table-wrapper{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:1.5rem}
+.tiers-tbl{width:100%;min-width:600px;border-collapse:collapse}
+.tiers-tbl th{text-align:left;padding:.75rem 1rem;font-size:.7rem;text-transform:uppercase;letter-spacing:1px;color:var(--gray);border-bottom:2px solid var(--gray3)}
+.tiers-tbl td{padding:.65rem 1rem;font-size:.85rem;border-bottom:1px solid rgba(61,74,92,.2);color:var(--silver)}
+.tiers-tbl tr:hover td{background:rgba(62,169,155,.02)}
+.tiers-tbl .hl{color:var(--teal);font-weight:700;font-family:var(--mono)}
+
+.cmp-tbl{width:100%;min-width:500px;margin-top:2rem;border-collapse:separate;border-spacing:0;border-radius:10px;overflow:hidden;border:1px solid var(--gray3)}
+.cmp-tbl th{background:var(--bg3);padding:.75rem 1rem;font-size:.68rem;text-transform:uppercase;letter-spacing:.7px;color:var(--gray);text-align:left}
+.cmp-tbl td{padding:.65rem 1rem;font-size:.8rem;border-top:1px solid rgba(61,74,92,.15);color:var(--silver)}
+.cmp-tbl tr:last-child td{background:rgba(62,169,155,.04);color:var(--teal-bright);font-weight:600}
+.cmp-tbl .x{color:var(--red)}.cmp-tbl .v{color:var(--green)}
+
+.sec-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem;margin-top:3rem}
+.sec-card{background:var(--card);border-radius:10px;padding:1.6rem 1.3rem;border:1px solid var(--gray3);transition:all .3s}
+.sec-card:hover{border-color:rgba(62,169,155,.2);transform:translateY(-2px)}
+.sec-icon{font-size:1.8rem;margin-bottom:.7rem}
+.sec-name{font-size:.95rem;font-weight:700;color:var(--white);margin-bottom:.35rem}
+.sec-desc{font-size:.78rem;color:var(--gray);line-height:1.5}
+
+.part-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.8rem;margin-top:3rem}
+.part-card{background:var(--card);border-radius:14px;padding:2rem;border:1px solid var(--gray3);text-align:center;transition:all .3s}
+.part-card:hover{border-color:rgba(62,169,155,.2)}
+.part-ico{font-size:2.2rem;margin-bottom:.8rem}
+.part-name{font-size:1.05rem;font-weight:700;color:var(--white);margin-bottom:.6rem}
+.part-lbl{font-size:.7rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:.8rem}
+.part-desc{font-size:.82rem;color:var(--gray);line-height:1.5}
+
+.cta-sec{background:linear-gradient(160deg,rgba(62,169,155,.06),rgba(139,124,200,.04));border-top:1px solid rgba(62,169,155,.08);border-bottom:1px solid rgba(62,169,155,.08)}
+input,select{padding:.85rem 1.2rem;border-radius:8px;border:1px solid var(--gray3);background:var(--card);color:var(--white);font-family:var(--font);font-size:.9rem;outline:none;transition:border .25s;width:100%}
+input:focus,select:focus{border-color:var(--teal)}
+input::placeholder{color:var(--gray)}
+
+footer{background:var(--bg);border-top:1px solid var(--gray3);padding:2.5rem 2.5rem 1.5rem}
+.ft-inner{max-width:1180px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem}
+.ft-brand{display:flex;align-items:center;gap:.6rem}
+.ft-brand img{height:36px;width:36px;object-fit:contain;border-radius:3px}
+.ft-links{display:flex;gap:2rem}
+.ft-links a{color:#ffffff;font-size:.82rem}
+.ft-links a:hover{color:var(--teal)}
+.ft-copy{color:#ffffff;font-size:.75rem;text-align:center;margin-top:1.5rem;padding-top:1.2rem;border-top:1px solid rgba(61,74,92,.15);max-width:1180px;margin-left:auto;margin-right:auto}
+
+.fi{opacity:0;transform:translateY(24px);transition:all .55s ease-out}
+.fi.vis{opacity:1;transform:translateY(0)}
+.s1{transition-delay:.08s}.s2{transition-delay:.16s}.s3{transition-delay:.24s}
+
+@media(max-width:900px){
+  .hero-inner{grid-template-columns:1fr;text-align:center}
+  .hero h1{font-size:2.4rem}
+  .hero .sub{margin:0 auto 2rem}
+  .hero-ctas{justify-content:center}
+  .hero-stats{justify-content:center}
+  .hero-visual{display:none}
+  .pgrid,.pr-grid,.part-grid{grid-template-columns:1fr}
+  .sec-grid{grid-template-columns:repeat(2,1fr)}
+  .nav-links{display:none}
+  .mobile-menu-btn{display:block}
+  .stitle{font-size:1.9rem}
+}
+
+/* Tablet landscape y móviles grandes */
+@media(max-width:768px) and (min-width:601px){
+  nav{padding:1rem 2rem}
+  section{padding:4rem 2rem}
+  .hero{padding:6rem 2rem 4rem}
+  .hero h1{font-size:2.2rem}
+  .btn{min-height:44px}
+  input,select{font-size:16px}
+}
+
+@media(max-width:600px){
+  /* Navegación móvil */
+  .mobile-menu-btn{display:block}
+  nav{padding:1rem 1.5rem}
+  .nav-brand{font-size:1rem}
+
+  /* Espaciado general */
+  section{padding:3rem 1.5rem}
+  .hero{padding:5rem 1.5rem 3rem;min-height:auto}
+
+  /* Tipografía */
+  .hero h1{font-size:1.75rem;line-height:1.2}
+  .hero .sub{font-size:1rem}
+  .stitle{font-size:1.5rem}
+  .sdesc{font-size:.9rem}
+
+  /* Grids */
+  .sec-grid{grid-template-columns:1fr}
+  .ch-strip{gap:.8rem;flex-direction:column}
+  .ch-item{min-width:auto;width:100%;padding:1rem}
+
+  /* Hero stats */
+  .hero-stats{gap:1.5rem;flex-wrap:wrap;justify-content:space-around}
+  .hero-stats>div{flex:1;min-width:90px;text-align:center}
+
+  /* Cards */
+  .pcard,.pr-card,.part-card{padding:1.5rem 1.2rem}
+
+  /* Buttons - Touch friendly (44px min) */
+  .btn{padding:1rem 1.5rem;font-size:.9rem;min-height:44px}
+  .hero-ctas{flex-direction:column;width:100%}
+  .hero-ctas .btn{width:100%;justify-content:center}
+
+  /* Forms */
+  input,select{font-size:16px}
+  button[type="submit"]{min-height:48px}
+
+  /* Footer */
+  .ft-links{flex-direction:column;gap:1rem;text-align:center}
+  .ft-inner{flex-direction:column;text-align:center}
+  footer{padding:2rem 1.5rem 1rem}
+
+  /* Tablas */
+  .table-wrapper{border-radius:8px;box-shadow:inset 0 0 0 1px var(--gray3)}
+  .tiers-tbl th,.tiers-tbl td{padding:.5rem .7rem;font-size:.75rem}
+  .cmp-tbl th,.cmp-tbl td{padding:.5rem .7rem;font-size:.75rem}
+}
+</style>
+
+<!-- Schema.org Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "FENIX IA",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "offers": {
+    "@type": "AggregateOffer",
+    "priceCurrency": "EUR",
+    "lowPrice": "49",
+    "highPrice": "99",
+    "priceSpecification": {
+      "@type": "UnitPriceSpecification",
+      "price": "99",
+      "priceCurrency": "EUR",
+      "billingDuration": "P1M"
+    }
+  },
+  "description": "Plataforma de análisis de comunicaciones con IA. Transcripción automática, análisis de sentimiento y hub unificado para llamadas, email, WhatsApp, Telegram y Meta.",
+  "provider": {
+    "@type": "Organization",
+    "name": "FENIX IA SOLUTIONS",
+    "url": "https://www.fenixia360.com",
+    "logo": "https://www.fenixia360.com/logo.png",
+    "sameAs": [
+      "https://www.fenixia.tech",
+      "https://www.fenixia360.com"
+    ]
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "reviewCount": "127"
+  },
+  "featureList": [
+    "Transcripción automática de llamadas",
+    "Análisis de sentimiento multicanal",
+    "Hub unificado 5 canales",
+    "Detección de oportunidades con IA",
+    "Dashboard de calidad de atención",
+    "Integración con CRMs"
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "FENIX IA SOLUTIONS",
+  "url": "https://www.fenixia360.com",
+  "logo": "https://www.fenixia360.com/logo.png",
+  "description": "Plataforma de analytics de comunicaciones con IA para PYMEs",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "Sales",
+    "availableLanguage": ["Spanish"]
+  }
+}
+</script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-logo">
+    <span class="nav-brand">FENIX <em>IA</em></span>
+  </div>
+  <div class="nav-links">
+    <a href="#productos">Productos</a>
+    <a href="#pricing">Precios</a>
+    <a href="#sectores">Sectores</a>
+    <a href="#partners">Partners</a>
+    <a href="#contacto">Contacto</a>
+    <a href="#contacto" class="btn btn-primary">Solicitar Demo</a>
+  </div>
+  <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Menú">☰</button>
+</nav>
+
+<div class="mobile-overlay" onclick="toggleMobileMenu()"></div>
+<div class="mobile-menu">
+  <a href="#productos" onclick="toggleMobileMenu()">Productos</a>
+  <a href="#pricing" onclick="toggleMobileMenu()">Precios</a>
+  <a href="#sectores" onclick="toggleMobileMenu()">Sectores</a>
+  <a href="#partners" onclick="toggleMobileMenu()">Partners</a>
+  <a href="#contacto" onclick="toggleMobileMenu()">Contacto</a>
+  <a href="#contacto" class="btn btn-primary" onclick="toggleMobileMenu()">Solicitar Demo</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <h1>Hacemos <span class="hl">visible</span> lo que tus comunicaciones <span class="hl">esconden</span></h1>
+      <p class="sub">Analiza con IA todas tus comunicaciones (llamadas, emails, WhatsApp, Telegram y Meta) y central&iacute;zalas en un solo hub</p>
+      <div class="hero-ctas">
+        <a href="#contacto" class="btn btn-primary">Solicitar Demo Gratuita &rarr;</a>
+        <a href="#productos" class="btn btn-outline">Ver Productos</a>
+      </div>
+      <div class="hero-stats">
+        <div><div class="stat-val">99&euro;</div><div class="stat-lbl">desde / mes</div></div>
+        <div><div class="stat-val">&infin;</div><div class="stat-lbl">Comunicaciones</div></div>
+        <div><div class="stat-val">5</div><div class="stat-lbl">Canales</div></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-glow"></div>
+      <div class="dash">
+        <div class="dash-bar">
+          <div class="dash-dots"><i></i><i></i><i></i></div>
+          <span>FENIX Pulse &mdash; Dashboard</span>
+        </div>
+        <div class="dash-body">
+          <div class="d-row"><span class="d-lbl">Comunicaciones hoy</span><span class="d-val tl">347</span></div>
+          <div class="d-row"><span class="d-lbl">Sentimiento positivo</span><span class="d-val up">+78%</span></div>
+          <div class="d-row"><span class="d-lbl">Oportunidades detectadas</span><span class="d-val tl">12</span></div>
+          <div class="d-row"><span class="d-lbl">Llamadas sin devolver</span><span class="d-val dn">3</span></div>
+          <div class="d-channels">
+            <div class="d-ch"><span class="ico">&#128222;</span>Llamadas</div>
+            <div class="d-ch"><span class="ico">&#9993;</span>Email</div>
+            <div class="d-ch"><span class="ico">&#128172;</span>WhatsApp</div>
+            <div class="d-ch"><span class="ico">&#9992;</span>Telegram</div>
+            <div class="d-ch"><span class="ico">&#127760;</span>Meta</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="productos">
+  <div class="container">
+    <span class="tag">Productos</span>
+    <h2 class="stitle">Tres productos. Un ecosistema</h2>
+    <p class="sdesc">Elige el que encaja con tu empresa o comb&iacute;nalos con FENIX 360 para la experiencia completa</p>
+    <div class="pgrid">
+      <div class="pcard fi">
+        <div class="pname">FENIX <span class="a1">PULSE</span></div>
+        <div class="ptype">Analytics multicanal con IA</div>
+        <p class="pdesc">Toma el pulso a TODAS las comunicaciones de tu empresa. Transcribe, analiza, detecta oportunidades y mide calidad autom&aacute;ticamente</p>
+        <ul class="pfeats"><li>Transcripci&oacute;n autom&aacute;tica de llamadas</li><li>An&aacute;lisis de sentimiento multicanal</li><li>Detecci&oacute;n de keywords y oportunidades</li><li>Dashboard de calidad de atenci&oacute;n</li><li>Alertas de churn y leads fr&iacute;os</li><li>Res&uacute;menes accionables con IA</li></ul>
+      </div>
+      <div class="pcard fi s1">
+        <div class="pname">FENIX <span class="a2">CONNECT</span></div>
+        <div class="ptype">Hub de comunicaciones unificado</div>
+        <p class="pdesc">Centraliza llamadas, email, WhatsApp, Telegram y Meta en un solo punto. Ning&uacute;n mensaje se pierde jam&aacute;s</p>
+        <ul class="pfeats"><li>Bandeja unificada 5 canales</li><li>Asignaci&oacute;n autom&aacute;tica por reglas</li><li>Historial completo por cliente</li><li>Integraci&oacute;n con CRMs</li><li>Plantillas y respuestas r&aacute;pidas</li><li>M&eacute;tricas de tiempo de respuesta</li></ul>
+      </div>
+      <div class="pcard fi s2">
+        <div class="pname">FENIX <span class="a3">360</span></div>
+        <div class="ptype">Bundle completo &bull; Pulse + Connect</div>
+        <p class="pdesc">Visi&oacute;n 360&deg; real del cliente. Analiza y gestiona todas tus comunicaciones desde un solo punto. El producto flagship</p>
+        <ul class="pfeats"><li>Todo de FENIX Pulse</li><li>Todo de FENIX Connect</li><li>Comunicaciones ilimitadas</li><li>Onboarding personalizado</li><li>Soporte prioritario</li><li>Ahorro del 20% vs separados</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHANNELS -->
+<section style="background:var(--bg2);padding:4.5rem 2.5rem">
+  <div class="container center">
+    <span class="tag">Canales</span>
+    <h2 class="stitle">5 canales. 1 plataforma. 0 puntos ciegos</h2>
+    <div class="ch-strip">
+      <div class="ch-item"><div class="ci">&#128222;</div><div class="cn">Llamadas</div><div class="cd">Transcripci&oacute;n + IA</div></div>
+      <div class="ch-item"><div class="ci">&#9993;&#65039;</div><div class="cn">Email</div><div class="cd">Hilos completos</div></div>
+      <div class="ch-item"><div class="ci">&#128172;</div><div class="cn">WhatsApp</div><div class="cd">Business API</div></div>
+      <div class="ch-item"><div class="ci">&#9992;&#65039;</div><div class="cn">Telegram</div><div class="cd">Bots + canales</div></div>
+      <div class="ch-item"><div class="ci">&#127760;</div><div class="cn">Meta</div><div class="cd">Messenger + IG</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="container">
+    <span class="tag">Precios</span>
+    <h2 class="stitle">Transparentes. Sin sorpresas</h2>
+    <p class="sdesc">Comunicaciones ilimitadas en todos los planes. Onboarding incluido</p>
+    <div class="pr-grid">
+      <div class="pr-card fi">
+        <div class="pr-name t1">FENIX PULSE</div>
+        <div class="pr-amt"><span class="cur">&euro;</span><span class="num">79</span><span class="per">/mes</span></div>
+        <div class="pr-users">1 usuario &bull; Ilimitadas</div>
+        <ul class="pr-feats"><li>Analytics IA multicanal</li><li>Transcripci&oacute;n llamadas</li><li>Sentimiento + keywords</li><li>Dashboard de calidad</li><li>Alertas y res&uacute;menes</li></ul>
+        <a href="#contacto" class="btn btn-primary" style="width:100%;justify-content:center">Solicitar Demo &rarr;</a>
+      </div>
+      <div class="pr-card feat fi s1">
+        <div class="pr-name t3">FENIX 360</div>
+        <div class="pr-amt"><span class="cur">&euro;</span><span class="num">99</span><span class="per">/mes</span></div>
+        <div class="pr-users">1 usuario &bull; Ilimitadas</div>
+        <ul class="pr-feats"><li>Todo de Pulse + Connect</li><li>Hub unificado 5 canales</li><li>Onboarding personalizado</li><li>Soporte prioritario</li><li>20% ahorro vs separados</li></ul>
+        <a href="#contacto" class="btn btn-primary" style="width:100%;justify-content:center">Solicitar Demo &rarr;</a>
+      </div>
+      <div class="pr-card fi s2">
+        <div class="pr-name t2">FENIX CONNECT</div>
+        <div class="pr-amt"><span class="cur">&euro;</span><span class="num">49</span><span class="per">/mes</span></div>
+        <div class="pr-users">1 usuario &bull; Ilimitadas</div>
+        <ul class="pr-feats"><li>Hub unificado 5 canales</li><li>Asignaci&oacute;n autom&aacute;tica</li><li>Historial por cliente</li><li>Integraci&oacute;n CRM</li><li>M&eacute;tricas respuesta</li></ul>
+        <a href="#contacto" class="btn btn-primary" style="width:100%;justify-content:center">Solicitar Demo &rarr;</a>
+      </div>
+    </div>
+    <div style="margin-top:3.5rem">
+      <h3 style="color:var(--white);font-size:1.2rem;font-weight:700">Todos los tramos de FENIX</h3>
+      <div class="table-wrapper">
+        <table class="tiers-tbl"><thead><tr><th>Usuarios</th><th>Pulse</th><th>Connect</th><th>360 Bundle</th><th>Onboard. Pulse</th><th>Onboard. Connect</th><th>Onboard. 360</th><th>Comunicaciones</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>79&euro;</td><td>49&euro;</td><td class="hl">99&euro;/mes</td><td>299&euro;</td><td>199&euro;</td><td>499&euro;</td><td>Ilimitadas</td></tr>
+          <tr><td>2</td><td>119&euro;</td><td>79&euro;</td><td class="hl">159&euro;/mes</td><td>299&euro;</td><td>199&euro;</td><td>499&euro;</td><td>Ilimitadas</td></tr>
+          <tr><td>3-5</td><td>149&euro;</td><td>99&euro;</td><td class="hl">199&euro;/mes</td><td>299&euro;</td><td>199&euro;</td><td>499&euro;</td><td>Ilimitadas</td></tr>
+          <tr><td>6-10</td><td>229&euro;</td><td>149&euro;</td><td class="hl">299&euro;/mes</td><td>399&euro;</td><td>249&euro;</td><td>549&euro;</td><td>Ilimitadas</td></tr>
+          <tr><td>10+</td><td colspan="7" style="text-align:center;color:var(--gray)">Contacta para precio personalizado</td></tr>
+        </tbody></table>
+      </div>
+      <p style="color:var(--gray);font-size:.78rem;margin-top:.8rem">* 20% descuento por compromiso anual. Onboarding incluido</p>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARE -->
+<section>
+  <div class="container center">
+    <span class="tag">Comparativa</span>
+    <h2 class="stitle">&iquest;Por qu&eacute; FENIX IA?</h2>
+    <p class="sdesc" style="margin:0 auto 1.5rem">2,6x-9x m&aacute;s barato y el &uacute;nico que cubre todos los canales</p>
+    <div class="table-wrapper">
+      <table class="cmp-tbl"><thead><tr><th>Plataforma</th><th>&euro;/user</th><th>Llamadas</th><th>Email</th><th>WhatsApp</th><th>Telegram</th><th>Meta</th></tr></thead>
+      <tbody>
+        <tr><td>Gong</td><td>~275&euro;</td><td class="v">&#10003;</td><td class="v">&#10003;</td><td class="x">&#10007;</td><td class="x">&#10007;</td><td class="x">&#10007;</td></tr>
+        <tr><td>Ringover</td><td>~83&euro;</td><td class="v">&#10003;</td><td class="x">&#10007;</td><td class="x">&#10007;</td><td class="x">&#10007;</td><td class="x">&#10007;</td></tr>
+        <tr><td>HubSpot CI</td><td>~90&euro;</td><td class="v">&#10003;</td><td class="x">&#10007;</td><td class="x">&#10007;</td><td class="x">&#10007;</td><td class="x">&#10007;</td></tr>
+        <tr><td>Aircall</td><td>~79&euro;</td><td class="v">&#10003;</td><td class="x">&#10007;</td><td class="x">&#10007;</td><td class="x">&#10007;</td><td class="x">&#10007;</td></tr>
+        <tr><td><strong>FENIX 360</strong></td><td><strong>~30&euro;</strong></td><td class="v">&#10003;</td><td class="v">&#10003;</td><td class="v">&#10003;</td><td class="v">&#10003;</td><td class="v">&#10003;</td></tr>
+      </tbody></table>
+    </div>
+  </div>
+</section>
+
+<!-- SECTORS -->
+<section id="sectores" style="background:var(--bg2)">
+  <div class="container">
+    <span class="tag">Sectores</span>
+    <h2 class="stitle">Dise&ntilde;ado para PYMEs que comunican</h2>
+    <p class="sdesc">Si tu equipo usa llamadas, email y WhatsApp, FENIX IA te da visibilidad total</p>
+    <div class="sec-grid">
+      <div class="sec-card fi"><div class="sec-icon">&#127973;</div><div class="sec-name">Cl&iacute;nicas</div><div class="sec-desc">Citas perdidas, seguimiento de pacientes, calidad de atenci&oacute;n</div></div>
+      <div class="sec-card fi s1"><div class="sec-icon">&#127968;</div><div class="sec-name">Inmobiliarias</div><div class="sec-desc">Leads por WA y portales. Cada lead sin atender es comisi&oacute;n perdida</div></div>
+      <div class="sec-card fi s2"><div class="sec-icon">&#128722;</div><div class="sec-name">E-commerce</div><div class="sec-desc">Postventa, devoluciones, experiencia cliente multicanal</div></div>
+      <div class="sec-card fi s3"><div class="sec-icon">&#128188;</div><div class="sec-name">Asesor&iacute;as</div><div class="sec-desc">Comunicaci&oacute;n cr&iacute;tica con clientes. Contexto sin fisuras</div></div>
+      <div class="sec-card fi"><div class="sec-icon">&#128663;</div><div class="sec-name">Talleres</div><div class="sec-desc">Citas por WA, seguimiento postventa, reclamaciones</div></div>
+      <div class="sec-card fi s1"><div class="sec-icon">&#127891;</div><div class="sec-name">Academias</div><div class="sec-desc">Consultas, matr&iacute;culas, comunicaci&oacute;n multicanal</div></div>
+      <div class="sec-card fi s2"><div class="sec-icon">&#128737;</div><div class="sec-name">Seguros</div><div class="sec-desc">Siniestros, renovaciones, nuevas p&oacute;lizas</div></div>
+      <div class="sec-card fi s3"><div class="sec-icon">&#127960;</div><div class="sec-name">Hoteler&iacute;a</div><div class="sec-desc">Reservas, reclamaciones, experiencia del hu&eacute;sped</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNERS -->
+<section id="partners">
+  <div class="container">
+    <span class="tag">Partners</span>
+    <h2 class="stitle">Crece con nosotros</h2>
+    <p class="sdesc">Programa de partners para consultoras, integradores y agencias</p>
+    <div class="part-grid">
+      <div class="part-card fi"><div class="part-ico">&#129309;</div><div class="part-name">Referral Partner</div><div class="part-lbl" style="color:var(--teal)">Comisi&oacute;n recurrente</div><p class="part-desc">Refiere clientes. Nosotros vendemos y gestionamos. T&uacute; cobras mientras el cliente siga activo</p></div>
+      <div class="part-card fi s1"><div class="part-ico">&#128200;</div><div class="part-name">Reseller Partner</div><div class="part-lbl" style="color:var(--green)">Descuento sobre PVP</div><p class="part-desc">Vende FENIX bajo tu marca. Factura al cliente. M&iacute;nimo 3 clientes/a&ntilde;o</p></div>
+      <div class="part-card fi s2"><div class="part-ico">&#9889;</div><div class="part-name">White-Label</div><div class="part-lbl" style="color:var(--purple)">Descuento sobre PVP</div><p class="part-desc">Tu marca, tu precio, tu cliente. API + dashboard partner. M&iacute;n. 10 clientes/a&ntilde;o</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-sec" id="contacto">
+  <div class="container center">
+    <span class="tag">Contacto</span>
+    <h2 class="stitle">Tu equipo habla con clientes cada d&iacute;a<br>&iquest;Sabes qu&eacute; dicen?</h2>
+    <p class="sdesc" style="margin:1.2rem auto 2.5rem">Demo gratuita de 30 min con tus datos reales. Sin compromiso</p>
+    <form style="max-width:460px;margin:0 auto;display:flex;flex-direction:column;gap:.9rem" onsubmit="event.preventDefault();this.style.display='none';document.getElementById('ok').style.display='block'">
+      <input type="text" placeholder="Tu nombre" required>
+      <input type="email" placeholder="Email corporativo" required>
+      <input type="text" placeholder="Empresa y n&uacute;mero de empleados">
+      <select><option>Producto de inter&eacute;s</option><option>FENIX Pulse (Analytics)</option><option>FENIX Connect (Hub)</option><option>FENIX 360 (Bundle)</option><option>Programa de Partners</option></select>
+      <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;padding:.95rem;font-size:.95rem">Solicitar Demo Gratuita &rarr;</button>
+      <p style="font-size:.72rem;color:var(--gray)">Sin compromiso. Te contactamos en menos de 24h</p>
+    </form>
+    <div id="ok" style="display:none;padding:1.8rem;background:rgba(62,169,155,.06);border-radius:10px;border:1px solid rgba(62,169,155,.15);max-width:460px;margin:0 auto">
+      <p style="font-size:1.2rem;font-weight:700;color:var(--teal);margin-bottom:.4rem">&#10003; Recibido</p>
+      <p style="color:var(--silver);font-size:.92rem">Te contactaremos en menos de 24 horas para agendar tu demo</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-inner">
+    <div class="ft-brand">
+      <span style="font-weight:700;color:#ffffff;font-size:.95rem">FENIX <span style="color:var(--teal)">IA</span></span>
+    </div>
+    <div class="ft-links">
+      <a href="#productos">Productos</a>
+      <a href="#pricing">Precios</a>
+      <a href="#sectores">Sectores</a>
+      <a href="#partners">Partners</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+  </div>
+  <div style="max-width:1180px;margin:1.2rem auto 0;padding-top:1rem;border-top:1px solid rgba(61,74,92,.15);display:flex;justify-content:center;gap:2rem;flex-wrap:wrap">
+    <a href="https://www.fenixia.tech/terminos" target="_blank" style="color:var(--gray);font-size:.75rem;transition:color .2s" onmouseover="this.style.color='var(--teal)'" onmouseout="this.style.color='var(--gray)'">T&eacute;rminos y Condiciones</a>
+    <a href="https://www.fenixia.tech/privacidad" target="_blank" style="color:var(--gray);font-size:.75rem;transition:color .2s" onmouseover="this.style.color='var(--teal)'" onmouseout="this.style.color='var(--gray)'">Pol&iacute;tica de Privacidad</a>
+    <a href="https://www.fenixia.tech/cookies" target="_blank" style="color:var(--gray);font-size:.75rem;transition:color .2s" onmouseover="this.style.color='var(--teal)'" onmouseout="this.style.color='var(--gray)'">Pol&iacute;tica de Cookies</a>
+  </div>
+  <div class="ft-copy">&copy; 2026 FENIX IA SOLUTIONS &mdash; fenixia.tech &mdash; Todos los derechos reservados</div>
+</footer>
+
+<script>
+const n=document.getElementById('navbar');
+window.addEventListener('scroll',()=>n.classList.toggle('scrolled',scrollY>50));
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('vis');obs.unobserve(x.target)}})},{threshold:.12});
+document.querySelectorAll('.fi').forEach(e=>obs.observe(e));
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'})}));
+
+function toggleMobileMenu(){
+  document.querySelector('.mobile-menu').classList.toggle('active');
+  document.querySelector('.mobile-overlay').classList.toggle('active');
+  document.body.style.overflow=document.querySelector('.mobile-menu').classList.contains('active')?'hidden':'';
+}
+</script>
+</body>
+</html>
