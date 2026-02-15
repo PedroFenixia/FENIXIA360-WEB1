@@ -279,7 +279,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2.5rem 2.
 @media(max-width:900px){
   .hero-inner{grid-template-columns:1fr;text-align:center}
   .hero h1{font-size:2.4rem}
-  .hero .sub{margin:0 auto 2rem}
+  .hero .sub{margin:0 auto 2rem;font-size:1rem}
   .hero-ctas{justify-content:center}
   .hero-stats{justify-content:center}
   .hero-visual{display:none}
@@ -289,6 +289,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2.5rem 2.
   .nav-tagline{display:none}
   .mobile-menu-btn{display:block}
   .stitle{font-size:1.9rem}
+  .btn{min-height:44px}
 }
 
 @media(max-width:768px) and (min-width:601px){
@@ -296,35 +297,39 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2.5rem 2.
   section{padding:4rem 2rem}
   .hero{padding:6rem 2rem 4rem}
   .hero h1{font-size:2.2rem}
-  .btn{min-height:44px}
   input,select{font-size:16px}
 }
 
 @media(max-width:600px){
   .mobile-menu-btn{display:block}
-  nav{padding:1rem 1.5rem}
+  nav{padding:.8rem 1.2rem}
   .nav-brand{font-size:1rem}
   .nav-tagline{display:none}
-  section{padding:3rem 1.5rem}
-  .hero{padding:5rem 1.5rem 3rem;min-height:auto}
+  section{padding:3rem 1.2rem}
+  .hero{padding:5rem 1.2rem 2.5rem;min-height:auto}
   .hero h1{font-size:1.75rem;line-height:1.2}
-  .hero .sub{font-size:1rem}
-  .stitle{font-size:1.5rem}
-  .sdesc{font-size:.9rem}
+  .hero .sub{font-size:.95rem}
+  .stitle{font-size:1.4rem}
+  .sdesc{font-size:.88rem}
   .sec-grid{grid-template-columns:1fr}
   .ch-strip{gap:.8rem;flex-direction:column}
   .ch-item{min-width:auto;width:100%;padding:1rem}
   .hero-stats{gap:1.5rem;flex-wrap:wrap}
-  .btn{padding:1rem 1.5rem;font-size:.9rem;min-height:44px}
+  .btn{padding:.85rem 1.4rem;font-size:.88rem;min-height:44px}
   .hero-ctas{flex-direction:column;width:100%}
   .hero-ctas .btn{width:100%;justify-content:center}
-  input,select{font-size:16px}
+  input,select{font-size:16px;width:100%}
   button[type="submit"]{min-height:48px}
-  .ft-links{flex-direction:column;gap:1rem;text-align:center}
+  .ft-links{flex-direction:column;gap:.8rem;text-align:center}
   .ft-inner{flex-direction:column;text-align:center}
-  footer{padding:2rem 1.5rem 1rem}
-  .table-wrapper{border-radius:8px}
-  .tiers-tbl th,.tiers-tbl td,.cmp-tbl th,.cmp-tbl td{padding:.5rem .6rem;font-size:.72rem}
+  footer{padding:1.5rem 1.2rem 1rem}
+  .table-wrapper{border-radius:8px;-webkit-overflow-scrolling:touch}
+  .tiers-tbl,.cmp-tbl{min-width:auto}
+  .tiers-tbl th,.tiers-tbl td,.cmp-tbl th,.cmp-tbl td{padding:.4rem .35rem;font-size:.65rem;white-space:nowrap}
+  .pr-price{font-size:2rem}
+  .faq-q{padding:1.2rem 0}
+  .uc-cards{grid-template-columns:1fr}
+  .uc-sector-header{flex-direction:column;gap:.6rem}
 }
 </style>
 
@@ -395,9 +400,9 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2.5rem 2.
 <section class="hero">
   <div class="hero-inner">
     <div>
-      <div class="hero-badge"><span class="dot"></span> +120 empresas ya analizan sus comunicaciones</div>
-      <h1>Hacemos <span class="hl">visible</span> lo que tus comunicaciones esconden</h1>
-      <p class="sub">FENIX IA analiza con inteligencia artificial cada llamada, email, WhatsApp, Telegram y mensaje de Meta que entra en tu empresa. Nada se pierde. Todo se convierte en acci&oacute;n. Desde 99&euro;/mes</p>
+      <div class="hero-badge"><span class="dot"></span> +120 empresas ya gestionan sus comunicaciones con FENIX IA</div>
+      <h1>Todas tus comunicaciones en <span class="hl">una sola vista</span></h1>
+      <p class="sub">Llamadas, emails, WhatsApp, Telegram y Meta &mdash; todo en un mismo sitio. Ve lo que pasa, responde m&aacute;s r&aacute;pido y que no se te escape nada. Con IA que transcribe, resume y te avisa de lo importante. Desde 99&euro;/mes</p>
       <div class="hero-ctas">
         <a href="#contacto" class="btn btn-primary">Descubrir qu&eacute; esconden mis comunicaciones &rarr;</a>
         <a href="#productos" class="btn btn-outline">C&oacute;mo funciona en 2 minutos</a>
@@ -442,31 +447,31 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2.5rem 2.
 <section id="productos">
   <div class="container">
     <span class="tag">Productos</span>
-    <h2 class="stitle">Tres herramientas. Un resultado: visibilidad total</h2>
-    <p class="sdesc">Elige el que encaja con tu empresa o comb&iacute;nalos con FENIX 360 para la experiencia completa</p>
+    <h2 class="stitle">Una vista para todo. Tres formas de usarla</h2>
+    <p class="sdesc">Elige c&oacute;mo quieres gestionar tus comunicaciones: analiza, centraliza o haz las dos cosas</p>
     <div class="pgrid">
       <div class="pcard fi">
         <div class="pcard-top"></div>
         <div class="pcard-ico">&#128200;</div>
         <div class="pname">FENIX <span class="a1">PULSE</span></div>
-        <div class="ptype">Analytics multicanal con IA</div>
-        <p class="pdesc">Toma el pulso a TODAS las comunicaciones de tu empresa. Transcribe, analiza, detecta oportunidades y mide calidad autom&aacute;ticamente</p>
+        <div class="ptype">Entiende qu&eacute; pasa en tus comunicaciones</div>
+        <p class="pdesc">La IA transcribe tus llamadas, lee tus mensajes y te resume lo importante: qui&eacute;n est&aacute; contento, qui&eacute;n se quiere ir y d&oacute;nde hay oportunidades de venta</p>
         <ul class="pfeats"><li>Transcripci&oacute;n autom&aacute;tica de llamadas</li><li>An&aacute;lisis de sentimiento multicanal</li><li>Detecci&oacute;n de keywords y oportunidades</li><li>Dashboard de calidad de atenci&oacute;n</li><li>Alertas de churn y leads fr&iacute;os</li><li>Res&uacute;menes accionables con IA</li></ul>
       </div>
       <div class="pcard fi s1">
         <div class="pcard-top"></div>
         <div class="pcard-ico">&#128279;</div>
         <div class="pname">FENIX <span class="a2">CONNECT</span></div>
-        <div class="ptype">Hub de comunicaciones unificado</div>
-        <p class="pdesc">Centraliza llamadas, email, WhatsApp, Telegram y Meta en un solo punto. Ning&uacute;n mensaje se pierde jam&aacute;s</p>
+        <div class="ptype">Todas tus conversaciones en un solo sitio</div>
+        <p class="pdesc">Una bandeja &uacute;nica para llamadas, email, WhatsApp, Telegram y Meta. Ve todo, responde desde ah&iacute; mismo y que nadie se quede sin respuesta</p>
         <ul class="pfeats"><li>Bandeja unificada 5 canales</li><li>Asignaci&oacute;n autom&aacute;tica por reglas</li><li>Historial completo por cliente</li><li>Integraci&oacute;n con CRMs</li><li>Plantillas y respuestas r&aacute;pidas</li><li>M&eacute;tricas de tiempo de respuesta</li></ul>
       </div>
       <div class="pcard fi s2">
         <div class="pcard-top"></div>
         <div class="pcard-ico">&#9889;</div>
         <div class="pname">FENIX <span class="a3">360</span></div>
-        <div class="ptype">Bundle completo &bull; Pulse + Connect</div>
-        <p class="pdesc">Visi&oacute;n 360&deg; real del cliente. Analiza y gestiona todas tus comunicaciones desde un solo punto. El producto flagship</p>
+        <div class="ptype">Ve, entiende y responde. Todo en uno</div>
+        <p class="pdesc">La vista unificada de Connect + la inteligencia de Pulse. Ves todas las comunicaciones, la IA te dice qu&eacute; es importante y respondes sin cambiar de herramienta</p>
         <ul class="pfeats"><li>Todo de FENIX Pulse</li><li>Todo de FENIX Connect</li><li>Comunicaciones ilimitadas</li><li>Onboarding personalizado</li><li>Soporte prioritario</li><li>Ahorro del 20% vs separados</li></ul>
       </div>
     </div>
@@ -477,8 +482,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2.5rem 2.
 <section class="ch-section" style="padding:4.5rem 2.5rem">
   <div class="container center">
     <span class="tag">Canales</span>
-    <h2 class="stitle">5 canales. 1 plataforma. 0 puntos ciegos</h2>
-    <p class="sdesc" style="margin:0 auto">Si tu equipo usa llamadas, email y WhatsApp, FENIX IA te da visibilidad total</p>
+    <h2 class="stitle">5 canales. 1 vista. Interacci&oacute;n inmediata</h2>
+    <p class="sdesc" style="margin:0 auto">Tu equipo usa llamadas, email y WhatsApp a diario. FENIX los junta en una sola pantalla para que veas y respondas todo desde un mismo sitio</p>
     <div class="ch-strip">
       <div class="ch-item"><div class="ci">&#128222;</div><div class="cn">Llamadas</div><div class="cd">Transcripci&oacute;n + IA</div></div>
       <div class="ch-item"><div class="ci">&#9993;&#65039;</div><div class="cn">Email</div><div class="cd">Hilos completos</div></div>
