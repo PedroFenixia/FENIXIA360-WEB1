@@ -230,6 +230,21 @@ section{padding:6rem 2.5rem}
 .part-lbl{font-size:.68rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:.7rem}
 .part-desc{font-size:.82rem;color:var(--text3);line-height:1.5}
 
+/* FAQ */
+.faq-list{max-width:700px;margin:2rem auto 0}
+.faq-item{border-bottom:1px solid var(--border)}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:1.1rem 0;cursor:pointer;font-size:.9rem;font-weight:600;color:var(--text);gap:1rem}
+.faq-q::after{content:'+';font-size:1.2rem;color:var(--text4);transition:transform .2s;flex-shrink:0}
+.faq-item.open .faq-q::after{content:'-'}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;font-size:.84rem;color:var(--text3);line-height:1.7}
+.faq-item.open .faq-a{max-height:200px}
+.faq-a p{padding:0 0 1rem}
+
+/* TRUST STRIP */
+.trust-strip{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;padding:1.5rem 0;margin:0 auto;max-width:700px}
+.trust-item{display:flex;align-items:center;gap:.4rem;font-size:.75rem;color:rgba(255,255,255,.5)}
+.trust-item strong{color:rgba(255,255,255,.8)}
+
 /* CTA */
 .cta-sec{background:linear-gradient(135deg,#0f172a 0%,#1e293b 100%);color:#fff;position:relative;overflow:hidden}
 .cta-sec::before{content:'';position:absolute;top:-50%;right:-20%;width:600px;height:600px;background:radial-gradient(circle,rgba(13,148,136,.15),transparent 60%);pointer-events:none}
@@ -361,7 +376,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2.5rem 2.
     <a href="#pricing">Precios</a>
     <a href="#sectores">Sectores</a>
     <a href="#partners">Partners</a>
-    <a href="#contacto" class="btn btn-primary">Solicitar Demo &rarr;</a>
+    <a href="#contacto" class="btn btn-primary">Descubrir qu&eacute; escondo &rarr;</a>
   </div>
   <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Men&uacute;">&#9776;</button>
 </nav>
@@ -380,12 +395,16 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2.5rem 2.
 <section class="hero">
   <div class="hero-inner">
     <div>
-      <div class="hero-badge"><span class="dot"></span> 5 canales &bull; 1 plataforma &bull; IA</div>
+      <div class="hero-badge"><span class="dot"></span> +120 empresas ya analizan sus comunicaciones</div>
       <h1>Hacemos <span class="hl">visible</span> lo que tus comunicaciones esconden</h1>
-      <p class="sub">Analiza con IA todas tus comunicaciones &mdash; llamadas, emails, WhatsApp, Telegram y Meta &mdash; y central&iacute;zalas en un solo hub. Desde 99&euro;/mes. Comunicaciones ilimitadas</p>
+      <p class="sub">FENIX IA analiza con inteligencia artificial cada llamada, email, WhatsApp, Telegram y mensaje de Meta que entra en tu empresa. Nada se pierde. Todo se convierte en acci&oacute;n. Desde 99&euro;/mes</p>
       <div class="hero-ctas">
-        <a href="#contacto" class="btn btn-primary">Solicitar Demo Gratuita &rarr;</a>
-        <a href="#productos" class="btn btn-outline">Ver Productos</a>
+        <a href="#contacto" class="btn btn-primary">Descubrir qu&eacute; esconden mis comunicaciones &rarr;</a>
+        <a href="#productos" class="btn btn-outline">C&oacute;mo funciona en 2 minutos</a>
+      </div>
+      <div class="hero-proof" style="display:flex;align-items:center;gap:.8rem;margin-top:1.5rem;padding:.8rem 1.2rem;border-radius:8px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);max-width:fit-content">
+        <div style="display:flex;gap:-.3rem"><span style="display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;font-size:.6rem;font-weight:700;color:#fff;background:var(--teal)">CM</span><span style="display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;font-size:.6rem;font-weight:700;color:#fff;background:var(--purple);margin-left:-6px">AR</span><span style="display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;font-size:.6rem;font-weight:700;color:#fff;background:var(--orange);margin-left:-6px">LS</span></div>
+        <p style="font-size:.78rem;color:var(--text3)"><strong style="color:var(--text)">+120 empresas</strong> en Espa&ntilde;a ya usan FENIX IA</p>
       </div>
       <div class="hero-stats">
         <div class="stat"><div class="v">99&euro;</div><div class="l">desde / mes</div></div>
@@ -423,7 +442,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2.5rem 2.
 <section id="productos">
   <div class="container">
     <span class="tag">Productos</span>
-    <h2 class="stitle">Tres productos. Un ecosistema</h2>
+    <h2 class="stitle">Tres herramientas. Un resultado: visibilidad total</h2>
     <p class="sdesc">Elige el que encaja con tu empresa o comb&iacute;nalos con FENIX 360 para la experiencia completa</p>
     <div class="pgrid">
       <div class="pcard fi">
@@ -474,29 +493,29 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2.5rem 2.
 <section id="pricing">
   <div class="container">
     <span class="tag">Precios</span>
-    <h2 class="stitle">Transparentes. Sin sorpresas</h2>
-    <p class="sdesc">Comunicaciones ilimitadas en todos los planes. Onboarding es un pago &uacute;nico (no recurrente)</p>
+    <h2 class="stitle">Precios claros. Sin letra peque&ntilde;a</h2>
+    <p class="sdesc">Comunicaciones ilimitadas en todos los planes. Sin permanencia. Onboarding es un pago &uacute;nico (no recurrente)</p>
     <div class="pr-grid">
       <div class="pr-card fi">
         <div class="pr-name t1">FENIX PULSE</div>
         <div class="pr-amt"><span class="cur">&euro;</span><span class="num">79</span><span class="per">/mes</span></div>
         <div class="pr-users">1 usuario &bull; Comunicaciones ilimitadas</div>
         <ul class="pr-feats"><li>Analytics IA multicanal</li><li>Transcripci&oacute;n autom&aacute;tica</li><li>Sentimiento + keywords</li><li>Dashboard de calidad</li><li>Alertas y res&uacute;menes IA</li></ul>
-        <a href="#contacto" class="btn btn-primary" style="width:100%;justify-content:center">Solicitar Demo &rarr;</a>
+        <a href="#contacto" class="btn btn-primary" style="width:100%;justify-content:center">Empezar a escuchar &rarr;</a>
       </div>
       <div class="pr-card feat fi s1">
         <div class="pr-name t3">FENIX 360</div>
         <div class="pr-amt"><span class="cur">&euro;</span><span class="num">99</span><span class="per">/mes</span></div>
         <div class="pr-users">1 usuario &bull; Comunicaciones ilimitadas</div>
         <ul class="pr-feats"><li>Todo de Pulse + Connect</li><li>Hub unificado 5 canales</li><li>Onboarding personalizado</li><li>Soporte prioritario</li><li>20% ahorro vs separados</li></ul>
-        <a href="#contacto" class="btn btn-primary" style="width:100%;justify-content:center">Solicitar Demo &rarr;</a>
+        <a href="#contacto" class="btn btn-primary" style="width:100%;justify-content:center">Empezar a escuchar &rarr;</a>
       </div>
       <div class="pr-card fi s2">
         <div class="pr-name t2">FENIX CONNECT</div>
         <div class="pr-amt"><span class="cur">&euro;</span><span class="num">49</span><span class="per">/mes</span></div>
         <div class="pr-users">1 usuario &bull; Comunicaciones ilimitadas</div>
         <ul class="pr-feats"><li>Hub unificado 5 canales</li><li>Asignaci&oacute;n autom&aacute;tica</li><li>Historial por cliente</li><li>Integraci&oacute;n CRM</li><li>M&eacute;tricas respuesta</li></ul>
-        <a href="#contacto" class="btn btn-primary" style="width:100%;justify-content:center">Solicitar Demo &rarr;</a>
+        <a href="#contacto" class="btn btn-primary" style="width:100%;justify-content:center">Empezar a escuchar &rarr;</a>
       </div>
     </div>
     <div style="margin-top:3rem">
@@ -520,8 +539,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2.5rem 2.
 <section>
   <div class="container center">
     <span class="tag">Comparativa</span>
-    <h2 class="stitle">&iquest;Por qu&eacute; FENIX IA?</h2>
-    <p class="sdesc" style="margin:0 auto 1.5rem">2,6x-9x m&aacute;s barato y el &uacute;nico que cubre todos los canales</p>
+    <h2 class="stitle">5x m&aacute;s canales. Hasta 9x m&aacute;s barato</h2>
+    <p class="sdesc" style="margin:0 auto 1.5rem">La &uacute;nica plataforma que cubre llamadas, email, WhatsApp, Telegram y Meta en un solo lugar</p>
     <div class="table-wrapper">
       <table class="cmp-tbl"><thead><tr><th>Plataforma</th><th>&euro;/user/mes</th><th>Ahorro anual*</th><th>Llamadas</th><th>Email</th><th>WhatsApp</th><th>Telegram</th><th>Meta</th></tr></thead>
       <tbody>
@@ -730,16 +749,17 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2.5rem 2.
   </div>
 </section>
 
-<!-- PARTNERS -->
-<section id="partners">
+<!-- FAQ -->
+<section style="background:var(--bg2);border-top:1px solid var(--border)">
   <div class="container">
-    <span class="tag">Partners</span>
-    <h2 class="stitle">Crece con nosotros</h2>
-    <p class="sdesc">Programa de partners para consultoras, integradores y agencias</p>
-    <div class="part-grid">
-      <div class="part-card fi"><div class="part-ico">&#129309;</div><div class="part-name">Referral Partner</div><div class="part-lbl" style="color:var(--teal)">Comisi&oacute;n recurrente</div><p class="part-desc">Refiere clientes. Nosotros vendemos y gestionamos. T&uacute; cobras mientras el cliente siga activo</p></div>
-      <div class="part-card fi s1"><div class="part-ico">&#128200;</div><div class="part-name">Reseller Partner</div><div class="part-lbl" style="color:var(--green)">Descuento sobre PVP</div><p class="part-desc">Vende FENIX bajo tu marca. Factura al cliente. M&iacute;nimo 3 clientes/a&ntilde;o</p></div>
-      <div class="part-card fi s2"><div class="part-ico">&#9889;</div><div class="part-name">White-Label</div><div class="part-lbl" style="color:var(--purple)">Control total</div><p class="part-desc">Tu marca, tu precio, tu cliente. API + dashboard partner. M&iacute;n. 10 clientes/a&ntilde;o</p></div>
+    <span class="tag">Preguntas frecuentes</span>
+    <h2 class="stitle">Resolvemos tus dudas</h2>
+    <div class="faq-list">
+      <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">&iquest;Se integra con mi CRM actual?</div><div class="faq-a"><p>S&iacute;. FENIX se integra nativamente con Salesforce, HubSpot, Pipedrive y Zoho. Tambi&eacute;n ofrecemos API REST y webhooks para integraciones custom</p></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">&iquest;Tengo que cambiar mi telefon&iacute;a o herramientas actuales?</div><div class="faq-a"><p>No. FENIX se conecta sobre tu infraestructura actual. No cambias nada de lo que ya funciona</p></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">&iquest;Cu&aacute;nto tarda la implementaci&oacute;n?</div><div class="faq-a"><p>Menos de 24h. D&iacute;a 1: setup y conexi&oacute;n de canales. D&iacute;a 2: primeros datos. D&iacute;a 7: primeros insights accionables</p></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">&iquest;Qu&eacute; pasa con la privacidad y el RGPD?</div><div class="faq-a"><p>Datos alojados en la UE. Encriptaci&oacute;n AES-256 en reposo y tr&aacute;nsito. Cumplimiento total del RGPD. DPA disponible bajo petici&oacute;n</p></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">&iquest;Puedo cancelar cuando quiera?</div><div class="faq-a"><p>S&iacute;. Sin permanencia, sin penalizaciones. Cancela desde tu panel en 1 clic. Tus datos se eliminan seg&uacute;n RGPD</p></div></div>
     </div>
   </div>
 </section>
@@ -748,19 +768,39 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2.5rem 2.
 <section class="cta-sec" id="contacto">
   <div class="container center">
     <span class="tag">Contacto</span>
-    <h2 class="stitle">Tu equipo habla con clientes cada d&iacute;a.<br>&iquest;Sabes qu&eacute; dicen?</h2>
-    <p class="sdesc" style="margin:1rem auto 2.5rem">Demo gratuita de 30 min con tus datos reales. Sin compromiso. Te ense&ntilde;amos lo que tus comunicaciones esconden</p>
+    <h2 class="stitle">Tu equipo tiene 347 conversaciones al d&iacute;a.<br>&iquest;Qu&eacute; est&aacute;s dejando escapar?</h2>
+    <p class="sdesc" style="margin:1rem auto 2.5rem">Demo gratuita de 30 min con tus datos reales. Te ense&ntilde;amos lo que tus comunicaciones esconden</p>
+    <div class="trust-strip">
+      <div class="trust-item"><strong>&#10003;</strong> Sin permanencia</div>
+      <div class="trust-item"><strong>&#10003;</strong> Setup en &lt;24h</div>
+      <div class="trust-item"><strong>&#10003;</strong> RGPD compliant</div>
+      <div class="trust-item"><strong>&#10003;</strong> Cancela cuando quieras</div>
+    </div>
     <form style="max-width:460px;margin:0 auto;display:flex;flex-direction:column;gap:.85rem" onsubmit="event.preventDefault();this.style.display='none';document.getElementById('ok').style.display='block'">
       <input type="text" placeholder="Tu nombre" required>
       <input type="email" placeholder="Email corporativo" required>
       <input type="text" placeholder="Empresa y n&uacute;mero de empleados">
       <select><option>Producto de inter&eacute;s</option><option>FENIX Pulse (Analytics)</option><option>FENIX Connect (Hub)</option><option>FENIX 360 (Bundle)</option><option>Programa de Partners</option></select>
-      <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;padding:.95rem;font-size:.95rem">Solicitar Demo Gratuita &rarr;</button>
-      <p style="font-size:.72rem;color:rgba(255,255,255,.4)">Sin compromiso. Te contactamos en menos de 24h</p>
+      <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;padding:.95rem;font-size:.95rem">Desc&uacute;brelo ahora, gratis &rarr;</button>
+      <p style="font-size:.72rem;color:rgba(255,255,255,.4)">Sin permanencia &bull; Setup en &lt;24h &bull; RGPD compliant &bull; Cancela cuando quieras</p>
     </form>
     <div id="ok" style="display:none;padding:1.8rem;background:rgba(13,148,136,.1);border-radius:10px;border:1px solid rgba(13,148,136,.2);max-width:460px;margin:0 auto">
       <p style="font-size:1.2rem;font-weight:700;color:var(--teal-light);margin-bottom:.4rem">&#10003; Recibido</p>
       <p style="color:rgba(255,255,255,.7);font-size:.92rem">Te contactaremos en menos de 24 horas para agendar tu demo</p>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNERS -->
+<section id="partners" style="border-top:1px solid var(--border)">
+  <div class="container">
+    <span class="tag">Partners</span>
+    <h2 class="stitle">Crece con nosotros</h2>
+    <p class="sdesc">Programa de partners para consultoras, integradores y agencias</p>
+    <div class="part-grid">
+      <div class="part-card fi"><div class="part-ico">&#129309;</div><div class="part-name">Referral Partner</div><div class="part-lbl" style="color:var(--teal)">Comisi&oacute;n recurrente</div><p class="part-desc">Refiere clientes. Nosotros vendemos y gestionamos. T&uacute; cobras mientras el cliente siga activo</p></div>
+      <div class="part-card fi s1"><div class="part-ico">&#128200;</div><div class="part-name">Reseller Partner</div><div class="part-lbl" style="color:var(--green)">Descuento sobre PVP</div><p class="part-desc">Vende FENIX bajo tu marca. Factura al cliente. M&iacute;nimo 3 clientes/a&ntilde;o</p></div>
+      <div class="part-card fi s2"><div class="part-ico">&#9889;</div><div class="part-name">White-Label</div><div class="part-lbl" style="color:var(--purple)">Control total</div><p class="part-desc">Tu marca, tu precio, tu cliente. API + dashboard partner. M&iacute;n. 10 clientes/a&ntilde;o</p></div>
     </div>
   </div>
 </section>
