@@ -195,13 +195,27 @@ section{padding:7rem 2.5rem;position:relative}
 .cmp-tbl tr:last-child td{color:var(--violet);font-weight:600}
 .cmp-tbl .x{color:#ef4444}.cmp-tbl .v{color:var(--emerald)}
 
-/* SECTORS */
-.sec-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;margin-top:3rem}
-.sec-card{background:var(--card);border-radius:12px;padding:1.5rem;border:1px solid var(--border);transition:all .3s}
-.sec-card:hover{border-color:rgba(124,58,237,.15);transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,0,0,.2)}
-.sec-icon{font-size:1.5rem;margin-bottom:.6rem}
-.sec-name{font-size:.9rem;font-weight:700;color:var(--white);margin-bottom:.3rem}
-.sec-desc{font-size:.76rem;color:var(--text3);line-height:1.5}
+/* USE CASES */
+.uc-list{display:flex;flex-direction:column;gap:4rem;margin-top:3rem}
+.uc-item{display:grid;grid-template-columns:1fr 1.2fr;gap:3rem;align-items:start}
+.uc-item:nth-child(even){direction:rtl}
+.uc-item:nth-child(even)>*{direction:ltr}
+.uc-left{position:sticky;top:6rem}
+.uc-icon{font-size:2rem;margin-bottom:.6rem}
+.uc-sector{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;margin-bottom:.4rem}
+.uc-sector.s1{color:var(--violet)}.uc-sector.s2{color:var(--cyan)}.uc-sector.s3{color:var(--pink)}.uc-sector.s4{color:var(--emerald)}.uc-sector.s5{color:var(--blue)}
+.uc-name{font-size:1.5rem;font-weight:800;color:var(--white);margin-bottom:.5rem;line-height:1.2}
+.uc-intro{font-size:.92rem;color:var(--text);line-height:1.8}
+.uc-intro strong{color:var(--white)}
+.uc-cases{display:flex;flex-direction:column;gap:1rem}
+.uc-case{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.5rem;transition:all .3s}
+.uc-case:hover{border-color:rgba(124,58,237,.15);box-shadow:0 8px 24px rgba(0,0,0,.2)}
+.uc-case-title{font-size:.88rem;font-weight:700;color:var(--white);margin-bottom:.4rem;display:flex;align-items:center;gap:.5rem}
+.uc-case-title .dot{width:6px;height:6px;border-radius:50%}
+.uc-case p{font-size:.82rem;color:var(--text2);line-height:1.65}
+.uc-case .result{margin-top:.6rem;padding-top:.6rem;border-top:1px solid var(--border);font-size:.78rem;font-weight:600}
+.uc-case .result.good{color:var(--emerald)}
+@media(max-width:900px){.uc-item,.uc-item:nth-child(even){grid-template-columns:1fr;direction:ltr}.uc-left{position:static}}
 
 /* PARTNERS */
 .part-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
@@ -527,21 +541,150 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2.5rem 2.
   </div>
 </section>
 
-<!-- SECTORS -->
+<!-- CASOS DE USO -->
 <section id="sectores" style="background:var(--bg2);border-top:1px solid var(--border)">
   <div class="container">
-    <span class="tag">Sectores</span>
-    <h2 class="stitle">Historias reales de <span class="grad-text">sectores reales</span></h2>
-    <p class="sdesc">Si tu equipo habla con clientes, FENIX IA tiene algo para ti</p>
-    <div class="sec-grid">
-      <div class="sec-card fi"><div class="sec-icon">&#127973;</div><div class="sec-name">Cl&iacute;nicas</div><div class="sec-desc">Un paciente llam&oacute; 3 veces para cambiar cita. Nadie lo anot&oacute;. Con FENIX, eso no pasa</div></div>
-      <div class="sec-card fi s1"><div class="sec-icon">&#127968;</div><div class="sec-name">Inmobiliarias</div><div class="sec-desc">El lead lleg&oacute; por WhatsApp a las 20h. Al d&iacute;a siguiente ya ten&iacute;a agente de otra inmobiliaria</div></div>
-      <div class="sec-card fi s2"><div class="sec-icon">&#128722;</div><div class="sec-name">E-commerce</div><div class="sec-desc">El cliente quiso devolver por email. Luego llam&oacute;. Luego escribi&oacute; por IG. Sin contexto entre canales</div></div>
-      <div class="sec-card fi s3"><div class="sec-icon">&#128188;</div><div class="sec-name">Asesor&iacute;as</div><div class="sec-desc">Tu cliente te mand&oacute; documentos por 3 canales distintos. Sin FENIX Connect, buena suerte encontr&aacute;ndolos</div></div>
-      <div class="sec-card fi"><div class="sec-icon">&#128663;</div><div class="sec-name">Talleres</div><div class="sec-desc">"Te escribo por WA para la cita del lunes". El WA se perdi&oacute; entre 40 chats. El lunes no vino nadie</div></div>
-      <div class="sec-card fi s1"><div class="sec-icon">&#127891;</div><div class="sec-name">Academias</div><div class="sec-desc">20 consultas de matr&iacute;cula por semana. Sin seguimiento, solo 5 se convierten. Con FENIX, 14</div></div>
-      <div class="sec-card fi s2"><div class="sec-icon">&#128737;</div><div class="sec-name">Seguros</div><div class="sec-desc">El tono de la &uacute;ltima llamada era tenso. FENIX lo detect&oacute;. Tu equipo intervino antes de perder la p&oacute;liza</div></div>
-      <div class="sec-card fi s3"><div class="sec-icon">&#127960;</div><div class="sec-name">Hoteler&iacute;a</div><div class="sec-desc">La rese&ntilde;a negativa no fue sorpresa: FENIX detect&oacute; el descontento 3 d&iacute;as antes en las llamadas</div></div>
+    <span class="tag">Casos de uso</span>
+    <h2 class="stitle">Historias que se repiten <span class="grad-text">cada d&iacute;a</span></h2>
+    <p class="sdesc">Sin nombres. Sin adornos. Solo situaciones reales que hemos visto en cada sector y c&oacute;mo FENIX IA las resuelve</p>
+
+    <div class="uc-list">
+
+      <!-- CLINICAS -->
+      <div class="uc-item fi">
+        <div class="uc-left">
+          <div class="uc-icon">&#127973;</div>
+          <div class="uc-sector s1">Cl&iacute;nicas y centros m&eacute;dicos</div>
+          <div class="uc-name">Cada llamada perdida es un paciente que no vuelve</div>
+          <p class="uc-intro">Una cl&iacute;nica dental recibe <strong>80+ llamadas al d&iacute;a</strong> entre citas, consultas y urgencias. La recepcionista no puede atenderlas todas. Los pacientes que no consiguen hablar con nadie <strong>llaman a la cl&iacute;nica de al lado</strong></p>
+        </div>
+        <div class="uc-cases">
+          <div class="uc-case">
+            <div class="uc-case-title"><span class="dot" style="background:var(--violet)"></span> Llamadas no devueltas</div>
+            <p>FENIX detecta autom&aacute;ticamente las llamadas perdidas y las cruza con el historial del paciente. Si un paciente llam&oacute; 3 veces sin respuesta, salta una alerta prioritaria antes de que llame a la competencia</p>
+            <div class="result good">&#8594; Las llamadas sin devolver pasan de 12/d&iacute;a a 0 con alertas en tiempo real</div>
+          </div>
+          <div class="uc-case">
+            <div class="uc-case-title"><span class="dot" style="background:var(--violet)"></span> Cancelaciones silenciosas</div>
+            <p>Un paciente manda un WhatsApp a las 22h cancelando la cita de ma&ntilde;ana. Nadie lo ve hasta las 9:15, cuando el hueco ya est&aacute; vac&iacute;o. Con FENIX, los mensajes de cancelaci&oacute;n se detectan con IA y se reubican autom&aacute;ticamente en la bandeja prioritaria</p>
+            <div class="result good">&#8594; Huecos de agenda recuperados antes de abrir la cl&iacute;nica</div>
+          </div>
+          <div class="uc-case">
+            <div class="uc-case-title"><span class="dot" style="background:var(--violet)"></span> Seguimiento post-tratamiento</div>
+            <p>Despu&eacute;s de una intervenci&oacute;n, el paciente tiene dudas. Llama, luego escribe por WhatsApp, luego manda un email. Sin FENIX, cada canal es una isla. Con FENIX, todo se ve en un hilo &uacute;nico por paciente, con el sentimiento de cada interacci&oacute;n analizado</p>
+            <div class="result good">&#8594; Visi&oacute;n completa del paciente en un solo panel sin cambiar de app</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- INMOBILIARIAS -->
+      <div class="uc-item fi">
+        <div class="uc-left">
+          <div class="uc-icon">&#127968;</div>
+          <div class="uc-sector s2">Inmobiliarias</div>
+          <div class="uc-name">Un lead tarda 5 minutos en enfriarse. T&uacute; tardas 14 horas en responder</div>
+          <p class="uc-intro">El comprador de vivienda env&iacute;a consultas a <strong>3-4 inmobiliarias a la vez</strong>. La primera que responde con informaci&oacute;n relevante se lleva la visita. Las dem&aacute;s pierden la comisi&oacute;n</p>
+        </div>
+        <div class="uc-cases">
+          <div class="uc-case">
+            <div class="uc-case-title"><span class="dot" style="background:var(--cyan)"></span> Leads de portales por WhatsApp</div>
+            <p>Llega un contacto de Idealista por WhatsApp a las 20:30. Tu equipo ya se fue. Al d&iacute;a siguiente, cuando responden, el lead ya tiene cita con otra agencia. FENIX clasifica el mensaje autom&aacute;ticamente como lead caliente, alerta al agente de guardia y prepara un resumen con los datos del inmueble que pide</p>
+            <div class="result good">&#8594; Tiempo de primera respuesta: de 14h a menos de 15 minutos</div>
+          </div>
+          <div class="uc-case">
+            <div class="uc-case-title"><span class="dot" style="background:var(--cyan)"></span> Seguimiento de interesados</div>
+            <p>Un cliente potencial llam&oacute; hace 10 d&iacute;as preguntando por un piso. Le dijeron "te llamamos". Nadie lo hizo. Con FENIX Pulse, la IA transcribe la llamada, extrae que el cliente busca 3 habitaciones en zona centro, y genera un recordatorio de seguimiento autom&aacute;tico si pasan 48h sin contacto</p>
+            <div class="result good">&#8594; Leads que antes se perd&iacute;an ahora tienen seguimiento sistem&aacute;tico</div>
+          </div>
+          <div class="uc-case">
+            <div class="uc-case-title"><span class="dot" style="background:var(--cyan)"></span> Coordinaci&oacute;n entre agentes</div>
+            <p>El cliente habl&oacute; con un agente por tel&eacute;fono y con otro por email. Ninguno sab&iacute;a lo que el otro hab&iacute;a dicho. Con FENIX Connect, ambos ven la misma ficha de cliente con el historial completo de todos los canales, evitando repetir preguntas y dando una imagen profesional</p>
+            <div class="result good">&#8594; Contexto compartido entre todo el equipo, sin pedir al cliente que repita</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- E-COMMERCE -->
+      <div class="uc-item fi">
+        <div class="uc-left">
+          <div class="uc-icon">&#128722;</div>
+          <div class="uc-sector s3">E-commerce</div>
+          <div class="uc-name">Tu cliente escribi&oacute; por 3 canales. T&uacute; le pediste que repitiera en los 3</div>
+          <p class="uc-intro">En e-commerce, el cliente elige el canal que le conviene en cada momento. Un d&iacute;a llama, otro escribe por Instagram, otro por email. <strong>Si no tienes contexto unificado, cada interacci&oacute;n empieza de cero</strong></p>
+        </div>
+        <div class="uc-cases">
+          <div class="uc-case">
+            <div class="uc-case-title"><span class="dot" style="background:var(--pink)"></span> Devoluciones multicanal</div>
+            <p>Un comprador quiere devolver un producto. Primero escribe por Instagram DM. No recibe respuesta r&aacute;pida. Llama. Le piden el n&uacute;mero de pedido otra vez. Luego le dicen que mande un email. Con FENIX, desde la primera interacci&oacute;n el agente ve qui&eacute;n es, qu&eacute; compr&oacute; y por qu&eacute; canales ya ha contactado</p>
+            <div class="result good">&#8594; Resoluci&oacute;n en el primer contacto sin pedir datos que ya tienes</div>
+          </div>
+          <div class="uc-case">
+            <div class="uc-case-title"><span class="dot" style="background:var(--pink)"></span> Detecci&oacute;n de clientes insatisfechos</div>
+            <p>Un cliente que suele comprar cada mes lleva 6 semanas sin pedir. En su &uacute;ltima llamada al soporte, el tono fue negativo. FENIX Pulse lo detecta autom&aacute;ticamente: cruza la frecuencia de compra con el an&aacute;lisis de sentimiento y genera una alerta de riesgo de p&eacute;rdida</p>
+            <div class="result good">&#8594; Detecci&oacute;n proactiva de churn antes de que el cliente se vaya</div>
+          </div>
+          <div class="uc-case">
+            <div class="uc-case-title"><span class="dot" style="background:var(--pink)"></span> Picos de demanda en campa&ntilde;as</div>
+            <p>Durante Black Friday, el volumen de WhatsApps se multiplica por 5. Sin FENIX, los mensajes se acumulan sin priorizar. Con FENIX Connect, los mensajes se clasifican por urgencia (queja, pregunta pre-compra, seguimiento env&iacute;o) y se asignan autom&aacute;ticamente al agente adecuado</p>
+            <div class="result good">&#8594; Asignaci&oacute;n inteligente que prioriza las oportunidades de venta</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ASESORIAS -->
+      <div class="uc-item fi">
+        <div class="uc-left">
+          <div class="uc-icon">&#128188;</div>
+          <div class="uc-sector s4">Asesor&iacute;as y despachos profesionales</div>
+          <div class="uc-name">Tu cliente te mand&oacute; la documentaci&oacute;n. Por 3 canales diferentes. Hace 2 semanas</div>
+          <p class="uc-intro">Las asesor&iacute;as gestionan decenas de clientes, cada uno con <strong>su canal preferido</strong>. Uno manda facturas por WhatsApp, otro por email, otro llama para dictarlas. El contexto se fragmenta y los plazos fiscales no esperan</p>
+        </div>
+        <div class="uc-cases">
+          <div class="uc-case">
+            <div class="uc-case-title"><span class="dot" style="background:var(--emerald)"></span> Documentaci&oacute;n dispersa</div>
+            <p>Un cliente manda la factura por WhatsApp, pregunta por email si la recibiste y llama dos d&iacute;as despu&eacute;s para confirmar. Con FENIX Connect, las tres interacciones se ven en un &uacute;nico hilo del cliente. El asesor sabe exactamente qu&eacute; tiene y qu&eacute; falta sin buscar entre apps</p>
+            <div class="result good">&#8594; Todo lo del cliente en un solo panel, da igual por d&oacute;nde lo mand&oacute;</div>
+          </div>
+          <div class="uc-case">
+            <div class="uc-case-title"><span class="dot" style="background:var(--emerald)"></span> Llamadas con instrucciones complejas</div>
+            <p>El cliente llama y da instrucciones durante 15 minutos sobre c&oacute;mo gestionar su declaraci&oacute;n. El asesor toma notas a mano y pierde detalles. Con FENIX Pulse, la llamada se transcribe autom&aacute;ticamente y la IA genera un resumen estructurado con los puntos clave y acciones pendientes</p>
+            <div class="result good">&#8594; Transcripci&oacute;n + resumen de IA para cada llamada, sin notas manuales</div>
+          </div>
+          <div class="uc-case">
+            <div class="uc-case-title"><span class="dot" style="background:var(--emerald)"></span> Alertas de plazos cr&iacute;ticos</div>
+            <p>Un cliente menciona en una llamada que "necesita tener la declaraci&oacute;n antes del viernes". FENIX detecta la urgencia temporal en la transcripci&oacute;n y genera una alerta vinculada al expediente del cliente, evitando que el plazo se pierda entre las 50 tareas del d&iacute;a</p>
+            <div class="result good">&#8594; La IA extrae plazos y urgencias de las conversaciones autom&aacute;ticamente</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SEGUROS -->
+      <div class="uc-item fi">
+        <div class="uc-left">
+          <div class="uc-icon">&#128737;</div>
+          <div class="uc-sector s5">Seguros</div>
+          <div class="uc-name">El cliente ya estaba enfadado. T&uacute; lo supiste cuando ya era tarde</div>
+          <p class="uc-intro">En seguros, la relaci&oacute;n se construye en las renovaciones y se destruye en los siniestros. <strong>El tono de una sola llamada puede predecir si el cliente renueva o se va</strong>. Sin an&aacute;lisis, no tienes forma de saberlo a escala</p>
+        </div>
+        <div class="uc-cases">
+          <div class="uc-case">
+            <div class="uc-case-title"><span class="dot" style="background:var(--blue)"></span> Gesti&oacute;n de siniestros</div>
+            <p>Un asegurado llama para reportar un siniestro. Est&aacute; nervioso, habla r&aacute;pido, da muchos datos. FENIX transcribe la llamada completa, extrae los datos del siniestro (fecha, ubicaci&oacute;n, da&ntilde;os) y genera un resumen estructurado listo para abrir expediente sin que el agente teclee nada</p>
+            <div class="result good">&#8594; Apertura de expediente en minutos en vez de horas de gesti&oacute;n manual</div>
+          </div>
+          <div class="uc-case">
+            <div class="uc-case-title"><span class="dot" style="background:var(--blue)"></span> Predicci&oacute;n de fugas en renovaci&oacute;n</div>
+            <p>Faltan 2 meses para la renovaci&oacute;n. El cliente llam&oacute; dos veces el mes pasado; en ambas el an&aacute;lisis de sentimiento fue negativo. FENIX genera una alerta de riesgo de fuga con el motivo probable extra&iacute;do de las transcripciones, para que el equipo comercial act&uacute;e antes de que sea tarde</p>
+            <div class="result good">&#8594; Intervenci&oacute;n proactiva 60 d&iacute;as antes de la renovaci&oacute;n con contexto completo</div>
+          </div>
+          <div class="uc-case">
+            <div class="uc-case-title"><span class="dot" style="background:var(--blue)"></span> Cross-selling inteligente</div>
+            <p>Durante una llamada rutinaria, el cliente menciona que acaba de comprar una segunda vivienda. Sin FENIX, esa informaci&oacute;n se pierde en la conversaci&oacute;n. Con FENIX Pulse, la IA detecta la menci&oacute;n y genera una oportunidad comercial vinculada al cliente: "posible p&oacute;liza de hogar adicional"</p>
+            <div class="result good">&#8594; Oportunidades de venta cruzada detectadas autom&aacute;ticamente de las conversaciones</div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
