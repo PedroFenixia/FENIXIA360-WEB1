@@ -330,6 +330,47 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2.5rem 2.
   .faq-q{padding:1.2rem 0}
   .uc-cards{grid-template-columns:1fr}
   .uc-sector-header{flex-direction:column;gap:.6rem}
+  .demo-grid{grid-template-columns:1fr}
+  .demo-empresa-btn{font-size:.75rem;padding:.7rem .8rem}
+}
+
+/* DEMO INTERACTIVA */
+.demo-grid{display:grid;grid-template-columns:320px 1fr;gap:2rem;margin-top:2.5rem}
+.demo-search{padding:.7rem 1rem;border-radius:8px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-family:var(--font);font-size:.85rem;outline:none;transition:border .2s;width:100%}
+.demo-search:focus{border-color:var(--teal)}
+.demo-search::placeholder{color:var(--text4)}
+.demo-empresas{display:flex;flex-direction:column;gap:.5rem;margin-top:1rem}
+.demo-empresa-btn{display:flex;flex-direction:column;gap:.15rem;padding:.85rem 1rem;border-radius:10px;border:1px solid var(--border);background:var(--card);cursor:pointer;transition:all .2s;text-align:left}
+.demo-empresa-btn:hover{border-color:var(--teal);box-shadow:0 2px 8px rgba(13,148,136,.08)}
+.demo-empresa-btn.active{border-color:var(--teal);background:var(--teal-pale)}
+.demo-empresa-btn .deb-nombre{font-size:.82rem;font-weight:700;color:var(--text)}
+.demo-empresa-btn .deb-cif{font-size:.68rem;font-family:var(--mono);color:var(--text4)}
+.demo-empresa-btn .deb-estado{font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.5px}
+.demo-ficha{transition:opacity .3s}
+.demo-ficha.fading{opacity:.3}
+.score-badge{display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .8rem;border-radius:6px;font-weight:700;font-size:.82rem;font-family:var(--mono)}
+.score-badge.muy-fiable{background:#dcfce7;color:var(--green)}
+.score-badge.fiable{background:#fef3c7;color:var(--orange)}
+.score-badge.riesgo-moderado{background:#fed7aa;color:#ea580c}
+.score-badge.riesgo-alto{background:#fee2e2;color:var(--red)}
+.demo-actos{list-style:none;display:flex;flex-direction:column;gap:.4rem}
+.demo-actos li{font-size:.78rem;color:var(--text3);padding:.35rem .6rem;background:var(--bg2);border-radius:6px}
+.demo-actos li::before{content:'\25CF';margin-right:.4rem;font-size:.5rem;color:var(--teal)}
+.score-ref{margin-top:2rem;padding:1.5rem;border-radius:12px;background:var(--bg2);border:1px solid var(--border)}
+.score-ref-title{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text4);margin-bottom:.8rem}
+.score-ref-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem}
+.score-ref-item{text-align:center;padding:.6rem .4rem;border-radius:8px}
+.score-ref-item .sri-range{font-size:.72rem;font-weight:700;font-family:var(--mono)}
+.score-ref-item .sri-label{font-size:.65rem;margin-top:.15rem}
+.score-factors{margin-top:1rem}
+.score-factors-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.4rem;margin-top:.6rem}
+.score-factor{display:flex;justify-content:space-between;align-items:center;padding:.35rem .6rem;border-radius:6px;font-size:.72rem;background:var(--bg2)}
+.score-factor .sf-name{color:var(--text3)}
+.score-factor .sf-range{font-family:var(--mono);font-weight:600;color:var(--text4);font-size:.68rem}
+@media(max-width:900px){
+  .demo-grid{grid-template-columns:1fr}
+  .score-ref-grid{grid-template-columns:repeat(2,1fr)}
+  .score-factors-grid{grid-template-columns:1fr}
 }
 </style>
 
@@ -557,6 +598,81 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2.5rem 2.
       </tbody></table>
     </div>
     <p style="color:var(--text4);font-size:.72rem;margin-top:.8rem">* Ahorro calculado comparando plan de 6-10 usuarios (~30&euro;/user) vs precio por usuario de cada alternativa</p>
+  </div>
+</section>
+
+<!-- DEMO INTERACTIVA -->
+<section id="demo">
+  <div class="container">
+    <span class="tag fi">Demo en vivo</span>
+    <h2 class="stitle fi s1">Consulta la solvencia de cualquier empresa</h2>
+    <p class="sdesc fi s2">Explora datos reales del BORME. As&iacute; ver&iacute;as la ficha de una empresa en FENIX B2B Prospector</p>
+
+    <div class="demo-grid fi s3">
+      <!-- Left: empresa list -->
+      <div>
+        <input type="text" class="demo-search" placeholder="Buscar por nombre o CIF..." id="demo-search-input">
+        <div class="demo-empresas" id="demo-empresas"></div>
+      </div>
+
+      <!-- Right: ficha -->
+      <div class="demo-ficha" id="demo-ficha">
+        <div class="dash-card">
+          <div class="dash-header">
+            <span id="df-nombre">Selecciona una empresa</span>
+            <div id="df-estado-badge"></div>
+          </div>
+          <div class="dash-lines">
+            <div class="dash-line"><span class="dl-label">CIF</span><span class="dl-val" id="df-cif" style="font-family:var(--mono)">—</span></div>
+            <div class="dash-line"><span class="dl-label">Score de solvencia</span><span id="df-score"></span></div>
+            <div class="dash-line"><span class="dl-label">Provincia</span><span class="dl-val" id="df-provincia">—</span></div>
+            <div class="dash-line"><span class="dl-label">Forma jur&iacute;dica</span><span class="dl-val" id="df-forma">—</span></div>
+            <div class="dash-line"><span class="dl-label">Capital social</span><span class="dl-val teal" id="df-capital">—</span></div>
+            <div class="dash-line"><span class="dl-label">Ampliaciones de capital</span><span class="dl-val" id="df-ampliaciones">—</span></div>
+            <div class="dash-line"><span class="dl-label">N&ordm; empleados</span><span class="dl-val" id="df-empleados">—</span></div>
+            <div class="dash-line"><span class="dl-label">Constituci&oacute;n</span><span class="dl-val" id="df-fecha">—</span></div>
+            <div class="dash-line"><span class="dl-label">Sector (CNAE)</span><span class="dl-val" id="df-sector">—</span></div>
+            <div class="dash-line"><span class="dl-label">Web</span><span class="dl-val teal" id="df-web">—</span></div>
+            <div class="dash-line"><span class="dl-label">Email</span><span class="dl-val" id="df-email">—</span></div>
+            <div class="dash-line"><span class="dl-label">Tel&eacute;fono</span><span class="dl-val" id="df-tel">—</span></div>
+          </div>
+
+          <div style="margin-top:1.2rem">
+            <div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text4);margin-bottom:.5rem">Actos registrales</div>
+            <ul class="demo-actos" id="df-actos"></ul>
+          </div>
+
+          <!-- Desglose del score -->
+          <div style="margin-top:1.2rem">
+            <div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text4);margin-bottom:.5rem">Desglose de puntuaci&oacute;n</div>
+            <div class="dash-lines" id="df-desglose"></div>
+          </div>
+        </div>
+
+        <!-- Referencia de puntuaci&oacute;n -->
+        <div class="score-ref">
+          <div class="score-ref-title">Referencia de puntuaci&oacute;n (0-100)</div>
+          <div class="score-ref-grid">
+            <div class="score-ref-item" style="background:#dcfce7"><div class="sri-range" style="color:var(--green)">76 &ndash; 100</div><div class="sri-label" style="color:var(--green)">Muy fiable</div></div>
+            <div class="score-ref-item" style="background:#fef3c7"><div class="sri-range" style="color:var(--orange)">51 &ndash; 75</div><div class="sri-label" style="color:var(--orange)">Fiable</div></div>
+            <div class="score-ref-item" style="background:#fed7aa"><div class="sri-range" style="color:#ea580c">26 &ndash; 50</div><div class="sri-label" style="color:#ea580c">Riesgo moderado</div></div>
+            <div class="score-ref-item" style="background:#fee2e2"><div class="sri-range" style="color:var(--red)">0 &ndash; 25</div><div class="sri-label" style="color:var(--red)">Riesgo alto</div></div>
+          </div>
+          <div class="score-factors">
+            <div style="font-size:.68rem;font-weight:600;color:var(--text4);margin-bottom:.4rem">Factores que componen el score (base: 50 puntos)</div>
+            <div class="score-factors-grid">
+              <div class="score-factor"><span class="sf-name">Estado mercantil</span><span class="sf-range">-40 a +10</span></div>
+              <div class="score-factor"><span class="sf-name">Antig&uuml;edad</span><span class="sf-range">-5 a +15</span></div>
+              <div class="score-factor"><span class="sf-name">Capital social</span><span class="sf-range">-2 a +12</span></div>
+              <div class="score-factor"><span class="sf-name">Datos de contacto</span><span class="sf-range">0 a +7</span></div>
+              <div class="score-factor"><span class="sf-name">Actos de riesgo</span><span class="sf-range">0 a -20</span></div>
+              <div class="score-factor"><span class="sf-name">Estabilidad directiva</span><span class="sf-range">-10 a +5</span></div>
+              <div class="score-factor"><span class="sf-name">Avisos judiciales</span><span class="sf-range">0 a -20</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -879,6 +995,148 @@ async function submitToHolded(e){
   form.style.display='none';
   document.getElementById('ok').style.display='block';
 }
+
+// --- DEMO INTERACTIVA ---
+const demoEmpresas=[
+  {
+    nombre:"TECHSTART SOLUTIONS SL",
+    cif:"B87654321",
+    estado:"activa",
+    provincia:"Madrid",
+    forma_juridica:"SL",
+    capital:60000,
+    empleados:12,
+    ampliaciones:[{fecha:"03/2022",de:10000,a:30000},{fecha:"11/2023",de:30000,a:60000}],
+    constitucion:"15/03/2020",
+    sector:"6209 - Servicios TIC",
+    score:82,
+    risk_level:"muy_fiable",
+    actos:["Constituci\u00f3n (2020)","Ampliaci\u00f3n capital 10.000\u219230.000\u20ac (2022)","Ampliaci\u00f3n capital 30.000\u219260.000\u20ac (2023)","Nombramientos (2023)"],
+    contacto:{web:"techstart.es",email:"info@techstart.es",tel:"911 234 567"},
+    desglose:{estado:"+10",antiguedad:"+5",capital:"+7",contacto:"+7",actos_riesgo:"+0",estabilidad:"+5",judicial:"+0"}
+  },
+  {
+    nombre:"RENOVAHOGAR REFORMAS SL",
+    cif:"B76543210",
+    estado:"activa",
+    provincia:"Barcelona",
+    forma_juridica:"SL",
+    capital:15000,
+    empleados:6,
+    ampliaciones:[{fecha:"06/2019",de:3000,a:15000}],
+    constitucion:"08/11/2018",
+    sector:"4120 - Construcci\u00f3n edificios",
+    score:58,
+    risk_level:"fiable",
+    actos:["Constituci\u00f3n (2018)","Ampliaci\u00f3n capital 3.000\u219215.000\u20ac (2019)","Ceses/Dimisiones (2023)","Reducci\u00f3n capital (2024)"],
+    contacto:{web:"",email:"admin@renovahogar.com",tel:"931 234 567"},
+    desglose:{estado:"+10",antiguedad:"+10",capital:"+5",contacto:"+2",actos_riesgo:"-5",estabilidad:"-5",judicial:"+0"}
+  },
+  {
+    nombre:"DISTRIBUCIONES MARTINEZ E HIJOS SL",
+    cif:"B65432109",
+    estado:"en liquidaci\u00f3n",
+    provincia:"Valencia",
+    forma_juridica:"SL",
+    capital:3000,
+    empleados:0,
+    ampliaciones:[],
+    constitucion:"22/06/2015",
+    sector:"4690 - Comercio al por mayor",
+    score:18,
+    risk_level:"riesgo_alto",
+    actos:["Constituci\u00f3n (2015)","Disoluci\u00f3n (2024)","Liquidaci\u00f3n (2025)"],
+    contacto:{web:"",email:"",tel:""},
+    desglose:{estado:"-25",antiguedad:"+15",capital:"-2",contacto:"+3",actos_riesgo:"-20",estabilidad:"+0",judicial:"+0"}
+  }
+];
+
+function scoreBadgeClass(level){
+  return({muy_fiable:"muy-fiable",fiable:"fiable",riesgo_moderado:"riesgo-moderado",riesgo_alto:"riesgo-alto"})[level]||"";
+}
+function scoreBadgeLabel(level){
+  return({muy_fiable:"Muy fiable",fiable:"Fiable",riesgo_moderado:"Riesgo moderado",riesgo_alto:"Riesgo alto"})[level]||"";
+}
+function estadoBadge(estado){
+  const e=estado.toLowerCase();
+  if(e==="activa")return'<span class="tag" style="font-size:.65rem;padding:2px 8px;background:rgba(16,185,129,.15);color:var(--green)">Activa</span>';
+  if(e.includes("liquidaci"))return'<span class="tag" style="font-size:.65rem;padding:2px 8px;background:rgba(239,68,68,.15);color:var(--red)">En liquidaci\u00f3n</span>';
+  return'<span class="tag" style="font-size:.65rem;padding:2px 8px">'+estado+'</span>';
+}
+function fmtCapital(v){return v?v.toLocaleString("es-ES")+" \u20ac":"\u2014";}
+const desgloseLabels={estado:"Estado mercantil",antiguedad:"Antig\u00fcedad",capital:"Capital social",contacto:"Datos de contacto",actos_riesgo:"Actos de riesgo",estabilidad:"Estabilidad directiva",judicial:"Avisos judiciales"};
+
+function renderDemoList(empresas){
+  const c=document.getElementById("demo-empresas");
+  c.innerHTML="";
+  empresas.forEach((emp,i)=>{
+    const btn=document.createElement("button");
+    btn.className="demo-empresa-btn";
+    btn.innerHTML='<div style="display:flex;justify-content:space-between;align-items:center"><span style="font-weight:600;font-size:.82rem">'+emp.nombre+'</span><span class="score-badge '+scoreBadgeClass(emp.risk_level)+'">'+emp.score+'</span></div><div style="font-size:.72rem;color:var(--text4);margin-top:.2rem">'+emp.cif+" \u00b7 "+emp.provincia+'</div>';
+    btn.addEventListener("click",()=>selectDemoCompany(i));
+    c.appendChild(btn);
+  });
+}
+
+function selectDemoCompany(idx){
+  const emp=demoEmpresas[idx];
+  if(!emp)return;
+  // Mark active button
+  document.querySelectorAll(".demo-empresa-btn").forEach((b,i)=>b.classList.toggle("active",i===idx));
+  // Fade transition
+  const ficha=document.getElementById("demo-ficha");
+  ficha.classList.add("fading");
+  setTimeout(()=>{
+    document.getElementById("df-nombre").textContent=emp.nombre;
+    document.getElementById("df-estado-badge").innerHTML=estadoBadge(emp.estado);
+    document.getElementById("df-cif").textContent=emp.cif;
+    document.getElementById("df-score").innerHTML='<span class="score-badge '+scoreBadgeClass(emp.risk_level)+'">'+emp.score+'/100</span> <span style="font-size:.72rem;color:var(--text4)">'+scoreBadgeLabel(emp.risk_level)+'</span>';
+    document.getElementById("df-provincia").textContent=emp.provincia;
+    document.getElementById("df-forma").textContent=emp.forma_juridica;
+    document.getElementById("df-capital").textContent=fmtCapital(emp.capital);
+    // Ampliaciones de capital
+    if(emp.ampliaciones&&emp.ampliaciones.length>0){
+      document.getElementById("df-ampliaciones").innerHTML=emp.ampliaciones.map(a=>'<span style="display:inline-block;font-size:.7rem;background:rgba(13,148,136,.12);color:var(--teal);padding:1px 6px;border-radius:4px;margin-right:4px">'+a.fecha+': '+a.de.toLocaleString("es-ES")+'\u2192'+a.a.toLocaleString("es-ES")+'\u20ac</span>').join("");
+    }else{
+      document.getElementById("df-ampliaciones").innerHTML='<span style="color:var(--text4)">Sin ampliaciones</span>';
+    }
+    // Empleados
+    document.getElementById("df-empleados").textContent=emp.empleados>0?emp.empleados:"\u2014";
+    document.getElementById("df-fecha").textContent=emp.constitucion;
+    document.getElementById("df-sector").textContent=emp.sector;
+    document.getElementById("df-web").textContent=emp.contacto.web||"\u2014";
+    document.getElementById("df-email").textContent=emp.contacto.email||"\u2014";
+    document.getElementById("df-tel").textContent=emp.contacto.tel||"\u2014";
+    // Actos
+    const al=document.getElementById("df-actos");
+    al.innerHTML="";
+    emp.actos.forEach(a=>{const li=document.createElement("li");li.textContent=a;al.appendChild(li)});
+    // Desglose
+    const dl=document.getElementById("df-desglose");
+    dl.innerHTML="";
+    for(const[k,v] of Object.entries(emp.desglose)){
+      const val=parseInt(v);
+      const color=val>0?"var(--green)":val<0?"var(--red)":"var(--text4)";
+      dl.innerHTML+='<div class="dash-line"><span class="dl-label">'+desgloseLabels[k]+'</span><span class="dl-val" style="color:'+color+';font-weight:600;font-family:var(--mono)">'+v+'</span></div>';
+    }
+    ficha.classList.remove("fading");
+  },200);
+}
+
+// Init demo
+renderDemoList(demoEmpresas);
+selectDemoCompany(0);
+
+// Search filter
+document.getElementById("demo-search-input").addEventListener("input",function(){
+  const q=this.value.toLowerCase().trim();
+  const filtered=demoEmpresas.filter(e=>e.nombre.toLowerCase().includes(q)||e.cif.toLowerCase().includes(q));
+  renderDemoList(filtered);
+  if(filtered.length>0){
+    const origIdx=demoEmpresas.indexOf(filtered[0]);
+    selectDemoCompany(origIdx);
+  }
+});
 </script>
 </body>
 </html>
