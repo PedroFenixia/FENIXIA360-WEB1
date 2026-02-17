@@ -785,9 +785,13 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2.5rem 2.
       <input type="text" name="name" placeholder="Tu nombre" required>
       <input type="email" name="email" placeholder="Email corporativo" required>
       <input type="text" name="company" placeholder="Empresa y n&uacute;mero de empleados">
-      <select name="product"><option>Producto de inter&eacute;s</option><option>FENIX Pulse (Analytics)</option><option>FENIX Connect (Hub)</option><option>FENIX 360 (Bundle)</option><option>Programa de Partners</option></select>
+      <select name="product" required><option value="" disabled selected>Producto de inter&eacute;s</option><option>FENIX Pulse (Analytics)</option><option>FENIX Connect (Hub)</option><option>FENIX 360 (Bundle)</option><option>Programa de Partners</option></select>
+      <label style="display:flex;align-items:flex-start;gap:.5rem;cursor:pointer;text-align:left">
+        <input type="checkbox" name="privacy" required style="margin-top:3px;accent-color:var(--teal);flex-shrink:0;width:16px;height:16px">
+        <span style="font-size:.72rem;color:rgba(255,255,255,.5);line-height:1.5">He le&iacute;do y acepto la <a href="https://www.fenixia.tech/privacidad" target="_blank" style="color:var(--teal-light);text-decoration:underline">Pol&iacute;tica de Privacidad</a> y consiento el tratamiento de mis datos para gestionar mi solicitud de demo</span>
+      </label>
       <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;padding:.95rem;font-size:.95rem">Solicitar demo gratuita &rarr;</button>
-      <p style="font-size:.72rem;color:rgba(255,255,255,.4)">Sin permanencia &bull; Activo en &lt;24h &bull; Cumple RGPD &bull; Cancela cuando quieras</p>
+      <p style="font-size:.68rem;color:rgba(255,255,255,.35);line-height:1.6;text-align:left">Responsable: FENIXIA SOLUTIONS S.L. (CIF: B22739668). Finalidad: gestionar tu solicitud y contactarte para la demo. Base jur&iacute;dica: consentimiento del interesado (art. 6.1.a RGPD). Destinatarios: Holded (encargado de tratamiento). Derechos: acceso, rectificaci&oacute;n, supresi&oacute;n, oposici&oacute;n, portabilidad y limitaci&oacute;n escribiendo a <a href="mailto:privacidad@fenixia.tech" style="color:rgba(255,255,255,.5)">privacidad@fenixia.tech</a>. M&aacute;s info en <a href="https://www.fenixia.tech/privacidad" target="_blank" style="color:rgba(255,255,255,.5)">Pol&iacute;tica de Privacidad</a></p>
     </form>
     <div id="ok" style="display:none;padding:1.8rem;background:rgba(13,148,136,.1);border-radius:10px;border:1px solid rgba(13,148,136,.2);max-width:460px;margin:0 auto">
       <p style="font-size:1.2rem;font-weight:700;color:var(--teal-light);margin-bottom:.4rem">&#10003; Recibido</p>
@@ -827,7 +831,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2.5rem 2.
     <a href="https://www.fenixia.tech/privacidad" target="_blank">Pol&iacute;tica de Privacidad</a>
     <a href="https://www.fenixia.tech/cookies" target="_blank">Pol&iacute;tica de Cookies</a>
   </div>
-  <div class="ft-copy">&copy; 2026 FENIX IA SOLUTIONS &mdash; fenixia.tech &mdash; Todos los derechos reservados</div>
+  <div class="ft-copy">&copy; 2026 FENIXIA SOLUTIONS S.L. &mdash; CIF: B22739668 &mdash; C/ La Paz 83, 03320 Elx/Elche (Alicante) &mdash; <a href="mailto:info@fenixia.tech" style="color:var(--text4)">info@fenixia.tech</a></div>
 </footer>
 
 <script>
@@ -856,26 +860,22 @@ async function submitToHolded(e){
   const btn=form.querySelector('button[type="submit"]');
   const orig=btn.textContent;
   btn.textContent='Enviando...';btn.disabled=true;
-  const name=form.querySelector('[name="name"]').value;
-  const email=form.querySelector('[name="email"]').value;
-  const company=form.querySelector('[name="company"]').value;
-  const product=form.querySelector('[name="product"]').value;
-  const HKEY='3d8678c0eb9af596f7dd3221aafdc640';
+  const data={
+    name:form.querySelector('[name="name"]').value,
+    email:form.querySelector('[name="email"]').value,
+    company:form.querySelector('[name="company"]').value,
+    product:form.querySelector('[name="product"]').value,
+    source:location.hostname,
+    privacy_accepted:form.querySelector('[name="privacy"]').checked,
+    privacy_accepted_at:new Date().toISOString()
+  };
   try{
-    const cRes=await fetch('https://api.holded.com/api/invoicing/v1/contacts',{
+    await fetch('https://fenix-leads-proxy.proveedores-702.workers.dev',{
       method:'POST',
-      headers:{'Content-Type':'application/json','key':HKEY},
-      body:JSON.stringify({name:company||name,email:email,tradeName:company||'',type:'client',contactPersons:[{name:name,email:email}],note:'Producto: '+product+' | Web: '+location.hostname})
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify(data)
     });
-    if(cRes.ok){
-      const cData=await cRes.json();
-      await fetch('https://api.holded.com/api/crm/v1/leads',{
-        method:'POST',
-        headers:{'Content-Type':'application/json','key':HKEY},
-        body:JSON.stringify({name:name+' ('+product+')',contactId:cData.id,notes:'Empresa: '+company+'\nProducto: '+product+'\nWeb: '+location.hostname})
-      }).catch(()=>{});
-    }
-  }catch(err){console.warn('Holded:',err.message)}
+  }catch(err){console.warn('Lead submit:',err.message)}
   form.style.display='none';
   document.getElementById('ok').style.display='block';
 }

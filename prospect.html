@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FENIX Prospect &mdash; Encuentra clientes antes que tu competencia</title>
+
+<!-- SEO Meta Tags -->
+<meta name="description" content="FENIX Prospect identifica oportunidades comerciales ocultas en tus comunicaciones. Prospección inteligente con IA. Desde 59€/mes.">
+<meta name="keywords" content="prospección IA, lead scoring, captación clientes, inteligencia comercial, FENIX IA, prospección automática">
+<meta name="author" content="FENIX IA SOLUTIONS">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0d9488">
+<link rel="canonical" href="https://web1.fenixia360.com/prospect">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://web1.fenixia360.com/prospect">
+<meta property="og:title" content="FENIX Prospect &mdash; Encuentra clientes antes que tu competencia">
+<meta property="og:description" content="Prospección inteligente con IA. Detecta oportunidades ocultas en tus comunicaciones. Desde 59€/mes.">
+<meta property="og:site_name" content="FENIX IA">
+<meta property="og:locale" content="es_ES">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#ffffff;--bg2:#f8fafb;--bg3:#f1f5f9;--card:#ffffff;
+  --teal:#0d9488;--teal-light:#14b8a6;--teal-pale:#ccfbf1;--teal-glow:rgba(13,148,136,.08);
+  --text:#0f172a;--text2:#334155;--text3:#64748b;--text4:#94a3b8;
+  --border:#e2e8f0;--border2:#cbd5e1;
+  --purple:#7c3aed;--green:#059669;--orange:#d97706;--red:#dc2626;
+  --emerald-grad:linear-gradient(135deg,#0d9488,#059669);
+  --font:'Inter',system-ui,-apple-system,sans-serif;--mono:'JetBrains Mono',monospace;
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--font);background:var(--bg);color:var(--text2);line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:var(--teal);text-decoration:none;transition:all .2s}
+a:hover{color:var(--teal-light)}
+::selection{background:var(--teal);color:#fff}
+img{max-width:100%}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1rem 2.5rem;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.88);backdrop-filter:blur(20px) saturate(1.4);border-bottom:1px solid transparent;transition:all .3s}
+nav.scrolled{border-bottom-color:var(--border);box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.nav-logo{display:flex;align-items:center;gap:.6rem}
+.nav-brand{font-weight:800;font-size:1.15rem;color:var(--text);letter-spacing:.5px}
+.nav-brand em{font-style:normal;color:var(--teal)}
+.nav-tagline{font-size:.68rem;color:var(--text4);font-weight:500;border-left:1px solid var(--border);padding-left:.6rem;margin-left:.2rem;max-width:200px;line-height:1.3}
+.nav-links{display:flex;gap:2rem;align-items:center}
+.nav-links a{color:var(--text3);font-weight:500;font-size:.85rem;transition:color .2s}
+.nav-links a:hover{color:var(--teal)}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.7rem 1.6rem;border-radius:8px;font-weight:600;font-size:.88rem;transition:all .2s;cursor:pointer;border:none;font-family:var(--font);letter-spacing:.1px}
+.btn-primary{background:var(--emerald-grad);color:#fff !important;box-shadow:0 1px 3px rgba(13,148,136,.2),0 4px 12px rgba(13,148,136,.12)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(13,148,136,.25),0 8px 24px rgba(13,148,136,.15);color:#fff !important}
+.btn-outline{background:transparent;color:var(--teal);border:1.5px solid var(--border2)}
+.btn-outline:hover{border-color:var(--teal);background:var(--teal-glow)}
+.btn-ghost{background:transparent;color:var(--text3);border:1.5px solid transparent}
+.btn-ghost:hover{color:var(--teal)}
+
+/* MOBILE MENU */
+.mobile-menu-btn{display:none;background:none;border:none;color:var(--text);font-size:1.5rem;cursor:pointer;padding:.5rem;z-index:101}
+.mobile-menu{position:fixed;top:0;left:-100%;width:80%;max-width:320px;height:100vh;background:var(--bg);padding:5rem 2rem 2rem;transition:left .3s ease;z-index:99;box-shadow:4px 0 24px rgba(0,0,0,.08)}
+.mobile-menu.active{left:0}
+.mobile-overlay{position:fixed;top:0;left:0;width:100%;height:100vh;background:rgba(15,23,42,.4);opacity:0;visibility:hidden;transition:all .3s;z-index:98}
+.mobile-overlay.active{opacity:1;visibility:visible}
+.mobile-menu a{display:block;padding:.9rem 0;color:var(--text2);font-size:.95rem;font-weight:500;border-bottom:1px solid var(--border)}
+.mobile-menu a:hover{color:var(--teal)}
+.mobile-menu .btn{margin-top:1.5rem;width:100%;text-align:center;justify-content:center}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:8rem 2.5rem 5rem;background:linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%)}
+.hero::before{content:'';position:absolute;top:-40%;right:-20%;width:800px;height:800px;background:radial-gradient(circle,rgba(13,148,136,.06) 0%,transparent 65%);pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:-30%;left:-15%;width:600px;height:600px;background:radial-gradient(circle,rgba(124,58,237,.04) 0%,transparent 65%);pointer-events:none}
+.hero-inner{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;position:relative;z-index:1}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;padding:.4rem 1rem;border-radius:100px;background:var(--teal-pale);color:var(--teal);font-size:.78rem;font-weight:600;margin-bottom:1.5rem;letter-spacing:.3px}
+.hero-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--teal);animation:pulse-dot 2s infinite}
+@keyframes pulse-dot{0%,100%{opacity:1}50%{opacity:.4}}
+.hero h1{font-size:3.2rem;font-weight:900;line-height:1.1;color:var(--text);margin-bottom:1.2rem;letter-spacing:-.8px}
+.hero h1 .hl{background:var(--emerald-grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero .sub{font-size:1.08rem;color:var(--text3);line-height:1.75;margin-bottom:2rem;max-width:480px}
+.hero-ctas{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2rem}
+.hero-stats{display:flex;gap:2rem;padding-top:1.5rem;border-top:1px solid var(--border)}
+.hero-stats .stat{text-align:center}
+.hero-stats .stat .v{font-size:1.4rem;font-weight:800;font-family:var(--mono);color:var(--teal);letter-spacing:-1px}
+.hero-stats .stat .l{font-size:.65rem;color:var(--text4);text-transform:uppercase;letter-spacing:1px;margin-top:.1rem}
+
+/* HERO VISUAL */
+.hero-visual{position:relative}
+.dash-card{background:var(--card);border-radius:16px;border:1px solid var(--border);padding:2rem;box-shadow:0 4px 24px rgba(0,0,0,.06),0 1px 3px rgba(0,0,0,.04);position:relative}
+.dash-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:1px solid var(--border)}
+.dash-header span{font-size:.75rem;font-weight:600;color:var(--text4);text-transform:uppercase;letter-spacing:1px}
+.dash-header .live{display:flex;align-items:center;gap:.4rem;color:var(--green);font-size:.72rem;font-weight:600}
+.dash-header .live::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse-dot 1.5s infinite}
+.dash-lines{display:flex;flex-direction:column;gap:.6rem}
+.dash-line{display:flex;justify-content:space-between;align-items:center;padding:.5rem .7rem;border-radius:8px;font-size:.82rem;background:var(--bg2)}
+.dash-line .dl-label{color:var(--text3)}
+.dash-line .dl-val{font-weight:700;font-family:var(--mono);font-size:.85rem}
+.dl-val.green{color:var(--green)}.dl-val.teal{color:var(--teal)}.dl-val.red{color:var(--red)}.dl-val.purple{color:var(--purple)}.dl-val.orange{color:var(--orange)}
+.floating-card{position:absolute;background:var(--card);border-radius:10px;padding:.8rem 1rem;border:1px solid var(--border);box-shadow:0 8px 24px rgba(0,0,0,.08);font-size:.75rem;animation:float-up 6s ease-in-out infinite}
+.floating-card.fc1{top:-12px;right:-20px;animation-delay:0s}
+.floating-card.fc2{bottom:20px;left:-30px;animation-delay:3s}
+@keyframes float-up{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.fc-val{font-weight:800;font-family:var(--mono);font-size:1.1rem}
+.fc-val.green{color:var(--green)}.fc-val.teal{color:var(--teal)}.fc-val.purple{color:var(--purple)}
+
+/* SECTIONS */
+section{padding:6rem 2.5rem}
+.container{max-width:1140px;margin:0 auto}
+.tag{display:inline-flex;align-items:center;gap:.4rem;font-size:.72rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);margin-bottom:.8rem;padding:.35rem .9rem;border-radius:6px;background:var(--teal-pale)}
+.stitle{font-size:2.4rem;font-weight:900;color:var(--text);line-height:1.15;margin-bottom:1rem;letter-spacing:-.5px}
+.sdesc{color:var(--text3);font-size:1rem;max-width:560px;line-height:1.75}
+.center{text-align:center}.center .sdesc{margin:0 auto}
+
+/* FEATURES GRID */
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
+.feat-card{background:var(--card);border-radius:14px;padding:2rem;border:1px solid var(--border);position:relative;overflow:hidden;transition:all .3s}
+.feat-card:hover{border-color:var(--teal);box-shadow:0 8px 32px rgba(13,148,136,.1);transform:translateY(-2px)}
+.feat-card-top{height:3px;margin:-2rem -2rem 1.5rem;border-radius:14px 14px 0 0}
+.feat-card:nth-child(1) .feat-card-top{background:var(--emerald-grad)}
+.feat-card:nth-child(2) .feat-card-top{background:linear-gradient(90deg,var(--green),#34d399)}
+.feat-card:nth-child(3) .feat-card-top{background:linear-gradient(90deg,var(--purple),#a78bfa)}
+.feat-card:nth-child(4) .feat-card-top{background:linear-gradient(90deg,var(--orange),#fbbf24)}
+.feat-card:nth-child(5) .feat-card-top{background:linear-gradient(90deg,#0d9488,#06b6d4)}
+.feat-card:nth-child(6) .feat-card-top{background:linear-gradient(90deg,var(--green),var(--teal))}
+.feat-ico{font-size:1.8rem;margin-bottom:.7rem}
+.feat-name{font-size:1.1rem;font-weight:800;color:var(--text);margin-bottom:.4rem}
+.feat-desc{color:var(--text3);font-size:.88rem;line-height:1.6}
+
+/* HOW IT WORKS */
+.how-section{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:3rem}
+.step{text-align:center;padding:1.5rem;position:relative}
+.step-num{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:50%;background:var(--teal-pale);color:var(--teal);font-family:var(--mono);font-weight:800;font-size:1.2rem;margin-bottom:1rem}
+.step-title{font-size:.95rem;font-weight:700;color:var(--text);margin-bottom:.4rem}
+.step-desc{font-size:.82rem;color:var(--text3);line-height:1.6}
+.step-arrow{position:absolute;top:42px;right:-18px;color:var(--border2);font-size:1.2rem}
+
+/* USE CASES */
+.uc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:3rem}
+.uc-card{background:var(--card);border-radius:14px;padding:2rem;border:1px solid var(--border);transition:all .3s}
+.uc-card:hover{border-color:var(--teal);box-shadow:0 8px 32px rgba(13,148,136,.1)}
+.uc-card-header{display:flex;align-items:center;gap:.8rem;margin-bottom:1rem}
+.uc-card-ico{font-size:1.6rem}
+.uc-card-sector{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--teal);background:var(--teal-pale);padding:.2rem .6rem;border-radius:4px}
+.uc-card h4{font-size:1rem;font-weight:700;color:var(--text);margin-bottom:.5rem}
+.uc-card p{font-size:.85rem;color:var(--text3);line-height:1.65;margin-bottom:.8rem}
+.uc-card .uc-result{padding-top:.7rem;border-top:1px solid var(--border);font-size:.78rem;font-weight:600;color:var(--green);display:flex;align-items:center;gap:.4rem}
+
+/* PRICING */
+#pricing{background:var(--bg2);border-top:1px solid var(--border)}
+.pr-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
+.pr-card{background:var(--card);border-radius:14px;padding:2rem;border:1px solid var(--border);position:relative;transition:all .3s}
+.pr-card:hover{box-shadow:0 8px 32px rgba(0,0,0,.06)}
+.pr-card.feat{border-color:var(--teal);box-shadow:0 0 0 1px var(--teal),0 8px 32px rgba(13,148,136,.1)}
+.pr-card.feat::before{content:'RECOMENDADO';position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:var(--emerald-grad);color:#fff;font-size:.62rem;font-weight:700;padding:.25rem .9rem;border-radius:100px;letter-spacing:1.2px}
+.pr-name{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:.4rem;color:var(--teal)}
+.pr-amt{display:flex;align-items:baseline;gap:.2rem;margin-bottom:.1rem}
+.pr-amt .cur{font-size:1.1rem;color:var(--text3);font-weight:600}
+.pr-amt .num{font-size:2.8rem;font-weight:900;color:var(--text);font-family:var(--mono);letter-spacing:-2px}
+.pr-amt .per{font-size:.8rem;color:var(--text4)}
+.pr-users{font-size:.8rem;color:var(--text4);margin-bottom:1.2rem}
+.pr-feats{list-style:none;display:flex;flex-direction:column;gap:.55rem;margin-bottom:1.5rem}
+.pr-feats li{font-size:.84rem;color:var(--text3);display:flex;align-items:center;gap:.4rem}
+.pr-feats li::before{content:'\2713';color:var(--teal);font-weight:700}
+
+/* INTEGRATION */
+.int-strip{display:flex;justify-content:center;gap:1.5rem;margin-top:2.5rem;flex-wrap:wrap}
+.int-item{text-align:center;padding:1.5rem 2rem;border-radius:12px;background:var(--card);border:1px solid var(--border);transition:all .3s;min-width:140px}
+.int-item:hover{border-color:var(--teal);box-shadow:0 4px 16px rgba(13,148,136,.08)}
+.int-item .ii-ico{margin-bottom:.6rem;display:flex;justify-content:center;color:var(--teal)}
+.int-item .ii-name{font-size:.85rem;font-weight:700;color:var(--text)}
+.int-item .ii-desc{font-size:.68rem;color:var(--text4);margin-top:.15rem}
+
+/* COMPARISON */
+.cmp-tbl{width:100%;min-width:500px;margin-top:2rem;border-collapse:separate;border-spacing:0;border-radius:12px;overflow:hidden;border:1px solid var(--border)}
+.cmp-tbl th{background:var(--bg3);padding:.7rem 1rem;font-size:.68rem;text-transform:uppercase;letter-spacing:.6px;color:var(--text4);text-align:left}
+.cmp-tbl td{padding:.6rem 1rem;font-size:.82rem;border-top:1px solid var(--border);color:var(--text2)}
+.cmp-tbl tr:last-child{background:var(--teal-pale)}
+.cmp-tbl tr:last-child td{color:var(--teal);font-weight:700}
+.cmp-tbl .x{color:var(--red);font-weight:600}
+.cmp-tbl .v{color:var(--green);font-weight:600}
+.table-wrapper{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:1.5rem}
+
+/* FAQ */
+.faq-list{max-width:700px;margin:2rem auto 0}
+.faq-item{border-bottom:1px solid var(--border)}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:1.1rem 0;cursor:pointer;font-size:.9rem;font-weight:600;color:var(--text);gap:1rem}
+.faq-q::after{content:'+';font-size:1.2rem;color:var(--text4);transition:transform .2s;flex-shrink:0}
+.faq-item.open .faq-q::after{content:'-'}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;font-size:.84rem;color:var(--text3);line-height:1.7}
+.faq-item.open .faq-a{max-height:200px}
+.faq-a p{padding:0 0 1rem}
+
+/* TRUST STRIP */
+.trust-strip{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;padding:1.5rem 0;margin:0 auto;max-width:700px}
+.trust-item{display:flex;align-items:center;gap:.4rem;font-size:.75rem;color:rgba(255,255,255,.5)}
+.trust-item strong{color:rgba(255,255,255,.8)}
+
+/* CTA */
+.cta-sec{background:linear-gradient(135deg,#0f172a 0%,#1e293b 100%);color:#fff;position:relative;overflow:hidden}
+.cta-sec::before{content:'';position:absolute;top:-50%;right:-20%;width:600px;height:600px;background:radial-gradient(circle,rgba(13,148,136,.15),transparent 60%);pointer-events:none}
+.cta-sec .tag{background:rgba(13,148,136,.15);color:var(--teal-light)}
+.cta-sec .stitle{color:#fff}
+.cta-sec .sdesc{color:rgba(255,255,255,.6)}
+input,select{padding:.8rem 1.1rem;border-radius:8px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.06);color:#fff;font-family:var(--font);font-size:.88rem;outline:none;transition:border .2s;width:100%}
+input:focus,select:focus{border-color:var(--teal-light)}
+input::placeholder{color:rgba(255,255,255,.35)}
+select{color:rgba(255,255,255,.5)}
+select option{background:#1e293b;color:#fff}
+
+/* FOOTER */
+footer{background:var(--bg);border-top:1px solid var(--border);padding:2.5rem 2.5rem 1.5rem}
+.ft-inner{max-width:1140px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem}
+.ft-brand{font-weight:700;font-size:.95rem;color:var(--text)}
+.ft-brand em{font-style:normal;color:var(--teal)}
+.ft-links{display:flex;gap:2rem}
+.ft-links a{color:var(--text3);font-size:.82rem}
+.ft-links a:hover{color:var(--teal)}
+.ft-legal{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;max-width:1140px;margin:.8rem auto 0}
+.ft-legal a{color:var(--text4);font-size:.72rem;transition:color .2s}
+.ft-legal a:hover{color:var(--teal)}
+.ft-copy{color:var(--text4);font-size:.72rem;text-align:center;margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--border);max-width:1140px;margin-left:auto;margin-right:auto}
+
+/* ANIMATIONS */
+.fi{opacity:0;transform:translateY(20px);transition:all .5s ease-out}
+.fi.vis{opacity:1;transform:translateY(0)}
+.s1{transition-delay:.07s}.s2{transition-delay:.14s}.s3{transition-delay:.21s}.s4{transition-delay:.28s}.s5{transition-delay:.35s}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .hero-inner{grid-template-columns:1fr;text-align:center}
+  .hero h1{font-size:2.4rem}
+  .hero .sub{margin:0 auto 2rem;font-size:1rem}
+  .hero-ctas{justify-content:center}
+  .hero-stats{justify-content:center}
+  .hero-visual{display:none}
+  .feat-grid,.pr-grid{grid-template-columns:1fr}
+  .uc-grid{grid-template-columns:1fr}
+  .steps{grid-template-columns:repeat(2,1fr)}
+  .step-arrow{display:none}
+  .nav-links{display:none}
+  .nav-tagline{display:none}
+  .mobile-menu-btn{display:block}
+  .stitle{font-size:1.9rem}
+  .btn{min-height:44px}
+}
+
+@media(max-width:768px) and (min-width:601px){
+  nav{padding:1rem 2rem}
+  section{padding:4rem 2rem}
+  .hero{padding:6rem 2rem 4rem}
+  .hero h1{font-size:2.2rem}
+  input,select{font-size:16px}
+}
+
+@media(max-width:600px){
+  .mobile-menu-btn{display:block}
+  nav{padding:.8rem 1.2rem}
+  .nav-brand{font-size:1rem}
+  .nav-tagline{display:none}
+  section{padding:3rem 1.2rem}
+  .hero{padding:5rem 1.2rem 2.5rem;min-height:auto}
+  .hero h1{font-size:1.75rem;line-height:1.2}
+  .hero .sub{font-size:.95rem}
+  .stitle{font-size:1.4rem}
+  .sdesc{font-size:.88rem}
+  .feat-grid{grid-template-columns:1fr}
+  .uc-grid{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr}
+  .int-strip{gap:.8rem;flex-direction:column}
+  .int-item{min-width:auto;width:100%;padding:1rem}
+  .hero-stats{gap:1.5rem;flex-wrap:wrap}
+  .btn{padding:.85rem 1.4rem;font-size:.88rem;min-height:44px}
+  .hero-ctas{flex-direction:column;width:100%}
+  .hero-ctas .btn{width:100%;justify-content:center}
+  input,select{font-size:16px;width:100%}
+  button[type="submit"]{min-height:48px}
+  .ft-links{flex-direction:column;gap:.8rem;text-align:center}
+  .ft-inner{flex-direction:column;text-align:center}
+  footer{padding:1.5rem 1.2rem 1rem}
+  .table-wrapper{border-radius:8px;-webkit-overflow-scrolling:touch}
+  .cmp-tbl{min-width:auto}
+  .cmp-tbl th,.cmp-tbl td{padding:.4rem .35rem;font-size:.65rem;white-space:nowrap}
+  .faq-q{padding:1.2rem 0}
+}
+</style>
+
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "FENIX Prospect",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "offers": {
+    "@type": "AggregateOffer",
+    "priceCurrency": "EUR",
+    "lowPrice": "59",
+    "highPrice": "149"
+  },
+  "description": "Prospección inteligente con IA. Detecta oportunidades comerciales ocultas en tus comunicaciones.",
+  "provider": {
+    "@type": "Organization",
+    "name": "FENIXIA SOLUTIONS SL",
+    "url": "https://web1.fenixia360.com",
+    "taxID": "B22739668",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Calle La Paz 83",
+      "addressLocality": "Elx/Elche",
+      "addressRegion": "Alicante",
+      "postalCode": "03320",
+      "addressCountry": "ES"
+    }
+  }
+}
+</script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">
+    <span class="nav-brand"><img src="logo.png?v=2" alt="FENIX IA" style="height:44px;vertical-align:middle;margin-right:6px;opacity:.7;filter:brightness(1.1)">FENIX <em>IA</em></span>
+    <span class="nav-tagline">Prospecci&oacute;n inteligente con IA</span>
+  </a>
+  <div class="nav-links">
+    <a href="#funcionalidades">Funcionalidades</a>
+    <a href="#como-funciona">C&oacute;mo funciona</a>
+    <a href="#pricing">Precios</a>
+    <a href="#casos-uso">Casos de uso</a>
+    <a href="#contacto" class="btn btn-primary">Probar gratis &rarr;</a>
+  </div>
+  <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Men&uacute;">&#9776;</button>
+</nav>
+
+<div class="mobile-overlay" onclick="toggleMobileMenu()"></div>
+<div class="mobile-menu">
+  <a href="#funcionalidades" onclick="toggleMobileMenu()">Funcionalidades</a>
+  <a href="#como-funciona" onclick="toggleMobileMenu()">C&oacute;mo funciona</a>
+  <a href="#pricing" onclick="toggleMobileMenu()">Precios</a>
+  <a href="#casos-uso" onclick="toggleMobileMenu()">Casos de uso</a>
+  <a href="#contacto" onclick="toggleMobileMenu()">Contacto</a>
+  <a href="#contacto" class="btn btn-primary" onclick="toggleMobileMenu()">Probar gratis &rarr;</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge"><span class="dot"></span> Nuevo servicio de FENIX IA</div>
+      <h1>Tus comunicaciones esconden <span class="hl">clientes que a&uacute;n no sabes que existen</span></h1>
+      <p class="sub">FENIX Prospect analiza tus conversaciones con IA para detectar oportunidades de venta, leads calientes y se&ntilde;ales de compra que tu equipo comercial pasa por alto. Sin llamadas en fr&iacute;o. Sin bases de datos compradas. Solo datos que ya tienes</p>
+      <div class="hero-ctas">
+        <a href="#contacto" class="btn btn-primary">Activar prospecci&oacute;n inteligente &rarr;</a>
+        <a href="#como-funciona" class="btn btn-outline">Ver c&oacute;mo funciona</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><div class="v">3x</div><div class="l">M&aacute;s oportunidades</div></div>
+        <div class="stat"><div class="v">-70%</div><div class="l">Tiempo prospecci&oacute;n</div></div>
+        <div class="stat"><div class="v">+45%</div><div class="l">Tasa de conversi&oacute;n</div></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="floating-card fc1">
+        <div class="fc-val green">+23</div>
+        <div class="fc-lbl">Oportunidades detectadas hoy</div>
+      </div>
+      <div class="floating-card fc2">
+        <div class="fc-val purple">97%</div>
+        <div class="fc-lbl">Precisi&oacute;n lead scoring</div>
+      </div>
+      <div class="dash-card">
+        <div class="dash-header">
+          <span>FENIX Prospect</span>
+          <div class="live">Analizando</div>
+        </div>
+        <div class="dash-lines">
+          <div class="dash-line"><span class="dl-label">Oportunidades hoy</span><span class="dl-val teal">23</span></div>
+          <div class="dash-line"><span class="dl-label">Leads calientes</span><span class="dl-val green">8</span></div>
+          <div class="dash-line"><span class="dl-label">Se&ntilde;ales de compra</span><span class="dl-val purple">15</span></div>
+          <div class="dash-line"><span class="dl-label">Upsell detectados</span><span class="dl-val orange">5</span></div>
+          <div class="dash-line"><span class="dl-label">Leads fr&iacute;os reactivados</span><span class="dl-val teal">3</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FUNCIONALIDADES -->
+<section id="funcionalidades">
+  <div class="container">
+    <span class="tag">Funcionalidades</span>
+    <h2 class="stitle">La IA detecta las oportunidades. Tu equipo solo tiene que cerrar</h2>
+    <p class="sdesc">FENIX Prospect analiza cada comunicaci&oacute;n &mdash; llamada, email, WhatsApp &mdash; y extrae se&ntilde;ales comerciales que un humano tardar&iacute;a horas en encontrar</p>
+    <div class="feat-grid">
+      <div class="feat-card fi">
+        <div class="feat-card-top"></div>
+        <div class="feat-ico">&#127919;</div>
+        <div class="feat-name">Detecci&oacute;n de se&ntilde;ales de compra</div>
+        <p class="feat-desc">La IA identifica frases, tonos e intenciones que indican inter&eacute;s de compra. &laquo;Estamos valorando opciones&raquo;, &laquo;necesitar&iacute;amos algo para el Q2&raquo; &mdash; nada se escapa</p>
+      </div>
+      <div class="feat-card fi s1">
+        <div class="feat-card-top"></div>
+        <div class="feat-ico">&#128293;</div>
+        <div class="feat-name">Lead scoring autom&aacute;tico</div>
+        <p class="feat-desc">Cada contacto recibe una puntuaci&oacute;n basada en su actividad real: frecuencia de contacto, sentimiento, menciones de presupuesto y urgencia temporal</p>
+      </div>
+      <div class="feat-card fi s2">
+        <div class="feat-card-top"></div>
+        <div class="feat-ico">&#128200;</div>
+        <div class="feat-name">Pipeline predictivo</div>
+        <p class="feat-desc">Visualiza tu embudo con datos reales de comunicaciones. La IA predice qu&eacute; oportunidades se van a cerrar y cu&aacute;les necesitan atenci&oacute;n antes de que se enfr&iacute;en</p>
+      </div>
+      <div class="feat-card fi s3">
+        <div class="feat-card-top"></div>
+        <div class="feat-ico">&#128276;</div>
+        <div class="feat-name">Alertas de oportunidad</div>
+        <p class="feat-desc">Notificaciones en tiempo real cuando un contacto muestra se&ntilde;ales de compra. Tu equipo recibe la alerta con el contexto completo para actuar al momento</p>
+      </div>
+      <div class="feat-card fi s4">
+        <div class="feat-card-top"></div>
+        <div class="feat-ico">&#128257;</div>
+        <div class="feat-name">Reactivaci&oacute;n de leads fr&iacute;os</div>
+        <p class="feat-desc">Contactos que no respond&iacute;an hace meses vuelven a escribir. La IA los detecta autom&aacute;ticamente, cruza con el historial y genera una alerta de &laquo;lead reactivado&raquo;</p>
+      </div>
+      <div class="feat-card fi s5">
+        <div class="feat-card-top"></div>
+        <div class="feat-ico">&#128640;</div>
+        <div class="feat-name">Upsell y venta cruzada</div>
+        <p class="feat-desc">Cuando un cliente actual menciona nuevas necesidades en cualquier canal, FENIX lo captura y genera una oportunidad vinculada a su ficha</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section class="how-section" id="como-funciona">
+  <div class="container center">
+    <span class="tag">C&oacute;mo funciona</span>
+    <h2 class="stitle">De comunicaci&oacute;n a oportunidad en 4 pasos</h2>
+    <p class="sdesc" style="margin:0 auto">Sin configuraci&oacute;n manual. FENIX Prospect se conecta a tus canales y empieza a analizar desde el primer d&iacute;a</p>
+    <div class="steps">
+      <div class="step fi">
+        <div class="step-num">1</div>
+        <span class="step-arrow">&rarr;</span>
+        <div class="step-title">Conecta tus canales</div>
+        <p class="step-desc">Llamadas, email, WhatsApp, Telegram y Meta. Se conecta sobre tu infraestructura actual sin cambiar nada</p>
+      </div>
+      <div class="step fi s1">
+        <div class="step-num">2</div>
+        <span class="step-arrow">&rarr;</span>
+        <div class="step-title">La IA analiza</div>
+        <p class="step-desc">Cada comunicaci&oacute;n se transcribe, analiza y clasifica. La IA extrae se&ntilde;ales comerciales, intenciones y urgencias</p>
+      </div>
+      <div class="step fi s2">
+        <div class="step-num">3</div>
+        <span class="step-arrow">&rarr;</span>
+        <div class="step-title">Detecta oportunidades</div>
+        <p class="step-desc">Las se&ntilde;ales se cruzan con el historial del contacto para generar oportunidades con contexto completo y lead scoring</p>
+      </div>
+      <div class="step fi s3">
+        <div class="step-num">4</div>
+        <div class="step-title">Tu equipo cierra</div>
+        <p class="step-desc">Alertas en tiempo real con el resumen de la oportunidad. Tu comercial sabe qu&eacute; decir y cu&aacute;ndo llamar</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTEGRACIONES -->
+<section style="padding:4.5rem 2.5rem">
+  <div class="container center">
+    <span class="tag">Integraciones</span>
+    <h2 class="stitle">Se integra con lo que ya usas</h2>
+    <p class="sdesc" style="margin:0 auto">FENIX Prospect se conecta con tu CRM y herramientas de ventas. Las oportunidades aparecen directamente donde trabaja tu equipo</p>
+    <div class="int-strip">
+      <div class="int-item fi"><div class="ii-ico"><svg width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M9 3v18M3 9h18"/></svg></div><div class="ii-name">Salesforce</div><div class="ii-desc">Sincronizaci&oacute;n nativa</div></div>
+      <div class="int-item fi s1"><div class="ii-ico"><svg width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l6 3"/></svg></div><div class="ii-name">HubSpot</div><div class="ii-desc">Deals autom&aacute;ticos</div></div>
+      <div class="int-item fi s2"><div class="ii-ico"><svg width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M4 12h16M12 4v16"/></svg></div><div class="ii-name">Pipedrive</div><div class="ii-desc">Pipeline sincronizado</div></div>
+      <div class="int-item fi s3"><div class="ii-ico"><svg width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div><div class="ii-name">Holded</div><div class="ii-desc">Leads + facturaci&oacute;n</div></div>
+      <div class="int-item fi s4"><div class="ii-ico"><svg width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M12 18v-6M9 15h6"/></svg></div><div class="ii-name">API REST</div><div class="ii-desc">Integraci&oacute;n a medida</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CASOS DE USO -->
+<section id="casos-uso" style="background:var(--bg2);border-top:1px solid var(--border)">
+  <div class="container">
+    <span class="tag">Casos de uso</span>
+    <h2 class="stitle">Oportunidades reales que detecta la IA</h2>
+    <p class="sdesc">Situaciones que pasan cada d&iacute;a en empresas como la tuya. Sin FENIX Prospect, se pierden. Con &eacute;l, se convierten en ventas</p>
+    <div class="uc-grid">
+      <div class="uc-card fi">
+        <div class="uc-card-header">
+          <span class="uc-card-ico">&#127968;</span>
+          <span class="uc-card-sector">Inmobiliaria</span>
+        </div>
+        <h4>El comprador que nadie sigui&oacute;</h4>
+        <p>Un contacto pregunt&oacute; por un piso hace 3 semanas por WhatsApp. Nadie le devolvi&oacute; la llamada. Ahora escribe un email preguntando por otro inmueble. FENIX detecta la reactivaci&oacute;n, cruza ambas interacciones y alerta al agente con el historial completo</p>
+        <div class="uc-result">&#8594; Contacto recuperado con contexto. Cita agendada el mismo d&iacute;a</div>
+      </div>
+      <div class="uc-card fi s1">
+        <div class="uc-card-header">
+          <span class="uc-card-ico">&#128737;</span>
+          <span class="uc-card-sector">Seguros</span>
+        </div>
+        <h4>La segunda vivienda que nadie escuch&oacute;</h4>
+        <p>Durante una llamada rutinaria, el asegurado menciona que acaba de comprar un segundo coche. Sin FENIX, esa frase se pierde. Con Prospect, la IA extrae la menci&oacute;n y genera una oportunidad de p&oacute;liza adicional vinculada al cliente</p>
+        <div class="uc-result">&#8594; Oportunidad de venta cruzada detectada autom&aacute;ticamente</div>
+      </div>
+      <div class="uc-card fi s2">
+        <div class="uc-card-header">
+          <span class="uc-card-ico">&#128722;</span>
+          <span class="uc-card-sector">E-commerce</span>
+        </div>
+        <h4>El cliente que pregunta antes de comprar</h4>
+        <p>Un usuario contacta por chat preguntando medidas, disponibilidad y plazos de env&iacute;o de un producto premium. La IA detecta intenci&oacute;n de compra alta, asigna lead score 9/10 y notifica al equipo comercial para cerrar la venta con una llamada personalizada</p>
+        <div class="uc-result">&#8594; Conversi&oacute;n de consulta a venta en menos de 2 horas</div>
+      </div>
+      <div class="uc-card fi s3">
+        <div class="uc-card-header">
+          <span class="uc-card-ico">&#128188;</span>
+          <span class="uc-card-sector">Asesor&iacute;a</span>
+        </div>
+        <h4>El cliente que necesita m&aacute;s servicios</h4>
+        <p>Un cliente de contabilidad menciona en una llamada que est&aacute; montando una nueva sociedad. FENIX detecta la se&ntilde;al y genera una oportunidad para ofrecerle servicios de constituci&oacute;n, fiscal y laboral. El asesor recibe la alerta con el contexto exacto</p>
+        <div class="uc-result">&#8594; Ampliaci&oacute;n de servicios detectada desde una conversaci&oacute;n rutinaria</div>
+      </div>
+      <div class="uc-card fi s4">
+        <div class="uc-card-header">
+          <span class="uc-card-ico">&#127973;</span>
+          <span class="uc-card-sector">Cl&iacute;nica</span>
+        </div>
+        <h4>El paciente que pregunta por tratamientos adicionales</h4>
+        <p>Un paciente llama para confirmar una cita y pregunta &laquo;&iquest;tambi&eacute;n hac&eacute;is blanqueamiento?&raquo;. La recepcionista confirma la cita pero la pregunta se pierde. Con Prospect, se genera una oportunidad de tratamiento adicional y se notifica al equipo</p>
+        <div class="uc-result">&#8594; Oportunidad de tratamiento captada desde una simple llamada</div>
+      </div>
+      <div class="uc-card fi s5">
+        <div class="uc-card-header">
+          <span class="uc-card-ico">&#127960;</span>
+          <span class="uc-card-sector">Hoteler&iacute;a</span>
+        </div>
+        <h4>El hu&eacute;sped que quiere repetir</h4>
+        <p>Un hu&eacute;sped env&iacute;a un email agradeciendo la estancia y menciona que vuelve a la ciudad en septiembre. FENIX detecta la se&ntilde;al temporal, genera un recordatorio de seguimiento y sugiere una oferta personalizada 30 d&iacute;as antes de la fecha</p>
+        <div class="uc-result">&#8594; Reserva repetida captada meses antes desde un simple email</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="container">
+    <span class="tag">Precios</span>
+    <h2 class="stitle">Prospecci&oacute;n inteligente a una fracci&oacute;n del coste de un SDR</h2>
+    <p class="sdesc">Sin permanencia. Comunicaciones ilimitadas. Empieza a detectar oportunidades desde el primer d&iacute;a</p>
+    <div class="pr-grid">
+      <div class="pr-card fi">
+        <div class="pr-name">Prospect Starter</div>
+        <div class="pr-amt"><span class="cur">&euro;</span><span class="num">59</span><span class="per">/mes</span></div>
+        <div class="pr-users">1 usuario &bull; Hasta 500 comunicaciones/mes</div>
+        <ul class="pr-feats">
+          <li>Detecci&oacute;n de se&ntilde;ales de compra</li>
+          <li>Lead scoring b&aacute;sico</li>
+          <li>Alertas por email</li>
+          <li>3 canales (llamadas, email, WhatsApp)</li>
+          <li>Panel de oportunidades</li>
+        </ul>
+        <a href="#contacto" class="btn btn-outline" style="width:100%;justify-content:center">Empezar &rarr;</a>
+      </div>
+      <div class="pr-card feat fi s1">
+        <div class="pr-name" style="color:var(--purple)">Prospect Pro</div>
+        <div class="pr-amt"><span class="cur">&euro;</span><span class="num">99</span><span class="per">/mes</span></div>
+        <div class="pr-users">Hasta 3 usuarios &bull; Comunicaciones ilimitadas</div>
+        <ul class="pr-feats">
+          <li>Todo de Starter</li>
+          <li>5 canales completos</li>
+          <li>Lead scoring avanzado con IA</li>
+          <li>Pipeline predictivo</li>
+          <li>Integraci&oacute;n CRM nativa</li>
+          <li>Alertas en tiempo real</li>
+        </ul>
+        <a href="#contacto" class="btn btn-primary" style="width:100%;justify-content:center">Activar Prospect Pro &rarr;</a>
+      </div>
+      <div class="pr-card fi s2">
+        <div class="pr-name" style="color:var(--green)">Prospect + 360</div>
+        <div class="pr-amt"><span class="cur">&euro;</span><span class="num">149</span><span class="per">/mes</span></div>
+        <div class="pr-users">Hasta 5 usuarios &bull; Comunicaciones ilimitadas</div>
+        <ul class="pr-feats">
+          <li>Todo de Pro</li>
+          <li>FENIX 360 incluido (Hub + Anal&iacute;tica)</li>
+          <li>Reactivaci&oacute;n autom&aacute;tica de leads</li>
+          <li>Upsell y venta cruzada IA</li>
+          <li>Onboarding personalizado</li>
+          <li>Soporte prioritario</li>
+        </ul>
+        <a href="#contacto" class="btn btn-outline" style="width:100%;justify-content:center">Hablar con ventas &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARATIVA -->
+<section>
+  <div class="container center">
+    <span class="tag">Comparativa</span>
+    <h2 class="stitle">FENIX Prospect vs m&eacute;todos tradicionales</h2>
+    <p class="sdesc" style="margin:0 auto 1.5rem">La prospecci&oacute;n manual consume horas. La IA lo hace en segundos con datos que ya tienes</p>
+    <div class="table-wrapper">
+      <table class="cmp-tbl">
+        <thead><tr><th>M&eacute;todo</th><th>Coste/mes</th><th>Tiempo setup</th><th>Se&ntilde;ales IA</th><th>Lead scoring</th><th>Multicanal</th><th>Reactivaci&oacute;n</th></tr></thead>
+        <tbody>
+          <tr><td>SDR dedicado</td><td>~2.500&euro;</td><td>2-3 meses</td><td class="x">&#10007;</td><td class="x">&#10007;</td><td class="x">&#10007;</td><td class="x">&#10007;</td></tr>
+          <tr><td>Llamadas en fr&iacute;o</td><td>~800&euro;</td><td>1 mes</td><td class="x">&#10007;</td><td class="x">&#10007;</td><td class="x">&#10007;</td><td class="x">&#10007;</td></tr>
+          <tr><td>Bases de datos</td><td>~300&euro;</td><td>1-2 semanas</td><td class="x">&#10007;</td><td class="x">&#10007;</td><td class="x">&#10007;</td><td class="x">&#10007;</td></tr>
+          <tr><td>Herramientas outbound</td><td>~200&euro;</td><td>1 semana</td><td class="x">&#10007;</td><td class="v">&#10003;</td><td class="x">&#10007;</td><td class="x">&#10007;</td></tr>
+          <tr><td><strong>FENIX Prospect</strong></td><td><strong>Desde 59&euro;</strong></td><td><strong>&lt;24h</strong></td><td class="v">&#10003;</td><td class="v">&#10003;</td><td class="v">&#10003;</td><td class="v">&#10003;</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section style="background:var(--bg2);border-top:1px solid var(--border)">
+  <div class="container">
+    <span class="tag">Preguntas frecuentes</span>
+    <h2 class="stitle">Resolvemos tus dudas</h2>
+    <div class="faq-list">
+      <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">&iquest;Necesito tener FENIX 360 o FENIX Pulse para usar Prospect?</div><div class="faq-a"><p>No. FENIX Prospect funciona de forma independiente. Se conecta directamente a tus canales de comunicaci&oacute;n. Si ya tienes FENIX 360, Prospect se integra autom&aacute;ticamente y comparte los datos de anal&iacute;tica</p></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">&iquest;Qu&eacute; tipo de se&ntilde;ales detecta la IA?</div><div class="faq-a"><p>Intenciones de compra, menciones de presupuesto, urgencias temporales (&laquo;lo necesitamos para marzo&raquo;), insatisfacci&oacute;n con proveedores actuales, nuevas necesidades en clientes existentes y reactivaci&oacute;n de contactos inactivos</p></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">&iquest;C&oacute;mo se integra con mi CRM?</div><div class="faq-a"><p>Integraci&oacute;n nativa con Salesforce, HubSpot, Pipedrive, Holded y Zoho. Las oportunidades detectadas se crean directamente como deals en tu CRM con todo el contexto. Tambi&eacute;n ofrecemos API REST y webhooks</p></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">&iquest;Funciona con comunicaciones antiguas o solo nuevas?</div><div class="faq-a"><p>Ambas. Al conectar tus canales, FENIX analiza el historial disponible (hasta 90 d&iacute;as atr&aacute;s) para detectar oportunidades que ya exist&iacute;an. A partir de ah&iacute;, analiza todo en tiempo real</p></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">&iquest;Cumple con el RGPD?</div><div class="faq-a"><p>S&iacute;. Datos alojados en la UE. Encriptaci&oacute;n AES-256 en reposo y en tr&aacute;nsito. Cumplimiento total del RGPD. DPA disponible bajo petici&oacute;n. No vendemos ni compartimos tus datos</p></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">&iquest;Cu&aacute;nto tarda en dar resultados?</div><div class="faq-a"><p>D&iacute;a 1: conexi&oacute;n de canales y an&aacute;lisis del historial. D&iacute;a 2-3: primeras oportunidades detectadas. Semana 1: pipeline con datos reales. El lead scoring mejora con el uso</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-sec" id="contacto">
+  <div class="container center">
+    <span class="tag">Empieza hoy</span>
+    <h2 class="stitle">Tus comunicaciones ya contienen las oportunidades.<br>&iquest;Vas a seguir dej&aacute;ndolas escapar?</h2>
+    <p class="sdesc" style="margin:1rem auto 2.5rem">Demo gratuita de 30 min con tus datos reales. Te ense&ntilde;amos cu&aacute;ntas oportunidades est&aacute;s perdiendo hoy</p>
+    <div class="trust-strip">
+      <div class="trust-item"><strong>&#10003;</strong> Sin permanencia</div>
+      <div class="trust-item"><strong>&#10003;</strong> Activo en &lt;24h</div>
+      <div class="trust-item"><strong>&#10003;</strong> Cumple RGPD</div>
+      <div class="trust-item"><strong>&#10003;</strong> Cancela cuando quieras</div>
+    </div>
+    <form id="prospect-form" style="max-width:460px;margin:0 auto;display:flex;flex-direction:column;gap:.85rem" onsubmit="submitForm(event)">
+      <input type="text" name="name" placeholder="Tu nombre" required>
+      <input type="email" name="email" placeholder="Email corporativo" required>
+      <input type="text" name="company" placeholder="Empresa y n&uacute;mero de empleados">
+      <select name="plan" required><option value="" disabled selected>Plan de inter&eacute;s</option><option>Prospect Starter (59&euro;/mes)</option><option>Prospect Pro (99&euro;/mes)</option><option>Prospect + 360 (149&euro;/mes)</option><option>Necesito m&aacute;s informaci&oacute;n</option></select>
+      <label style="display:flex;align-items:flex-start;gap:.5rem;cursor:pointer;text-align:left">
+        <input type="checkbox" name="privacy" required style="margin-top:3px;accent-color:var(--teal);flex-shrink:0;width:16px;height:16px">
+        <span style="font-size:.72rem;color:rgba(255,255,255,.5);line-height:1.5">He le&iacute;do y acepto la <a href="https://www.fenixia.tech/privacidad" target="_blank" style="color:var(--teal-light);text-decoration:underline">Pol&iacute;tica de Privacidad</a> y consiento el tratamiento de mis datos para gestionar mi solicitud de demo</span>
+      </label>
+      <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;padding:.95rem;font-size:.95rem">Solicitar demo gratuita &rarr;</button>
+      <p style="font-size:.68rem;color:rgba(255,255,255,.35);line-height:1.6;text-align:left">Responsable: FENIX IA SOLUTIONS S.L. Finalidad: gestionar tu solicitud y contactarte para la demo. Base jur&iacute;dica: consentimiento del interesado (art. 6.1.a RGPD). Destinatarios: Holded (encargado de tratamiento). Derechos: acceso, rectificaci&oacute;n, supresi&oacute;n, oposici&oacute;n, portabilidad y limitaci&oacute;n escribiendo a <a href="mailto:privacidad@fenixia.tech" style="color:rgba(255,255,255,.5)">privacidad@fenixia.tech</a>. M&aacute;s info en <a href="https://www.fenixia.tech/privacidad" target="_blank" style="color:rgba(255,255,255,.5)">Pol&iacute;tica de Privacidad</a></p>
+    </form>
+    <div id="ok" style="display:none;padding:1.8rem;background:rgba(13,148,136,.1);border-radius:10px;border:1px solid rgba(13,148,136,.2);max-width:460px;margin:0 auto">
+      <p style="font-size:1.2rem;font-weight:700;color:var(--teal-light);margin-bottom:.4rem">&#10003; Recibido</p>
+      <p style="color:rgba(255,255,255,.7);font-size:.92rem">Te contactaremos en menos de 24 horas para agendar tu demo de Prospect</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-inner">
+    <div class="ft-brand"><img src="logo.png?v=2" alt="FENIX IA" style="height:32px;vertical-align:middle;margin-right:5px;opacity:.55;filter:brightness(1.1)">FENIX <em>IA</em></div>
+    <div class="ft-links">
+      <a href="index.html">Inicio</a>
+      <a href="#funcionalidades">Funcionalidades</a>
+      <a href="#pricing">Precios</a>
+      <a href="#casos-uso">Casos de uso</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+  </div>
+  <div class="ft-legal">
+    <a href="https://www.fenixia.tech/terminos" target="_blank">T&eacute;rminos y Condiciones</a>
+    <a href="https://www.fenixia.tech/privacidad" target="_blank">Pol&iacute;tica de Privacidad</a>
+    <a href="https://www.fenixia.tech/cookies" target="_blank">Pol&iacute;tica de Cookies</a>
+  </div>
+  <div class="ft-copy">&copy; 2026 FENIXIA SOLUTIONS S.L. &mdash; CIF: B22739668 &mdash; C/ La Paz 83, 03320 Elx/Elche (Alicante) &mdash; <a href="mailto:info@fenixia.tech" style="color:var(--text4)">info@fenixia.tech</a></div>
+</footer>
+
+<script>
+const n=document.getElementById('navbar');
+window.addEventListener('scroll',()=>n.classList.toggle('scrolled',scrollY>50));
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('vis');obs.unobserve(x.target)}})},{threshold:.12});
+document.querySelectorAll('.fi').forEach(e=>obs.observe(e));
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'})}));
+
+function toggleMobileMenu(){
+  document.querySelector('.mobile-menu').classList.toggle('active');
+  document.querySelector('.mobile-overlay').classList.toggle('active');
+  document.body.style.overflow=document.querySelector('.mobile-menu').classList.contains('active')?'hidden':'';
+}
+
+async function submitForm(e){
+  e.preventDefault();
+  const form=e.target;
+  const btn=form.querySelector('button[type="submit"]');
+  const orig=btn.textContent;
+  btn.textContent='Enviando...';btn.disabled=true;
+  const data={
+    name:form.querySelector('[name="name"]').value,
+    email:form.querySelector('[name="email"]').value,
+    company:form.querySelector('[name="company"]').value,
+    plan:form.querySelector('[name="plan"]').value,
+    source:'prospect',
+    privacy_accepted:form.querySelector('[name="privacy"]').checked,
+    privacy_accepted_at:new Date().toISOString()
+  };
+  try{
+    await fetch('https://fenix-leads-proxy.proveedores-702.workers.dev',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify(data)
+    });
+  }catch(err){console.warn('Lead submit:',err.message)}
+  form.style.display='none';
+  document.getElementById('ok').style.display='block';
+}
+</script>
+</body>
+</html>
