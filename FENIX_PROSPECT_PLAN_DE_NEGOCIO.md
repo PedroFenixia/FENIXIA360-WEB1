@@ -236,6 +236,7 @@ El tier gratuito permite que el prospect pruebe la base de datos de registros p�
 
 | Competidor | Precio | Datos | Target | Fortalezas | Debilidades |
 |-----------|--------|-------|--------|-----------|------------|
+| **LibreBOR** | Freemium + planes de pago | BORME (6M+ registros), actos, cargos | Periodistas, abogados, investigadores, PYMEs | Open source, 10 años de historial, API, BD enorme | Sin IA, sin comunicaciones, sin licitaciones, sin scoring comercial |
 | **Axesor (Informa D&B)** | Desde €200/mes | BORME, financieros, scoring | Empresas medianas | Datos exhaustivos, marca conocida | Caro, interfaz antigua, sin IA |
 | **eInforma** | Desde €100/mes | BORME, crédito | PYMEs | Informes de crédito | Sin prospección activa, sin comunicaciones |
 | **Infocif** | Freemium | CIF, datos básicos | Todos | Gratis para datos básicos | Datos limitados, sin scoring avanzado |
@@ -245,15 +246,99 @@ El tier gratuito permite que el prospect pruebe la base de datos de registros p�
 
 #### Posicionamiento de FENIX Prospect
 
-| Competidor | Señales IA en comunicaciones | Registros públicos (BORME) | Licitaciones | Lead scoring | Multicanal (5ch) | Precio PYME |
-|-----------|:---:|:---:|:---:|:---:|:---:|:---:|
-| Gong | ✓ | ✗ | ✗ | ✗ | ✗ | ✗ |
-| Axesor | ✗ | ✓ | ✗ | ✓ | ✗ | ✗ |
-| LinkedIn Sales Nav | ✗ | ✗ | ✗ | ✓ | ✗ | ✓ |
-| Licitia | ✗ | ✗ | ✓ | ✗ | ✗ | ✓ |
-| **FENIX Prospect** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** |
+| Competidor | Señales IA en comunicaciones | Registros públicos (BORME) | Licitaciones | Lead scoring | Multicanal (5ch) | Scoring solvencia | Precio PYME |
+|-----------|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| Gong | ✓ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ |
+| LibreBOR | ✗ | ✓ | ✗ | ✗ | ✗ | ✗ | ✓ |
+| Axesor | ✗ | ✓ | ✗ | ✓ | ✗ | ✓ | ✗ |
+| LinkedIn Sales Nav | ✗ | ✗ | ✗ | ✓ | ✗ | ✗ | ✓ |
+| Licitia | ✗ | ✗ | ✓ | ✗ | ✗ | ✗ | ✓ |
+| **FENIX Prospect** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** | **✓** |
 
 **FENIX Prospect es la única plataforma que combina ambos mundos.**
+
+### 4.2 Análisis detallado: LibreBOR como competidor directo
+
+LibreBOR (librebor.me) es el competidor más relevante en el segmento de datos BORME en España. Creado en 2014 por Pablo Castellano como proyecto open source (LibreBORME), desde 2025 opera bajo modelo freemium. Es la referencia de mercado para la consulta de datos mercantiles.
+
+#### Perfil de LibreBOR
+
+| Aspecto | LibreBOR |
+|---------|---------|
+| **Fundación** | 2014 (10+ años de historial de datos) |
+| **Modelo** | Freemium (búsquedas gratuitas limitadas/día, planes de pago) |
+| **Base de datos** | 6+ millones de registros mercantiles |
+| **Fuentes** | BORME (Registro Mercantil) |
+| **Código** | Open source (Affero GPL v3), código en GitHub |
+| **API** | Sí — API REST para integración, con planes de pago |
+| **Conector Microsoft** | Sí — Power Automate connector disponible |
+| **Usuarios tipo** | Periodistas, abogados, funcionarios, ONGs, investigadores |
+| **Equipo** | Fundador individual + comunidad open source |
+| **Tecnología** | Python (bormeparser), Django |
+
+#### Comparativa directa: LibreBOR vs FENIX Prospect
+
+| Funcionalidad | LibreBOR | FENIX Prospect |
+|--------------|----------|---------------|
+| **Datos BORME** | ✓ 6M+ registros, 10+ años de historial | ✓ Ingesta diaria (~2.200 empresas/día), historial creciente |
+| **Búsqueda de empresas** | ✓ Por nombre, CIF, persona, provincia | ✓ Por nombre, CIF, provincia, forma jurídica, CNAE, capital, fecha, scoring |
+| **Actos mercantiles** | ✓ Constituciones, nombramientos, ceses | ✓ Constituciones, nombramientos, ceses, ampliaciones, disoluciones |
+| **Relaciones persona-empresa** | ✓ Grafo de relaciones entre personas y sociedades | ✗ Solo listado de cargos por empresa |
+| **Licitaciones públicas (PLACSP)** | ✗ | ✓ Ingesta diaria automatizada |
+| **Subvenciones (BOE)** | ✗ | ✓ Ingesta diaria automatizada |
+| **Avisos judiciales** | ✗ | ✓ Concursos de acreedores, embargos |
+| **Scoring de solvencia** | ✗ | ✓ Algoritmo propio (0-100) basado en actos + judiciales |
+| **Enriquecimiento de datos** | ✗ | ✓ CIF automático (APIEmpresas), web scraping (email, teléfono) |
+| **Exportación CSV/Excel** | Limitado (según plan) | ✓ Con 12+ campos, según plan |
+| **Lista de seguimiento + alertas** | ✗ | ✓ Watchlist con alertas de actividad en tiempo real |
+| **Análisis IA de comunicaciones** | ✗ | ✓ 5 canales: llamadas, email, WhatsApp, Telegram, Meta |
+| **Detección de señales de compra** | ✗ | ✓ IA extrae intenciones de compra de comunicaciones |
+| **Lead scoring** | ✗ | ✓ Basado en actividad real + datos mercantiles |
+| **Pipeline predictivo** | ✗ | ✓ Embudo con predicción de cierre |
+| **Integración CRM** | ✗ (solo API genérica) | ✓ Nativa: Salesforce, HubSpot, Pipedrive, Holded, Zoho |
+| **API** | ✓ REST con planes de pago | ✓ REST con documentación completa |
+| **Open source** | ✓ AGPL v3 | ✗ SaaS propietario |
+| **Precio** | Freemium + planes de pago | Desde 59€/mes |
+
+#### Fortalezas de LibreBOR que FENIX debe considerar
+
+1. **10+ años de datos históricos**: LibreBOR tiene registros desde 2009. FENIX Prospect empieza con historial limitado. Para usuarios que necesitan datos antiguos (abogados, investigadores), LibreBOR es superior.
+
+2. **6 millones de registros**: Base de datos masiva ya construida. FENIX necesita tiempo para acumular este volumen.
+
+3. **Open source y comunidad**: La transparencia del código genera confianza en ciertos segmentos (periodistas, ONGs). Además, la comunidad contribuye con mejoras.
+
+4. **Grafo de relaciones**: LibreBOR permite ver las conexiones entre personas y empresas — funcionalidad valiosa para investigación y due diligence que FENIX no ofrece actualmente.
+
+5. **Marca reconocida**: 10 años de presencia, citado en medios de comunicación y portales de datos abiertos (datos.gob.es).
+
+#### Debilidades de LibreBOR que FENIX explota
+
+1. **Solo datos BORME**: LibreBOR es un buscador de datos mercantiles. No analiza comunicaciones, no detecta señales de compra, no tiene IA. Es una herramienta de consulta, no de prospección activa.
+
+2. **Sin licitaciones ni subvenciones**: No cubre PLACSP ni BOE Sección V.B. Las oportunidades del sector público quedan fuera.
+
+3. **Sin scoring comercial ni solvencia**: No evalúa el riesgo ni la oportunidad comercial. Solo muestra datos crudos.
+
+4. **Sin enriquecimiento de contacto**: No proporciona email, teléfono ni web de las empresas. El usuario tiene que buscar manualmente.
+
+5. **Sin alertas proactivas**: No permite monitorizar empresas ni recibir notificaciones cuando hay actividad relevante.
+
+6. **Sin integración CRM**: No se conecta nativamente con herramientas de ventas. Los datos se consultan pero no fluyen al pipeline comercial.
+
+7. **Equipo mínimo**: Proyecto de un solo fundador. El desarrollo de nuevas funcionalidades depende de una persona + voluntarios.
+
+8. **Target no comercial**: Diseñado para investigadores, no para equipos de ventas. La UX no está orientada a la prospección comercial.
+
+#### Estrategia de FENIX Prospect frente a LibreBOR
+
+| Estrategia | Acción |
+|-----------|--------|
+| **Coexistencia, no confrontación** | LibreBOR sirve a investigadores y periodistas; FENIX sirve a equipos comerciales. Los targets apenas se solapan |
+| **Diferenciación por valor añadido** | FENIX no compite en datos crudos BORME (LibreBOR tiene más historial). FENIX compite en lo que hace con esos datos: scoring, enriquecimiento, alertas, IA, CRM |
+| **Complementariedad posible** | Evaluar integrar la API de LibreBOR como fuente de datos históricos, enriqueciendo la base propia con los 6M+ registros de LibreBOR |
+| **SEO diferenciado** | LibreBOR domina "consultar BORME", "empresas registro mercantil". FENIX debe posicionarse en "prospección comercial", "encontrar clientes", "lead scoring empresas" |
+| **Motor de IA como barrera** | LibreBOR no puede añadir IA de comunicaciones ni análisis multicanal fácilmente. Es la mayor barrera competitiva de FENIX |
 
 ### 4.2 Ventajas competitivas
 
@@ -282,7 +367,8 @@ El tier gratuito permite que el prospect pruebe la base de datos de registros p�
 | | 285.000+ PYMEs target en España | Axesor/Informa bajan precios o añaden IA |
 | | ~200.000M€/año en licitaciones públicas | Gong lanza plan PYME con datos españoles |
 | | Baja adopción de herramientas de prospección en PYMEs | Cambios en formato/acceso a BORME/BOE |
-| | Kit Digital como acelerador | LinkedIn Sales Navigator añade datos mercantiles |
+| | Kit Digital como acelerador | LibreBOR añade funcionalidades comerciales o IA |
+| | LibreBOR cubre investigación, no ventas (mercados distintos) | LinkedIn Sales Navigator añade datos mercantiles |
 | | Expansión a LATAM (mismo idioma, registros similares) | Guerra de precios en el segmento |
 
 ---
