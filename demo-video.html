@@ -43,6 +43,9 @@ body.embedded .player{max-width:100%;max-height:100%;height:100vh;border-radius:
 .dot.active{background:var(--teal);transform:scale(1.3)}
 .play-pause{position:absolute;bottom:14px;right:20px;background:none;border:none;color:rgba(255,255,255,.4);font-size:1.1rem;cursor:pointer;z-index:10;transition:color .2s}
 .play-pause:hover{color:#fff}
+.sound-btn{position:absolute;bottom:14px;left:20px;background:rgba(13,148,136,.2);border:1px solid rgba(13,148,136,.4);color:var(--teal-light);font-size:.7rem;font-weight:600;padding:4px 12px;border-radius:100px;cursor:pointer;z-index:10;font-family:var(--font);transition:all .2s}
+.sound-btn:hover{background:rgba(13,148,136,.3)}
+.sound-btn.active{background:var(--teal);color:#fff;border-color:var(--teal)}
 
 /* SCENE 1: IMAGINE */
 .s1-title{font-size:2.8rem;font-weight:900;text-align:center;line-height:1.15;opacity:0;animation:none}
@@ -257,6 +260,7 @@ body.embedded .player{max-width:100%;max-height:100%;height:100vh;border-radius:
   <!-- CONTROLS -->
   <div class="controls" id="controls"></div>
   <button class="play-pause" id="playPause" onclick="togglePlay()">&#10074;&#10074;</button>
+  <button class="sound-btn" id="soundBtn" onclick="toggleSound()">&#128264; Activar voz</button>
 </div>
 
 <script>
@@ -269,6 +273,50 @@ let playing = true;
 let timer = null;
 let sceneStart = 0;
 let elapsed = 0;
+let voiceReady = false;
+let spanishVoice = null;
+let narrationStarted = false;
+
+// NARRATION TEXTS
+const narrations = [
+  'Imagina tener un equipo de calidad escuchando cada llamada, cada email, cada WhatsApp de tu empresa. Sin contratar a nadie. Sin escuchar una sola llamada. Automáticamente.',
+  'Hoy, tu equipo usa cinco canales distintos. Nadie ve el panorama completo. Los clientes se van en silencio. Y las oportunidades de venta desaparecen en el ruido.',
+  'Con FENIX, la inteligencia artificial escucha cada comunicación en tiempo real. Detecta el sentimiento, las palabras clave y genera alertas cuando algo requiere tu atención.',
+  'Tú defines las preguntas que importan para tu negocio. La IA escucha y responde automáticamente. Por ejemplo: ¿el cliente ha mencionado irse? Sí. Alerta. El cliente dijo: si no se resuelve, me cambio.',
+  'Todo se refleja en tu panel en tiempo real. Trescientas cuarenta y siete comunicaciones hoy. Doce oportunidades detectadas. Dos alertas de riesgo. Tienes el control sin escuchar una sola llamada.',
+  'Imagina dejar de adivinar. Empieza a escuchar. Desde noventa y nueve euros al mes. Cinco canales. Comunicaciones ilimitadas. Activo en menos de veinticuatro horas. Solicita tu demo gratuita.'
+];
+
+// Find Spanish voice
+function loadVoices() {
+  const voices = speechSynthesis.getVoices();
+  // Prefer a natural-sounding Spanish voice
+  spanishVoice = voices.find(v => v.lang.startsWith('es') && v.name.includes('Mónica'))
+    || voices.find(v => v.lang.startsWith('es') && v.name.includes('Monica'))
+    || voices.find(v => v.lang.startsWith('es') && v.name.includes('Paulina'))
+    || voices.find(v => v.lang.startsWith('es') && v.name.includes('Jorge'))
+    || voices.find(v => v.lang.startsWith('es') && !v.name.includes('Google'))
+    || voices.find(v => v.lang.startsWith('es'));
+  if (spanishVoice) voiceReady = true;
+}
+speechSynthesis.onvoiceschanged = loadVoices;
+loadVoices();
+
+function speak(text) {
+  speechSynthesis.cancel();
+  if (!voiceReady || !text) return;
+  const utt = new SpeechSynthesisUtterance(text);
+  utt.voice = spanishVoice;
+  utt.lang = 'es-ES';
+  utt.rate = 1.05;
+  utt.pitch = 1;
+  utt.volume = 1;
+  speechSynthesis.speak(utt);
+}
+
+function stopSpeech() {
+  speechSynthesis.cancel();
+}
 
 // Create dots
 scenes.forEach((_, i) => {
@@ -326,6 +374,9 @@ function goTo(index) {
   sceneStart = Date.now();
   requestAnimationFrame(updateProgress);
 
+  // Narrate
+  if (narrationStarted && playing) speak(narrations[current]);
+
   if (playing) scheduleNext();
 }
 
@@ -343,11 +394,28 @@ function togglePlay() {
   playing = !playing;
   playPauseBtn.innerHTML = playing ? '&#10074;&#10074;' : '&#9654;';
   if (playing) {
+    narrationStarted = true;
     sceneStart = Date.now();
     requestAnimationFrame(updateProgress);
+    speak(narrations[current]);
     scheduleNext();
   } else {
     clearTimeout(timer);
+    stopSpeech();
+  }
+}
+
+function toggleSound() {
+  const btn = document.getElementById('soundBtn');
+  narrationStarted = !narrationStarted;
+  if (narrationStarted) {
+    btn.classList.add('active');
+    btn.innerHTML = '&#128266; Voz activada';
+    if (playing) speak(narrations[current]);
+  } else {
+    btn.classList.remove('active');
+    btn.innerHTML = '&#128264; Activar voz';
+    stopSpeech();
   }
 }
 
