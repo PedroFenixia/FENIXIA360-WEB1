@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FENIX IA &mdash; Dossier Comercial</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --ink:#0f172a;--ink2:#334155;--ink3:#64748b;--ink4:#94a3b8;
+  --bg:#ffffff;--bg2:#f8fafc;--bg3:#f1f5f9;
+  --accent:#7c3aed;--accent2:#6d28d9;--accent-pale:#ede9fe;
+  --teal:#0d9488;--green:#059669;--orange:#d97706;
+  --border:#e2e8f0;
+  --font:'Inter',system-ui,-apple-system,sans-serif;
+}
+html{font-size:13px}
+body{font-family:var(--font);color:var(--ink2);line-height:1.5;background:#fff;-webkit-font-smoothing:antialiased;-webkit-print-color-adjust:exact !important;print-color-adjust:exact !important;color-adjust:exact !important}
+
+/* === A4 PAGE LAYOUT === */
+.page{
+  width:210mm;max-width:210mm;height:297mm;
+  margin:0 auto;padding:10mm 14mm 8mm;
+  position:relative;overflow:hidden;
+}
+
+/* HEADER */
+.header{display:flex;justify-content:space-between;align-items:center;padding-bottom:7px;border-bottom:2.5px solid var(--accent);margin-bottom:8px}
+.header-left{display:flex;align-items:center;gap:8px}
+.header-logo{height:30px;opacity:.75}
+.header-brand{font-size:1.25rem;font-weight:900;color:var(--ink);letter-spacing:.3px}
+.header-brand em{font-style:normal;color:var(--accent)}
+.header-right{text-align:right}
+.header-right .tagline{font-size:.65rem;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:1.5px}
+.header-right .sub{font-size:.58rem;color:var(--ink4);margin-top:1px}
+
+/* HERO BANNER */
+.hero-banner{
+  background-color:#312e81;
+  background-image:linear-gradient(135deg,#1e1b4b 0%,#312e81 50%,#4c1d95 100%);
+  color:#fff;border-radius:8px;padding:12px 18px;margin-bottom:8px;
+  position:relative;overflow:hidden;
+}
+.hero-banner h1{font-size:1.35rem;font-weight:900;line-height:1.2;margin-bottom:3px;position:relative;z-index:1}
+.hero-banner h1 span{color:#c4b5fd}
+.hero-banner p{font-size:.7rem;color:#d1d5db;max-width:480px;position:relative;z-index:1;line-height:1.4}
+.hero-stats-row{display:flex;gap:12px;margin-top:8px;position:relative;z-index:1}
+.hero-stat{text-align:center;padding:4px 10px;background-color:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.15);border-radius:5px}
+.hero-stat .v{font-size:.95rem;font-weight:900;color:#fff}
+.hero-stat .l{font-size:.5rem;color:#d1d5db;text-transform:uppercase;letter-spacing:.7px}
+
+/* SECTION TITLES */
+.section-title{font-size:.6rem;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--accent);margin-bottom:5px;display:flex;align-items:center;gap:5px}
+.section-title::before{content:'';width:12px;height:2px;background:var(--accent);border-radius:2px}
+
+/* PRODUCTS GRID */
+.products{display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px;margin-bottom:8px}
+.product{border:1px solid var(--border);border-radius:7px;padding:8px 10px;position:relative;background:var(--bg)}
+.product.featured{border-color:var(--accent);border-width:2px}
+.product-badge{position:absolute;top:-7px;right:10px;background-color:var(--accent);color:#fff;font-size:.45rem;font-weight:800;padding:2px 7px;border-radius:100px;letter-spacing:1px;text-transform:uppercase}
+.product-icon{font-size:1rem;margin-bottom:2px}
+.product-name{font-size:.85rem;font-weight:900;color:var(--ink)}
+.product-name .a1{color:var(--teal)}.product-name .a2{color:var(--green)}.product-name .a3{color:var(--accent)}
+.product-type{font-size:.5rem;color:var(--ink4);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px}
+.product-desc{font-size:.6rem;color:var(--ink3);line-height:1.4;margin-bottom:5px}
+.product-price{display:flex;align-items:baseline;gap:2px;margin-bottom:5px}
+.product-price .amount{font-size:1.3rem;font-weight:900;color:var(--ink);letter-spacing:-1px}
+.product-price .currency{font-size:.65rem;color:var(--ink3);font-weight:600}
+.product-price .period{font-size:.58rem;color:var(--ink4)}
+.product-features{list-style:none;display:flex;flex-direction:column;gap:2px}
+.product-features li{font-size:.58rem;color:var(--ink2);display:flex;align-items:flex-start;gap:3px}
+.product-features li::before{content:'\2713';color:var(--accent);font-weight:700;font-size:.55rem;flex-shrink:0;margin-top:1px}
+
+/* CHANNELS STRIP */
+.channels{display:flex;gap:6px;margin-bottom:6px}
+.channel{flex:1;text-align:center;padding:5px 4px;border-radius:6px;background-color:var(--bg2);border:1px solid var(--border)}
+.channel-icon{font-size:.85rem;margin-bottom:1px}
+.channel-name{font-size:.62rem;font-weight:700;color:var(--ink)}
+.channel-sub{font-size:.48rem;color:var(--ink4)}
+
+/* USP STRIP */
+.usp-strip{display:flex;gap:6px;margin-bottom:7px}
+.usp{flex:1;display:flex;align-items:center;gap:4px;padding:4px 7px;background-color:var(--accent-pale);border-radius:5px}
+.usp-icon{font-size:.7rem;flex-shrink:0}
+.usp-text{font-size:.52rem;font-weight:600;color:var(--accent2);line-height:1.3}
+
+/* TWO COLUMN BOTTOM */
+.bottom-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:8px}
+
+/* PRICING TABLE */
+.pricing-table{width:100%;border-collapse:collapse;font-size:.56rem}
+.pricing-table th{background-color:var(--bg3);padding:3px 5px;text-align:left;font-weight:700;color:var(--ink3);text-transform:uppercase;letter-spacing:.5px;font-size:.5rem;border-bottom:1.5px solid var(--border)}
+.pricing-table td{padding:3px 5px;border-bottom:1px solid var(--border);color:var(--ink2)}
+.pricing-table .hl{color:var(--accent);font-weight:700}
+.pricing-table tr:last-child td{border-bottom:none}
+
+/* SECTORS */
+.sectors-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:4px}
+.sector{text-align:center;padding:4px 3px;border-radius:5px;background-color:var(--bg2);border:1px solid var(--border)}
+.sector-icon{font-size:.75rem}
+.sector-name{font-size:.52rem;font-weight:700;color:var(--ink)}
+.sector-desc{font-size:.43rem;color:var(--ink4);line-height:1.3}
+
+/* COMPARISON */
+.compare-table{width:100%;border-collapse:collapse;font-size:.54rem;margin-top:4px}
+.compare-table th{background-color:var(--bg3);padding:3px 4px;text-align:left;font-weight:700;color:var(--ink3);text-transform:uppercase;letter-spacing:.5px;font-size:.48rem;border-bottom:1.5px solid var(--border)}
+.compare-table td{padding:2px 4px;border-bottom:1px solid var(--border);color:var(--ink2)}
+.compare-table .yes{color:var(--green);font-weight:700}
+.compare-table .no{color:#dc2626;font-weight:600}
+.compare-table tr:last-child{background-color:var(--accent-pale)}
+.compare-table tr:last-child td{color:var(--accent);font-weight:700}
+
+/* RESULTS */
+.result-row{display:flex;align-items:center;gap:6px;padding:4px 8px;background-color:var(--bg2);border-radius:5px;border:1px solid var(--border)}
+.result-val{font-size:.85rem;font-weight:900;min-width:42px}
+.result-txt{font-size:.52rem;color:var(--ink2)}
+
+/* FOOTER */
+.footer{border-top:2px solid var(--accent);padding-top:7px;display:flex;justify-content:space-between;align-items:flex-end;position:absolute;bottom:8mm;left:14mm;right:14mm}
+.footer-left .cta{font-size:.82rem;font-weight:900;color:var(--ink);margin-bottom:1px}
+.footer-left .cta span{color:var(--accent)}
+.footer-left .cta-sub{font-size:.56rem;color:var(--ink3)}
+.footer-right{text-align:right;font-size:.52rem;color:var(--ink4);line-height:1.4}
+.footer-right a{color:var(--accent);text-decoration:none;font-weight:600}
+.footer-right .legal{font-size:.46rem;color:var(--ink4);margin-top:2px}
+
+/* === PRINT === */
+@media print{
+  @page{size:A4 portrait;margin:0}
+  body{-webkit-print-color-adjust:exact !important;print-color-adjust:exact !important;color-adjust:exact !important}
+  .page{width:210mm;height:297mm;padding:10mm 14mm 8mm;margin:0;overflow:hidden}
+  .product.featured{box-shadow:none}
+}
+
+/* === SCREEN RESPONSIVE === */
+@media screen and (max-width:800px){
+  .page{width:100%;height:auto;padding:20px 16px}
+  .products{grid-template-columns:1fr}
+  .channels{flex-wrap:wrap}
+  .channel{min-width:calc(33% - 6px)}
+  .bottom-row{grid-template-columns:1fr}
+  .sectors-grid{grid-template-columns:repeat(2,1fr)}
+  .usp-strip{flex-wrap:wrap}
+  .usp{min-width:calc(50% - 3px)}
+  .hero-stats-row{flex-wrap:wrap}
+  .footer{position:relative;bottom:auto;left:auto;right:auto}
+}
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-left">
+      <img src="logo.png" alt="FENIX IA" class="header-logo">
+      <div class="header-brand">FENIX <em>IA</em></div>
+    </div>
+    <div class="header-right">
+      <div class="tagline">Plataforma de Comunicaciones con IA</div>
+      <div class="sub">www.fenixia360.com &middot; info@fenixia.tech</div>
+    </div>
+  </div>
+
+  <!-- HERO BANNER -->
+  <div class="hero-banner">
+    <h1>5 canales. 1 plataforma. <span>0 puntos ciegos.</span></h1>
+    <p>Centraliza llamadas, email, WhatsApp, Telegram y Meta en un solo sitio. La IA analiza cada comunicaci&oacute;n para que sepas qu&eacute; pasa, qui&eacute;n se quiere ir y d&oacute;nde hay una oportunidad de venta.</p>
+    <div class="hero-stats-row">
+      <div class="hero-stat"><div class="v">99&euro;</div><div class="l">desde / mes</div></div>
+      <div class="hero-stat"><div class="v">&infin;</div><div class="l">Comunicaciones</div></div>
+      <div class="hero-stat"><div class="v">5</div><div class="l">Canales</div></div>
+      <div class="hero-stat"><div class="v">&lt;24h</div><div class="l">Activaci&oacute;n</div></div>
+      <div class="hero-stat"><div class="v">RGPD</div><div class="l">Datos en UE</div></div>
+    </div>
+  </div>
+
+  <!-- PRODUCTS -->
+  <div class="section-title">Productos</div>
+  <div class="products">
+    <div class="product">
+      <div class="product-icon">&#128200;</div>
+      <div class="product-name">FENIX <span class="a1">PULSE</span></div>
+      <div class="product-type">Anal&iacute;tica IA</div>
+      <div class="product-desc">La IA analiza todas tus comunicaciones para detectar oportunidades, riesgos y clientes insatisfechos.</div>
+      <div class="product-price"><span class="currency">&euro;</span><span class="amount">79</span><span class="period">/mes &middot; 1 usuario</span></div>
+      <ul class="product-features">
+        <li>Transcripci&oacute;n autom&aacute;tica de llamadas</li>
+        <li>An&aacute;lisis de sentimiento multicanal</li>
+        <li>Detecci&oacute;n de oportunidades y keywords</li>
+        <li>Alertas de riesgo de baja</li>
+        <li>Res&uacute;menes IA con recomendaciones</li>
+      </ul>
+    </div>
+    <div class="product featured">
+      <div class="product-badge">Mejor valor</div>
+      <div class="product-icon">&#9889;</div>
+      <div class="product-name">FENIX <span class="a3">360</span></div>
+      <div class="product-type">Todo en uno &mdash; Pulse + Connect</div>
+      <div class="product-desc">Ve todas las comunicaciones, la IA las analiza en tiempo real y respondes sin cambiar de herramienta.</div>
+      <div class="product-price"><span class="currency">&euro;</span><span class="amount">99</span><span class="period">/mes &middot; 1 usuario</span></div>
+      <ul class="product-features">
+        <li>Todo de FENIX Pulse + Connect</li>
+        <li>Comunicaciones ilimitadas</li>
+        <li>Puesta en marcha personalizada</li>
+        <li>Soporte prioritario</li>
+        <li>20% ahorro vs productos separados</li>
+      </ul>
+    </div>
+    <div class="product">
+      <div class="product-icon">&#128279;</div>
+      <div class="product-name">FENIX <span class="a2">CONNECT</span></div>
+      <div class="product-type">Hub de comunicaciones</div>
+      <div class="product-desc">Bandeja &uacute;nica para llamadas, email, WhatsApp, Telegram y Meta. Ve y responde desde un sitio.</div>
+      <div class="product-price"><span class="currency">&euro;</span><span class="amount">49</span><span class="period">/mes &middot; 1 usuario</span></div>
+      <ul class="product-features">
+        <li>Bandeja unificada 5 canales</li>
+        <li>Asignaci&oacute;n autom&aacute;tica por reglas</li>
+        <li>Historial completo por cliente</li>
+        <li>Integraci&oacute;n con CRMs</li>
+        <li>M&eacute;tricas de tiempo de respuesta</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- CHANNELS -->
+  <div class="section-title">Canales integrados</div>
+  <div class="channels">
+    <div class="channel"><div class="channel-icon">&#128222;</div><div class="channel-name">Llamadas</div><div class="channel-sub">Transcripci&oacute;n + IA</div></div>
+    <div class="channel"><div class="channel-icon">&#9993;</div><div class="channel-name">Email</div><div class="channel-sub">Hilos completos</div></div>
+    <div class="channel"><div class="channel-icon">&#128172;</div><div class="channel-name">WhatsApp</div><div class="channel-sub">Business API</div></div>
+    <div class="channel"><div class="channel-icon">&#9992;</div><div class="channel-name">Telegram</div><div class="channel-sub">Bots + canales</div></div>
+    <div class="channel"><div class="channel-icon">&#127760;</div><div class="channel-name">Meta</div><div class="channel-sub">Messenger + IG</div></div>
+  </div>
+
+  <!-- USP STRIP -->
+  <div class="usp-strip">
+    <div class="usp"><div class="usp-icon">&#128274;</div><div class="usp-text">RGPD &middot; Datos en UE &middot; AES-256</div></div>
+    <div class="usp"><div class="usp-icon">&#9889;</div><div class="usp-text">Activo en menos de 24h</div></div>
+    <div class="usp"><div class="usp-icon">&#128276;</div><div class="usp-text">Sin permanencia &middot; Cancela en 1 clic</div></div>
+    <div class="usp"><div class="usp-icon">&#8734;</div><div class="usp-text">Comunicaciones ilimitadas</div></div>
+  </div>
+
+  <!-- BOTTOM ROW -->
+  <div class="bottom-row">
+
+    <!-- LEFT: PRICING + COMPARE -->
+    <div>
+      <div class="section-title">Precios por tramo</div>
+      <table class="pricing-table">
+        <thead><tr><th>Usuarios</th><th>Pulse</th><th>Connect</th><th>360 Bundle</th><th>Onboard.</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>79&euro;</td><td>49&euro;</td><td class="hl">99&euro;/mes</td><td>desde 199&euro;</td></tr>
+          <tr><td>2</td><td>119&euro;</td><td>79&euro;</td><td class="hl">159&euro;/mes</td><td>desde 199&euro;</td></tr>
+          <tr><td>3-5</td><td>149&euro;</td><td>99&euro;</td><td class="hl">199&euro;/mes</td><td>desde 199&euro;</td></tr>
+          <tr><td>6-10</td><td>229&euro;</td><td>149&euro;</td><td class="hl">299&euro;/mes</td><td>desde 249&euro;</td></tr>
+          <tr><td>10+</td><td colspan="4" style="text-align:center;color:var(--ink4)">Precio personalizado</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:.44rem;color:var(--ink4);margin-top:2px">* 20% dto. anual. Onboarding: pago &uacute;nico. Comunicaciones ilimitadas.</p>
+
+      <div class="section-title" style="margin-top:7px">Comparativa</div>
+      <table class="compare-table">
+        <thead><tr><th>Plataforma</th><th>&euro;/user</th><th>&#128222;</th><th>&#9993;</th><th>&#128172;</th><th>&#9992;</th><th>&#127760;</th></tr></thead>
+        <tbody>
+          <tr><td>Gong</td><td>~275&euro;</td><td class="yes">&#10003;</td><td class="yes">&#10003;</td><td class="no">&#10007;</td><td class="no">&#10007;</td><td class="no">&#10007;</td></tr>
+          <tr><td>Ringover</td><td>~83&euro;</td><td class="yes">&#10003;</td><td class="no">&#10007;</td><td class="no">&#10007;</td><td class="no">&#10007;</td><td class="no">&#10007;</td></tr>
+          <tr><td>HubSpot CI</td><td>~90&euro;</td><td class="yes">&#10003;</td><td class="no">&#10007;</td><td class="no">&#10007;</td><td class="no">&#10007;</td><td class="no">&#10007;</td></tr>
+          <tr><td>Aircall</td><td>~79&euro;</td><td class="yes">&#10003;</td><td class="no">&#10007;</td><td class="no">&#10007;</td><td class="no">&#10007;</td><td class="no">&#10007;</td></tr>
+          <tr><td><strong>FENIX 360</strong></td><td><strong>~30&euro;</strong></td><td class="yes">&#10003;</td><td class="yes">&#10003;</td><td class="yes">&#10003;</td><td class="yes">&#10003;</td><td class="yes">&#10003;</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:.42rem;color:var(--ink4);margin-top:2px">* ~30&euro;/user en plan 6-10 usuarios</p>
+
+      <div class="section-title" style="margin-top:7px">Integraciones</div>
+      <p style="font-size:.54rem;color:var(--ink3);line-height:1.4">Salesforce &middot; HubSpot &middot; Pipedrive &middot; Zoho &middot; API REST &middot; Webhooks<br>Se conecta sobre tu infraestructura actual</p>
+    </div>
+
+    <!-- RIGHT: SECTORS + RESULTS -->
+    <div>
+      <div class="section-title">Sectores</div>
+      <div class="sectors-grid">
+        <div class="sector"><div class="sector-icon">&#127973;</div><div class="sector-name">Cl&iacute;nicas</div><div class="sector-desc">Citas, seguimiento</div></div>
+        <div class="sector"><div class="sector-icon">&#127968;</div><div class="sector-name">Inmobiliarias</div><div class="sector-desc">Portales, cierres</div></div>
+        <div class="sector"><div class="sector-icon">&#128722;</div><div class="sector-name">E-commerce</div><div class="sector-desc">Postventa, CX</div></div>
+        <div class="sector"><div class="sector-icon">&#128188;</div><div class="sector-name">Asesor&iacute;as</div><div class="sector-desc">Plazos, docs</div></div>
+        <div class="sector"><div class="sector-icon">&#128295;</div><div class="sector-name">Talleres</div><div class="sector-desc">Citas, postventa</div></div>
+        <div class="sector"><div class="sector-icon">&#127891;</div><div class="sector-name">Academias</div><div class="sector-desc">Matr&iacute;culas</div></div>
+        <div class="sector"><div class="sector-icon">&#128737;</div><div class="sector-name">Seguros</div><div class="sector-desc">Siniestros, p&oacute;lizas</div></div>
+        <div class="sector"><div class="sector-icon">&#127960;</div><div class="sector-name">Hoteler&iacute;a</div><div class="sector-desc">Reservas, CX</div></div>
+      </div>
+
+      <div class="section-title" style="margin-top:7px">Resultados clave</div>
+      <div style="display:flex;flex-direction:column;gap:4px">
+        <div class="result-row">
+          <span class="result-val" style="color:var(--accent)">+78%</span>
+          <span class="result-txt">Mejora en detecci&oacute;n de sentimiento positivo vs. manual</span>
+        </div>
+        <div class="result-row">
+          <span class="result-val" style="color:var(--teal)">0</span>
+          <span class="result-txt">Llamadas sin devolver con alertas en tiempo real</span>
+        </div>
+        <div class="result-row">
+          <span class="result-val" style="color:var(--green)">15min</span>
+          <span class="result-txt">Tiempo de primera respuesta (vs. 14h sin FENIX)</span>
+        </div>
+        <div class="result-row">
+          <span class="result-val" style="color:var(--orange)">2.940&euro;</span>
+          <span class="result-txt">Ahorro anual por usuario vs. alternativas</span>
+        </div>
+      </div>
+
+      <div class="section-title" style="margin-top:7px">&iquest;Por qu&eacute; FENIX IA?</div>
+      <div style="font-size:.54rem;color:var(--ink3);line-height:1.5">
+        <strong style="color:var(--ink)">La &uacute;nica plataforma que cubre los 5 canales</strong> que usan tus clientes, con IA que analiza cada interacci&oacute;n. Sin cambiar tu infraestructura, sin permanencia, activo en menos de 24h. Datos en la UE, cumplimiento RGPD total.
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER / CTA -->
+  <div class="footer">
+    <div class="footer-left">
+      <div class="cta">&iquest;Qu&eacute; est&aacute;n <span>escondiendo</span> tus comunicaciones?</div>
+      <div class="cta-sub">Solicita una demo gratuita de 30 min con tus datos reales</div>
+    </div>
+    <div class="footer-right">
+      <a href="https://www.fenixia360.com">www.fenixia360.com</a><br>
+      <a href="mailto:info@fenixia.tech">info@fenixia.tech</a><br>
+      <div class="legal">FENIXIA SOLUTIONS S.L. &middot; CIF: B22739668 &middot; C/ La Paz 83, 03320 Elx (Alicante)</div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

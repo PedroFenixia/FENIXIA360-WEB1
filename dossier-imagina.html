@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FENIX IA &mdash; Imagina</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --ink:#0f172a;--ink2:#334155;--ink3:#64748b;--ink4:#94a3b8;
+  --bg:#ffffff;--bg2:#f8fafc;--bg3:#f1f5f9;
+  --accent:#7c3aed;--accent2:#6d28d9;--accent-pale:#ede9fe;
+  --teal:#0d9488;--green:#059669;--orange:#d97706;--red:#dc2626;
+  --border:#e2e8f0;
+  --font:'Inter',system-ui,-apple-system,sans-serif;
+}
+html{font-size:13px}
+body{font-family:var(--font);color:var(--ink2);line-height:1.5;background:#fff;-webkit-font-smoothing:antialiased;-webkit-print-color-adjust:exact !important;print-color-adjust:exact !important}
+
+.page{width:210mm;max-width:210mm;height:297mm;margin:0 auto;padding:10mm 14mm 8mm;position:relative;overflow:hidden}
+
+/* HEADER */
+.header{display:flex;justify-content:space-between;align-items:center;padding-bottom:6px;border-bottom:2.5px solid var(--accent);margin-bottom:9px}
+.header-left{display:flex;align-items:center;gap:8px}
+.header-logo{height:28px;opacity:.75}
+.header-brand{font-size:1.15rem;font-weight:900;color:var(--ink)}
+.header-brand em{font-style:normal;color:var(--accent)}
+.header-right{text-align:right}
+.header-right .tagline{font-size:.6rem;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:1.5px}
+.header-right .sub{font-size:.52rem;color:var(--ink4);margin-top:1px}
+
+/* IMAGINE HERO */
+.imagine-hero{margin-bottom:10px}
+.imagine-hero h1{font-size:1.5rem;font-weight:900;color:var(--ink);line-height:1.15;margin-bottom:5px}
+.imagine-hero h1 em{font-style:italic;color:var(--accent)}
+.imagine-hero .lead{font-size:.68rem;color:var(--ink3);line-height:1.55;max-width:90%}
+.imagine-hero .lead strong{color:var(--ink);font-weight:700}
+
+/* SECTION LABEL */
+.slabel{font-size:.5rem;font-weight:800;text-transform:uppercase;letter-spacing:1.8px;color:var(--accent);margin-bottom:5px;display:flex;align-items:center;gap:5px}
+.slabel::before{content:'';width:10px;height:2px;background:var(--accent);border-radius:2px}
+
+/* IMAGINE CARDS */
+.imagine-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:10px}
+.imagine-card{padding:9px 11px;border-radius:7px;border:1px solid var(--border);background:var(--bg)}
+.imagine-card .ic-header{display:flex;align-items:center;gap:6px;margin-bottom:4px}
+.imagine-card .ic-icon{font-size:.9rem}
+.imagine-card .ic-title{font-size:.68rem;font-weight:800;color:var(--ink)}
+.imagine-card .ic-desc{font-size:.54rem;color:var(--ink3);line-height:1.4;font-style:italic;margin-bottom:5px}
+.imagine-card .ic-label{font-size:.44rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--accent);margin-bottom:3px}
+
+/* QUESTION LIST */
+.q-list{list-style:none;display:flex;flex-direction:column;gap:2px}
+.q-list li{font-size:.52rem;color:var(--ink2);display:flex;align-items:flex-start;gap:4px;line-height:1.35}
+.q-list li::before{content:'?';display:inline-flex;align-items:center;justify-content:center;width:12px;height:12px;border-radius:50%;background-color:var(--accent-pale);color:var(--accent);font-weight:800;font-size:.42rem;flex-shrink:0;margin-top:0px}
+
+/* PULSE HIGHLIGHT */
+.pulse-box{padding:10px 12px;border-radius:8px;border:2px solid var(--accent);background-color:#faf5ff;margin-bottom:9px;position:relative}
+.pulse-box .pb-badge{position:absolute;top:-7px;left:14px;background-color:var(--accent);color:#fff;font-size:.44rem;font-weight:800;padding:2px 8px;border-radius:100px;letter-spacing:.8px;text-transform:uppercase}
+.pulse-box h3{font-size:.82rem;font-weight:900;color:var(--ink);margin-bottom:3px;margin-top:4px}
+.pulse-box h3 span{color:var(--accent)}
+.pulse-box p{font-size:.58rem;color:var(--ink3);line-height:1.5}
+.pulse-box p strong{color:var(--ink);font-weight:700}
+
+/* EXAMPLES */
+.examples-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:9px}
+.example{padding:7px 9px;border-radius:6px;background-color:var(--bg2);border:1px solid var(--border)}
+.example .ex-dept{font-size:.46rem;font-weight:800;text-transform:uppercase;letter-spacing:1px;margin-bottom:3px}
+.example .ex-q{font-size:.52rem;color:var(--ink);font-weight:700;margin-bottom:3px;line-height:1.3}
+.example .ex-answer{font-size:.5rem;color:var(--ink3);line-height:1.4;padding-top:3px;border-top:1px solid var(--border)}
+.example .ex-answer strong{color:var(--green);font-weight:700}
+.ex-dept.ventas{color:var(--teal)}.ex-dept.soporte{color:var(--orange)}.ex-dept.direccion{color:var(--accent)}
+
+/* HOW IT WORKS */
+.how-steps{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:6px;margin-bottom:9px}
+.how-step{text-align:center;padding:7px 6px;border-radius:6px;background-color:var(--accent-pale);position:relative}
+.how-step .hs-num{display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;border-radius:50%;background-color:var(--accent);color:#fff;font-size:.46rem;font-weight:800;margin-bottom:3px}
+.how-step .hs-title{font-size:.56rem;font-weight:800;color:var(--accent2);margin-bottom:1px}
+.how-step .hs-desc{font-size:.46rem;color:var(--ink3);line-height:1.3}
+.how-arrow{position:absolute;right:-8px;top:50%;transform:translateY(-50%);font-size:.6rem;color:var(--accent);z-index:1}
+
+/* BOTTOM ROW */
+.bottom-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:8px}
+
+/* PRODUCTS COMPACT */
+.products-compact{display:flex;flex-direction:column;gap:5px}
+.pc{display:flex;align-items:center;gap:8px;padding:6px 9px;border-radius:6px;border:1px solid var(--border)}
+.pc.featured{border-color:var(--accent);border-width:2px;background-color:#faf5ff}
+.pc-left{min-width:70px}
+.pc-name{font-size:.7rem;font-weight:900;color:var(--ink)}
+.pc-name .a1{color:var(--teal)}.pc-name .a2{color:var(--green)}.pc-name .a3{color:var(--accent)}
+.pc-price{font-size:.52rem;color:var(--ink4)}
+.pc-desc{font-size:.5rem;color:var(--ink3);line-height:1.35}
+.pc-badge{font-size:.4rem;font-weight:800;color:var(--accent);background-color:var(--accent-pale);padding:1px 5px;border-radius:100px;text-transform:uppercase;letter-spacing:.5px}
+
+/* CHANNELS + TRUST */
+.mini-channels{display:flex;gap:3px;margin-bottom:5px}
+.mc{flex:1;text-align:center;padding:3px 2px;border-radius:4px;background-color:var(--bg2);border:1px solid var(--border)}
+.mc-icon{font-size:.65rem}
+.mc-name{font-size:.44rem;font-weight:700;color:var(--ink)}
+
+.trust-row{display:flex;gap:6px;margin-bottom:4px;flex-wrap:wrap}
+.trust-item{font-size:.48rem;color:var(--ink3)}
+.trust-item strong{color:var(--ink);font-weight:700}
+
+/* NUMBERS SMALL */
+.numbers-sm{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:4px;margin-bottom:5px}
+.num-sm{text-align:center;padding:4px 3px;border-radius:4px;background-color:var(--accent-pale)}
+.num-sm .nv{font-size:.75rem;font-weight:900;color:var(--accent)}
+.num-sm .nl{font-size:.4rem;color:var(--accent2);font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+
+/* FOOTER */
+.footer{border-top:2px solid var(--accent);padding-top:7px;display:flex;justify-content:space-between;align-items:flex-end;position:absolute;bottom:8mm;left:14mm;right:14mm}
+.footer-left .cta{font-size:.78rem;font-weight:900;color:var(--ink);margin-bottom:1px}
+.footer-left .cta em{font-style:italic;color:var(--accent)}
+.footer-left .cta-sub{font-size:.54rem;color:var(--ink3)}
+.footer-right{text-align:right;font-size:.5rem;color:var(--ink4);line-height:1.4}
+.footer-right a{color:var(--accent);text-decoration:none;font-weight:600}
+.footer-right .legal{font-size:.44rem;color:var(--ink4);margin-top:2px}
+
+@media print{
+  @page{size:A4 portrait;margin:0}
+  body{-webkit-print-color-adjust:exact !important;print-color-adjust:exact !important}
+  .page{width:210mm;height:297mm;margin:0;overflow:hidden}
+}
+@media screen and (max-width:800px){
+  .page{width:100%;height:auto;padding:20px 16px}
+  .imagine-grid,.examples-grid,.how-steps{grid-template-columns:1fr}
+  .bottom-row{grid-template-columns:1fr}
+  .numbers-sm{grid-template-columns:repeat(2,1fr)}
+  .footer{position:relative;bottom:auto;left:auto;right:auto}
+}
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-left">
+      <img src="logo.png" alt="FENIX IA" class="header-logo">
+      <div class="header-brand">FENIX <em>IA</em></div>
+    </div>
+    <div class="header-right">
+      <div class="tagline">Plataforma de Comunicaciones con IA</div>
+      <div class="sub">www.fenixia360.com &middot; info@fenixia.tech</div>
+    </div>
+  </div>
+
+  <!-- IMAGINE HERO -->
+  <div class="imagine-hero">
+    <h1><em>Imagina</em> tener un equipo de calidad<br>escuchando cada llamada de tu empresa.</h1>
+    <p class="lead">Imagina que un agente pudiese escuchar cada comunicaci&oacute;n de principio a fin &mdash;llamadas, emails, WhatsApps&mdash; y despu&eacute;s <strong>contestase a todas las preguntas que consideras importantes para tu negocio</strong>. Sin contratar a nadie. Sin escuchar una sola llamada. Autom&aacute;ticamente.</p>
+  </div>
+
+  <!-- IMAGINE BY DEPARTMENT -->
+  <div class="slabel">&iquest;Qu&eacute; preguntar&iacute;as si pudieses escucharlo todo?</div>
+  <div class="imagine-grid">
+
+    <div class="imagine-card">
+      <div class="ic-header"><div class="ic-icon">&#128181;</div><div class="ic-title">Departamento Comercial</div></div>
+      <div class="ic-desc">&ldquo;Quiero saber si mi equipo est&aacute; cerrando bien las llamadas de venta...&rdquo;</div>
+      <div class="ic-label">Preguntas que la IA responde por ti</div>
+      <ul class="q-list">
+        <li>&iquest;El comercial ha mencionado la promoci&oacute;n activa?</li>
+        <li>&iquest;Ha preguntado por las necesidades del cliente antes de ofrecer?</li>
+        <li>&iquest;Se ha propuesto un siguiente paso concreto?</li>
+        <li>&iquest;El cliente ha mostrado inter&eacute;s en alg&uacute;n producto adicional?</li>
+        <li>&iquest;Ha habido alguna objeci&oacute;n? &iquest;C&oacute;mo se ha gestionado?</li>
+      </ul>
+    </div>
+
+    <div class="imagine-card">
+      <div class="ic-header"><div class="ic-icon">&#127917;</div><div class="ic-title">Soporte / Atenci&oacute;n al Cliente</div></div>
+      <div class="ic-desc">&ldquo;Necesito saber si estamos resolviendo los problemas a la primera...&rdquo;</div>
+      <div class="ic-label">Preguntas que la IA responde por ti</div>
+      <ul class="q-list">
+        <li>&iquest;Se ha resuelto el problema en esta llamada o queda pendiente?</li>
+        <li>&iquest;El cliente ha expresado frustraci&oacute;n o insatisfacci&oacute;n?</li>
+        <li>&iquest;Se ha ofrecido una disculpa cuando correspond&iacute;a?</li>
+        <li>&iquest;Cu&aacute;ntas veces ha llamado este cliente por el mismo tema?</li>
+        <li>&iquest;Ha amenazado con irse o mencionar a la competencia?</li>
+      </ul>
+    </div>
+
+    <div class="imagine-card">
+      <div class="ic-header"><div class="ic-icon">&#128200;</div><div class="ic-title">Direcci&oacute;n / Gerencia</div></div>
+      <div class="ic-desc">&ldquo;Quiero una foto real de c&oacute;mo se comunica mi equipo con los clientes...&rdquo;</div>
+      <div class="ic-label">Preguntas que la IA responde por ti</div>
+      <ul class="q-list">
+        <li>&iquest;Cu&aacute;l es el sentimiento general de nuestros clientes esta semana?</li>
+        <li>&iquest;Qu&eacute; temas o quejas se repiten m&aacute;s?</li>
+        <li>&iquest;Hay clientes en riesgo de baja que a&uacute;n no hemos detectado?</li>
+        <li>&iquest;Qu&eacute; oportunidades de venta cruzada estamos dejando escapar?</li>
+        <li>&iquest;Qu&eacute; empleado tiene mejor ratio de satisfacci&oacute;n?</li>
+      </ul>
+    </div>
+
+    <div class="imagine-card">
+      <div class="ic-header"><div class="ic-icon">&#127973;</div><div class="ic-title">Recepci&oacute;n / Cl&iacute;nica</div></div>
+      <div class="ic-desc">&ldquo;No puedo estar detr&aacute;s de cada llamada que atiende recepci&oacute;n...&rdquo;</div>
+      <div class="ic-label">Preguntas que la IA responde por ti</div>
+      <ul class="q-list">
+        <li>&iquest;Se ha ofrecido la pr&oacute;xima cita disponible al paciente?</li>
+        <li>&iquest;Se ha confirmado el recordatorio de la cita?</li>
+        <li>&iquest;El paciente ha mostrado inter&eacute;s en alg&uacute;n tratamiento adicional?</li>
+        <li>&iquest;Ha habido alguna queja sobre tiempos de espera?</li>
+        <li>&iquest;Se han dado las instrucciones pre/post tratamiento?</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- PULSE HIGHLIGHT -->
+  <div class="pulse-box">
+    <div class="pb-badge">FENIX Pulse</div>
+    <h3>T&uacute; defines las preguntas. <span>La IA escucha y responde.</span></h3>
+    <p>Con FENIX Pulse, <strong>creas las preguntas que quieres que la IA responda por cada departamento</strong>. La IA escucha cada comunicaci&oacute;n &mdash;llamada, email, chat&mdash; y rellena las respuestas autom&aacute;ticamente. Sin que nadie escuche una sola llamada. Sin formularios. Sin supervisores. <strong>Es como tener un equipo de calidad infinito, 24/7, en todos los canales.</strong></p>
+  </div>
+
+  <!-- REAL EXAMPLES -->
+  <div class="slabel">Ejemplos reales: la IA analiza la llamada y responde</div>
+  <div class="examples-grid">
+    <div class="example">
+      <div class="ex-dept ventas">&#128181; Comercial</div>
+      <div class="ex-q">&ldquo;&iquest;Se ha propuesto un siguiente paso?&rdquo;</div>
+      <div class="ex-answer"><strong>S&iacute;.</strong> El comercial propuso enviar presupuesto por email y agendar llamada de seguimiento el jueves. El cliente acept&oacute;.</div>
+    </div>
+    <div class="example">
+      <div class="ex-dept soporte">&#127917; Soporte</div>
+      <div class="ex-q">&ldquo;&iquest;El cliente ha mencionado irse?&rdquo;</div>
+      <div class="ex-answer"><strong>S&iacute;, alerta.</strong> El cliente dijo textualmente: &ldquo;Si no se resuelve esta semana, me cambio&rdquo;. Sentimiento: negativo. Urgencia: alta.</div>
+    </div>
+    <div class="example">
+      <div class="ex-dept direccion">&#128200; Direcci&oacute;n</div>
+      <div class="ex-q">&ldquo;&iquest;Oportunidades de venta cruzada?&rdquo;</div>
+      <div class="ex-answer"><strong>Detectada.</strong> El cliente mencion&oacute; que est&aacute; buscando seguro para su segunda vivienda. Oportunidad: p&oacute;liza hogar adicional.</div>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <div class="slabel">C&oacute;mo funciona</div>
+  <div class="how-steps">
+    <div class="how-step">
+      <div class="hs-num">1</div>
+      <div class="hs-title">Conecta</div>
+      <div class="hs-desc">Conecta tus 5 canales en menos de 24h</div>
+      <span class="how-arrow">&#8594;</span>
+    </div>
+    <div class="how-step">
+      <div class="hs-num">2</div>
+      <div class="hs-title">Define</div>
+      <div class="hs-desc">Crea las preguntas por departamento</div>
+      <span class="how-arrow">&#8594;</span>
+    </div>
+    <div class="how-step">
+      <div class="hs-num">3</div>
+      <div class="hs-title">La IA escucha</div>
+      <div class="hs-desc">Analiza cada comunicaci&oacute;n 24/7</div>
+      <span class="how-arrow">&#8594;</span>
+    </div>
+    <div class="how-step">
+      <div class="hs-num">4</div>
+      <div class="hs-title">T&uacute; act&uacute;as</div>
+      <div class="hs-desc">Recibes respuestas, alertas y oportunidades</div>
+    </div>
+  </div>
+
+  <!-- BOTTOM ROW -->
+  <div class="bottom-row">
+
+    <!-- LEFT: PRODUCTS -->
+    <div>
+      <div class="slabel">Productos y precios</div>
+      <div class="products-compact">
+        <div class="pc">
+          <div class="pc-left"><div class="pc-name">FENIX <span class="a1">PULSE</span></div><div class="pc-price">79&euro;/mes &middot; 1 usuario</div></div>
+          <div class="pc-desc">Anal&iacute;tica IA: transcripci&oacute;n, sentimiento, preguntas por departamento, alertas y oportunidades.</div>
+        </div>
+        <div class="pc">
+          <div class="pc-left"><div class="pc-name">FENIX <span class="a2">CONNECT</span></div><div class="pc-price">49&euro;/mes &middot; 1 usuario</div></div>
+          <div class="pc-desc">Hub unificado: 5 canales en una bandeja, historial por cliente, asignaci&oacute;n autom&aacute;tica, CRM.</div>
+        </div>
+        <div class="pc featured">
+          <div class="pc-left"><div class="pc-name">FENIX <span class="a3">360</span></div><div class="pc-price">99&euro;/mes &middot; 1 usuario</div></div>
+          <div class="pc-desc">Pulse + Connect juntos. Todo en uno. Soporte prioritario. <span class="pc-badge">Mejor valor &middot; 20% ahorro</span></div>
+        </div>
+      </div>
+      <p style="font-size:.44rem;color:var(--ink4);margin-top:3px">Comunicaciones ilimitadas. Sin permanencia. Onboarding desde 199&euro; (pago &uacute;nico). 20% dto. anual.</p>
+    </div>
+
+    <!-- RIGHT: TRUST + NUMBERS -->
+    <div>
+      <div class="slabel">5 canales integrados</div>
+      <div class="mini-channels">
+        <div class="mc"><div class="mc-icon">&#128222;</div><div class="mc-name">Llamadas</div></div>
+        <div class="mc"><div class="mc-icon">&#9993;</div><div class="mc-name">Email</div></div>
+        <div class="mc"><div class="mc-icon">&#128172;</div><div class="mc-name">WhatsApp</div></div>
+        <div class="mc"><div class="mc-icon">&#9992;</div><div class="mc-name">Telegram</div></div>
+        <div class="mc"><div class="mc-icon">&#127760;</div><div class="mc-name">Meta</div></div>
+      </div>
+
+      <div class="slabel">N&uacute;meros</div>
+      <div class="numbers-sm">
+        <div class="num-sm"><div class="nv">+120</div><div class="nl">Empresas</div></div>
+        <div class="num-sm"><div class="nv">5</div><div class="nl">Canales</div></div>
+        <div class="num-sm"><div class="nv">99&euro;</div><div class="nl">Desde / mes</div></div>
+        <div class="num-sm"><div class="nv">2.940&euro;</div><div class="nl">Ahorro / a&ntilde;o</div></div>
+      </div>
+
+      <div class="trust-row">
+        <div class="trust-item"><strong>&#10003;</strong> RGPD &middot; Datos UE</div>
+        <div class="trust-item"><strong>&#10003;</strong> Activo en &lt;24h</div>
+        <div class="trust-item"><strong>&#10003;</strong> Sin permanencia</div>
+      </div>
+
+      <div class="slabel">Integraciones</div>
+      <p style="font-size:.5rem;color:var(--ink3);line-height:1.4;margin-bottom:4px">Salesforce &middot; HubSpot &middot; Pipedrive &middot; Zoho &middot; API REST &middot; Webhooks</p>
+
+      <div class="slabel">Sectores</div>
+      <p style="font-size:.5rem;color:var(--ink3);line-height:1.4">Cl&iacute;nicas &middot; Inmobiliarias &middot; E-commerce &middot; Asesor&iacute;as &middot; Seguros &middot; Talleres &middot; Academias &middot; Hoteler&iacute;a</p>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-left">
+      <div class="cta"><em>Imagina</em> dejar de adivinar. Empieza a <em>escuchar.</em></div>
+      <div class="cta-sub">Demo gratuita de 30 min con tus datos reales &rarr;</div>
+    </div>
+    <div class="footer-right">
+      <a href="https://www.fenixia360.com">www.fenixia360.com</a><br>
+      <a href="mailto:info@fenixia.tech">info@fenixia.tech</a><br>
+      <div class="legal">FENIXIA SOLUTIONS S.L. &middot; CIF: B22739668 &middot; C/ La Paz 83, 03320 Elx (Alicante)</div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
