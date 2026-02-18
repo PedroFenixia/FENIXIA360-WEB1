@@ -43,9 +43,16 @@ body.embedded .player{max-width:100%;max-height:100%;height:100vh;border-radius:
 .dot.active{background:var(--teal);transform:scale(1.3)}
 .play-pause{position:absolute;bottom:14px;right:20px;background:none;border:none;color:rgba(255,255,255,.4);font-size:1.1rem;cursor:pointer;z-index:10;transition:color .2s}
 .play-pause:hover{color:#fff}
-.sound-btn{position:absolute;bottom:14px;left:20px;background:rgba(13,148,136,.2);border:1px solid rgba(13,148,136,.4);color:var(--teal-light);font-size:.7rem;font-weight:600;padding:4px 12px;border-radius:100px;cursor:pointer;z-index:10;font-family:var(--font);transition:all .2s}
-.sound-btn:hover{background:rgba(13,148,136,.3)}
+.sound-btn{position:absolute;bottom:14px;left:20px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.5);font-size:1rem;padding:6px 8px;border-radius:50%;cursor:pointer;z-index:10;transition:all .2s;width:32px;height:32px;display:flex;align-items:center;justify-content:center}
+.sound-btn:hover{background:rgba(255,255,255,.15);color:#fff}
 .sound-btn.active{background:var(--teal);color:#fff;border-color:var(--teal)}
+
+/* SOUND OVERLAY */
+.sound-overlay{position:absolute;inset:0;background:rgba(15,23,42,.85);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:20;cursor:pointer;transition:opacity .5s;-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
+.sound-overlay.hidden{opacity:0;pointer-events:none}
+.so-circle{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--teal),var(--teal-light));display:flex;align-items:center;justify-content:center;font-size:2.2rem;margin-bottom:14px;box-shadow:0 0 40px rgba(13,148,136,.4);transition:transform .2s}
+.sound-overlay:hover .so-circle{transform:scale(1.1)}
+.so-text{font-size:.95rem;font-weight:700;color:#fff;letter-spacing:.3px}
 
 /* SCENE 1: IMAGINE */
 .s1-title{font-size:2.8rem;font-weight:900;text-align:center;line-height:1.15;opacity:0;animation:none}
@@ -257,10 +264,16 @@ body.embedded .player{max-width:100%;max-height:100%;height:100vh;border-radius:
     </div>
   </div>
 
+  <!-- SOUND OVERLAY -->
+  <div class="sound-overlay" id="soundOverlay" onclick="enableSound()">
+    <div class="so-circle">&#128266;</div>
+    <div class="so-text">Pulsa para activar la narraci&oacute;n</div>
+  </div>
+
   <!-- CONTROLS -->
   <div class="controls" id="controls"></div>
   <button class="play-pause" id="playPause" onclick="togglePlay()">&#10074;&#10074;</button>
-  <button class="sound-btn" id="soundBtn" onclick="toggleSound()">&#128264; Activar voz</button>
+  <button class="sound-btn" id="soundBtn" onclick="toggleSound()">&#128264;</button>
 </div>
 
 <script>
@@ -405,16 +418,25 @@ function togglePlay() {
   }
 }
 
+function enableSound() {
+  document.getElementById('soundOverlay').classList.add('hidden');
+  narrationStarted = true;
+  const btn = document.getElementById('soundBtn');
+  btn.classList.add('active');
+  btn.innerHTML = '&#128266;';
+  if (playing) speak(narrations[current]);
+}
+
 function toggleSound() {
   const btn = document.getElementById('soundBtn');
   narrationStarted = !narrationStarted;
   if (narrationStarted) {
     btn.classList.add('active');
-    btn.innerHTML = '&#128266; Voz activada';
+    btn.innerHTML = '&#128266;';
     if (playing) speak(narrations[current]);
   } else {
     btn.classList.remove('active');
-    btn.innerHTML = '&#128264; Activar voz';
+    btn.innerHTML = '&#128264;';
     stopSpeech();
   }
 }
