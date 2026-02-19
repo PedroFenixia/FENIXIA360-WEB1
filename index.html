@@ -796,7 +796,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2.5rem 2.
     <form id="holded-form" style="max-width:460px;margin:0 auto;display:flex;flex-direction:column;gap:.85rem" onsubmit="submitToHolded(event)">
       <input type="text" name="name" placeholder="Tu nombre" required>
       <input type="email" name="email" placeholder="Email corporativo" required>
-      <input type="text" name="company" placeholder="Empresa y n&uacute;mero de empleados">
+      <input type="text" name="company" placeholder="Nombre de empresa">
+      <input type="number" name="employees" placeholder="N&uacute;mero de empleados" min="1">
       <select name="product" required><option value="" disabled selected>Producto de inter&eacute;s</option><option>FENIX Pulse (Analytics)</option><option>FENIX Connect (Hub)</option><option>FENIX 360 (Bundle)</option><option>Programa de Partners</option></select>
       <label style="display:flex;align-items:flex-start;gap:.5rem;cursor:pointer;text-align:left">
         <input type="checkbox" name="privacy" required style="margin-top:3px;accent-color:var(--teal);flex-shrink:0;width:16px;height:16px">
@@ -877,17 +878,19 @@ async function submitToHolded(e){
     name:form.querySelector('[name="name"]').value,
     email:form.querySelector('[name="email"]').value,
     company:form.querySelector('[name="company"]').value,
+    employees:form.querySelector('[name="employees"]').value,
     product:form.querySelector('[name="product"]').value,
     source:location.hostname,
     privacy_accepted:form.querySelector('[name="privacy"]').checked,
     privacy_accepted_at:new Date().toISOString()
   };
+  const body=JSON.stringify(data);
+  const opts={method:'POST',headers:{'Content-Type':'application/json'},body};
   try{
-    await fetch('https://fenix-leads-proxy.proveedores-702.workers.dev',{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify(data)
-    });
+    await Promise.allSettled([
+      fetch('https://fenix-leads-proxy.proveedores-702.workers.dev',opts),
+      fetch('https://b2b.fenixia.tech/api/leads/inbound',opts)
+    ]);
   }catch(err){console.warn('Lead submit:',err.message)}
   form.style.display='none';
   document.getElementById('ok').style.display='block';
