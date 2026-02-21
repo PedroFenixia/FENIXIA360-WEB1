@@ -889,7 +889,7 @@ async function submitToHolded(e){
   try{
     await Promise.allSettled([
       fetch('https://fenix-leads-proxy.proveedores-702.workers.dev',opts),
-      fetch('https://b2b.fenixia.tech/api/leads/inbound',opts)
+      fetch('https://prospector.fenixia.tech/api/leads/inbound',opts)
     ]);
   }catch(err){console.warn('Lead submit:',err.message)}
   form.style.display='none';
