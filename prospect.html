@@ -725,7 +725,7 @@ async function submitForm(e){
     privacy_accepted_at:new Date().toISOString()
   };
   try{
-    await fetch('https://fenix-leads-proxy.proveedores-702.workers.dev',{
+    await fetch('https://b2b.fenixia.tech/api/leads/inbound',{
       method:'POST',
       headers:{'Content-Type':'application/json'},
       body:JSON.stringify(data)
